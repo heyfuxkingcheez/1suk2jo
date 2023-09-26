@@ -5,9 +5,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module">
+      $("#member_ej").click(async function () {
+        $("#member_detail_ej").toggle();
+      });
+
+      $("#member_yw").click(async function () {
+        $("#member_detail_yw").toggle();
+      });
+
+      $("#member_wk").click(async function () {
+        $("#member_detail_wk").toggle();
+      });
+
+      $("#member_kw").click(async function () {
+        $("#member_detail_kw").toggle();
+      });
+
+      $("#member_sy").click(async function () {
+        $("#member_detail_sy").toggle();
+      });
+    </script>
+
     <title>Member's profiles</title>
 
     <style>
+      .member_box {
+        display: none;
+      }
+
       .member_profile {
         margin: 0 auto;
         text-align: center;
@@ -37,6 +64,18 @@
         width: 150px;
         height: 150px;
       }
+
+      .member_toggle_box {
+        background-color: green;
+        width: 100%;
+        height: 100vh;
+      }
+
+      .member_box {
+        background-color: red;
+        width: 300px;
+        height: 150px;
+      }
     </style>
   </head>
   <body>
@@ -47,21 +86,42 @@
             1. 팀장
             2. 팀원 이름 가나다순
         -->
-      <div class="member_profile_img">
+      <div id="member_ej" class="member_profile_img">
         <img src="./images/profiles/eunji.jpg" alt="유은지님" />
       </div>
-      <div class="member_profile_img">
+      <div id="member_yw" class="member_profile_img">
         <img src="./images/profiles/youngwoo.jpg" alt="김영우님" />
       </div>
-      <div class="member_profile_img">
+      <div id="member_wk" class="member_profile_img">
         <img src="./images/profiles/wook.jpg" alt="남궁욱님" />
       </div>
-      <div class="member_profile_img">
+      <div id="member_kw" class="member_profile_img">
         <img src="./images/profiles/giwook.jpg" alt="정기욱님" />
       </div>
-      <div class="member_profile_img">
+      <div id="member_sy" class="member_profile_img">
         <img src="./images/profiles/sooyoung.JPG" alt="최수영님" />
       </div>
+    </div>
+
+    <div id="member_detail_ej" class="member_box">
+      <p>은지님</p>
+      <button>더보기</button>
+    </div>
+    <div id="member_detail_yw" class="member_box">
+      <p>영우님</p>
+      <button>더보기</button>
+    </div>
+    <div id="member_detail_wk" class="member_box">
+      <p>욱님</p>
+      <button>더보기</button>
+    </div>
+    <div id="member_detail_kw" class="member_box">
+      <p>기욱님</p>
+      <button>더보기</button>
+    </div>
+    <div id="member_detail_sy" class="member_box">
+      <p>수영님</p>
+      <button>더보기</button>
     </div>
   </body>
 </html>
