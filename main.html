@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>1suk2jo</title>
 </head>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
-  
+
   /* 나머지 글씨 폰트 */
-  *{
+  * {
     font-family: 'Poor Story', cursive;
     letter-spacing: 3px;
   }
-
 </style>
 <style>
-  #nav_wrap{
-    background-image: url(bg4.png);
-    background-position: center;  
+  #nav_wrap {
+    background-image: url(./images/profiles/bg4.png);
+    background-position: center;
     background-size: cover;
     height: 450px;
     width: 100%;
@@ -30,9 +30,57 @@
 
     margin-bottom: 200px;
   }
+/* 기욱님 css */
+  .navbar {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 8px 12px;
+  }
+
+  .navbar__menu {
+    color: var(--accent-color);
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-right: 300px;
+  }
+
+  .navbar__menu li {
+    padding: 8px 30px;
+  }
+
+  .navbar__menu :focus {
+    text-decoration: underline;
+  }
+
+  .navbar__menu li:hover {
+    background-color: grey;
+    border-radius: 5px;
+  }
+
+  .navbar__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 8px 12px;
+    margin-left: 100px;
+    font-size: 24px;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+/* 기욱님 css */
+
 
   /* 팀명 폰트 */
-  #team_name{
+  #team_name {
     font-family: 'Moirai One', cursive;
     font-size: 90px;
     letter-spacing: 20px;
@@ -42,28 +90,41 @@
 
 
   /* 본문 타이틀 폰트 */
-  .info_title{
+  .info_title {
     font-size: 50px;
     text-align: center;
     font-family: 'Gamja Flower', cursive;
   }
-
 </style>
-<body>    
-  <div id = 'nav_wrap'>                                    
-    <nav style="background-color: rgb(250, 240, 215);">
-      <span>__nav바가 들어올 공간</span>
+
+<body>
+  <div id='nav_wrap'>
+    <nav class="navbar">
+
+      <!-- navlogo -->
+      <div class="navbar__logo">
+        <div>
+          <a href="" class="navbar-logo">일 석 이 조</a>
+        </div>
+      </div>
+
+      <!-- navMenu -->
+      <ul class="navbar__menu">
+        <li><a href="#" class="navbar-menu">Main</a></li>
+        <li><a href="#" class="navbar-menu">Members</a></li>
+      </ul>
     </nav>
-    <h1 id = 'team_name'>1석 2조</h1>
+
   </div>
 
-  <div id = "info_wrap">
+  <div id="info_wrap">
 
-    <h3>INTRODUCTION</h3>
-      <p>팀의 목표는 다같이 내배켐 완주 후 3개월 이내 취업?</p>
+    <h3 class="info_title">INTRODUCTION</h3>
+    <p>팀의 목표는 다같이 내배켐 완주 후 3개월 이내 취업?</p>
 
-  </div>  
+  </div>
 
 
 </body>
+
 </html>
