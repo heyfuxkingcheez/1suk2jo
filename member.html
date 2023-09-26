@@ -76,9 +76,77 @@
         width: 300px;
         height: 150px;
       }
+
+      /* 기욱 */
+      .navbar {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+  }
+
+  .navbar__menu {
+    color: var(--accent-color);
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-right: 300px;
+    font-size: 20px;
+  }
+
+  .navbar__menu li {
+    padding: 8px 30px;
+  }
+
+  .navbar__menu :focus {
+    text-decoration: underline;
+  }
+
+  .navbar__menu li:hover {
+    background-color: grey;
+    border-radius: 5px;
+  }
+
+  .navbar__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 8px 12px;
+    margin-left: 100px;
+    font-size: 24px;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  /* 기욱 */
     </style>
   </head>
   <body>
+    <!-- 기욱 -->
+    <div id='nav_wrap'>
+      <nav class="navbar">
+  
+        <!-- navlogo -->
+        <div class="navbar__logo">
+          <div>
+            <a href="" class="navbar-logo">일 석 이 조</a>
+          </div>
+        </div>
+  
+        <!-- navMenu -->
+        <ul class="navbar__menu">
+          <li><a href="#" onclick ="location.href='main.html'" class="navbar-menu">Main</a></li>
+          <li><a href="#" onclick ="location.href='member.html'" class="navbar-menu">Members</a></li>
+        </ul>
+      </nav>
+      <!-- 기욱 -->
+      
+    </div>
     <!-- Member's profile -->
     <div class="member_profile">
       <!-- 
@@ -123,5 +191,7 @@
       <p>수영님</p>
       <button>더보기</button>
     </div>
+
+
   </body>
 </html>
