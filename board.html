@@ -7,7 +7,7 @@
     <title>Board</title>
     <script>
         console.log("hello world!")
-        
+
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
@@ -76,11 +76,69 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            
-            padding-left: 15%;   
+
+            padding-left: 15%;
             padding-top: 150px;
 
             font-size: 25px;
+        }
+
+        .search {
+            text-align: left;
+            padding-left: 15%;
+            padding-top: 30px;
+
+        }
+
+        .search input {
+            width: 300px;
+            padding: 0.5rem;
+        }
+
+        .search button {
+            padding: 0.5rem 1rem;
+            color: #fff;
+            background-color: #333;
+            cursor: pointer;
+        }
+
+        .board {
+            background-color: #fff;
+            margin: 1rem auto;
+            width: 68.5%;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .board-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .write-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        .page {
+            text-align: center;
+            margin-top: 1rem;
         }
     </style>
 </head>
@@ -103,16 +161,43 @@
                 <li><a href="#" onclick="location.href='board.html'" class="navbar-menu">Board</a></li>
             </ul>
         </nav>
-
-
-
-
     </div>
 
     <div class="board-title">
         <h1>Board</h1>
         <p>자유롭게 글을 쓸 수 있는 공간입니다.</p>
     </div>
+
+    <section class="search">
+        <input type="text" placeholder="검색어를 입력하세요">
+        <button>검색</button>
+    </section>
+
+    <section class="board">
+        <table>
+            <thead>
+                <tr>
+                    <th>글 번호</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>작성일</th>
+                    <th>조회수</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 글 목록을 동적으로 추가-->
+            </tbody>
+        </table>
+        <div class="board-header">
+            <button class="write-button">글쓰기</button>
+        </div>
+        
+    </section>
+
+    <section class="page">
+        <!-- 페이지 번호를 동적으로 추가 -->
+    </section>
+
 </body>
 
 </html>
