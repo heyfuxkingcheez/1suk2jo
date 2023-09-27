@@ -30,7 +30,8 @@
 
     margin-bottom: 200px;
   }
-/* 기욱님 css */
+
+  /* 기욱님 css */
   .navbar {
     width: 100%;
     position: fixed;
@@ -76,7 +77,8 @@
     text-decoration: none;
     color: var(--text-color);
   }
-/* 기욱님 css */
+
+  /* 기욱님 css */
 
 
   /* 팀명 폰트 */
@@ -96,6 +98,21 @@
   }
 </style>
 
+<style>
+  .aTeamGoal {
+      color: darkblue;
+  
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      background-position: center;
+      background-size: cover;
+  }
+  </style>
+
 <body>
   <div id='nav_wrap'>
     <nav class="navbar">
@@ -109,8 +126,8 @@
 
       <!-- navMenu -->
       <ul class="navbar__menu">
-        <li><a href="#" onclick ="location.href='main.html'" class="navbar-menu">Main</a></li>
-        <li><a href="#" onclick ="location.href='member.html'" class="navbar-menu">Members</a></li>
+        <li><a href="#" onclick="location.href='main.html'" class="navbar-menu">Main</a></li>
+        <li><a href="#" onclick="location.href='member.html'" class="navbar-menu">Members</a></li>
       </ul>
     </nav>
 
@@ -118,8 +135,18 @@
 
   <div id="info_wrap">
 
-    <h3 class="info_title">INTRODUCTION</h3>
-    <p>팀의 목표는 다같이 내배켐 완주 후 3개월 이내 취업?</p>
+    <div class="aTeamGoal">
+      <class= info_title>
+        </class>
+        <h2> INTRODUCTION</h2>
+        <hr> 의사소통 능력과 직무능력을 갖춰 내배캠 완주 후 3개월 이내 취업을 목표로 합니다.</hr>
+        <div>
+          <div class="find-btn" style=" text-align: center;">
+            <button type="button" class="btn btn-navy navbar-btn find-btn1"
+              onclick="location.href='/donation'">후원하기</button>
+          </div>
+        </div>
+    </div>
 
   </div>
 
