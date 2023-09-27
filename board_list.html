@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
+    <link rel="stylesheet" href="nav_bar.css">
     <script>
         console.log("hello world!")
-
+    
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
@@ -22,54 +23,6 @@
         }
     </style>
     <style>
-        /* 기욱님 css */
-        .navbar {
-            width: 100%;
-            position: fixed;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 12px;
-        }
-
-        .navbar__menu {
-            color: var(--accent-color);
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding-right: 300px;
-            font-size: 20px;
-        }
-
-        .navbar__menu li {
-            padding: 8px 30px;
-        }
-
-        .navbar__menu :focus {
-            text-decoration: underline;
-        }
-
-        .navbar__menu li:hover {
-            background-color: grey;
-            border-radius: 5px;
-        }
-
-        .navbar__logo {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--background-color);
-            padding: 8px 12px;
-            margin-left: 100px;
-            font-size: 24px;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--text-color);
-        }
-
-        /* 기욱님 css */
 
         /* 기욱 게시판 css */
         .board-title {
@@ -136,7 +89,7 @@
             padding: 0.5rem;
             text-align: center;
         }
-        .page {
+        .pagination {
             text-align: center;
             margin-top: 1rem;
         }
@@ -158,7 +111,7 @@
             <ul class="navbar__menu">
                 <li><a href="#" onclick="location.href='main.html'" class="navbar-menu">Main</a></li>
                 <li><a href="#" onclick="location.href='member.html'" class="navbar-menu">Members</a></li>
-                <li><a href="#" onclick="location.href='board.html'" class="navbar-menu">Board</a></li>
+                <li><a href="#" onclick="location.href='board_list.html'" class="navbar-menu">Board</a></li>
             </ul>
         </nav>
     </div>
@@ -189,12 +142,12 @@
             </tbody>
         </table>
         <div class="board-header">
-            <button class="write-button">글쓰기</button>
+            <a onclick="location.href='board_write.html'" class="write-button" >글쓰기</a>
         </div>
         
     </section>
 
-    <section class="page">
+    <section class="pagination">
         <!-- 페이지 번호를 동적으로 추가 -->
     </section>
 
