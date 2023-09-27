@@ -6,7 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board write</title>
     <link rel="stylesheet" href="nav_bar.css">
+    <style>
+        .board-write {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding-left: 15%;
+            padding-top: 150px;
+
+            font-size: 25px;
+        }
+    </style>
 </head>
+
 
 <body>
     <!-- 정기욱 -->
@@ -29,6 +42,12 @@
         </nav>
     </div>
     <!-- 정기욱 -->
+    
+    <div class="board-write">
+        <h1>Board_write</h1>
+        <p>글 작성 페이지 입니다.</p>
+    </div>
+
     <form id="writeFrm">
         <div>제목: <input type="text" name="subject"></div>
         <div>작성자: <input type="text" name="writer"></div>
