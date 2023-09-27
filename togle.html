@@ -1,225 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<style>
-  .face1 {
-    
-    background-color: blue;
-    width: 125px;
-    height: 125px;
-    margin:  300px 50px 20px 400px;
-    
+    <script type="module">
+      $("#member_ej").click(async function () {
+        $("#member_detail_ej").toggle();
+      });
 
-    background: linear-gradient(#fff, #fff)
-    padding-box,
+      $("#member_yw").click(async function () {
+        $("#member_detail_yw").toggle();
+      });
 
-    linear-gradient(45deg,)
-    border-box;
+      $("#member_wk").click(async function () {
+        $("#member_detail_wk").toggle();
+      });
 
-    border-radius: 50%;
-    border: 5px solid transparent;
-    background-clip: content-box, border-box;
-    }
-    .face2 {
-    
-    background-color: blue;
-    width: 125px;
-    height: 125px;
-    margin:  300px 50px 20px 50px;
-    
+      $("#member_kw").click(async function () {
+        $("#member_detail_kw").toggle();
+      });
 
-    background: linear-gradient(#fff, #fff)
-    padding-box,
+      $("#member_sy").click(async function () {
+        $("#member_detail_sy").toggle();
+      });
+    </script>
 
-    linear-gradient(45deg,)
-    border-box;
+    <title>Member's profiles</title>
 
-    border-radius: 50%;
-    border: 5px solid transparent;
-    background-clip: content-box, border-box;
-    }
-    .face3 {
-    
-    background-color: blue;
-    width: 125px;
-    height: 125px;
-    margin:  300px 50px 20px 50px;
-    
+    <style>
+      .member_box {
+        display: none;
+      
+      }
 
-    background: linear-gradient(#fff, #fff)
-    padding-box,
+      .member_profile {
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 60%;
+        height: 200px;
+      }
 
-    linear-gradient(45deg,)
-    border-box;
+      /* 요소별 margin-right 추가 */
+      .member_profile_img {
+        margin-right: 20px;
+        width: 150px;
+        height: 150px;
+      }
 
-    border-radius: 50%;
-    border: 5px solid transparent;
-    background-clip: content-box, border-box;
-    }
-    .face4 {
-    
-    background-color: blue;
-    width: 125px;
-    height: 125px;
-    margin:  300px 50px 20px 50px;
+      /* 마지막 요소 Margin-right 필요 없으니 0 */
+      .member_profile_img:last-child {
+        margin-right: 0;
+      }
+
+      img {
+        display: block;
+        object-fit: cover;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+      }
+
+      .member_toggle_box {
+        background-color: green;
+        width: 100%;
+        height: 100vh;
+      }
+
+     
+
+      /* 기욱 */
+      .navbar {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+  }
+
+  .navbar__menu {
+    color: var(--accent-color);
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-right: 300px;
+    font-size: 20px;
+  }
+
+  .navbar__menu li {
+    padding: 8px 30px;
+  }
+
+  .navbar__menu :focus {
+    text-decoration: underline;
+  }
+
+  .navbar__menu li:hover {
+    background-color: grey;
+    border-radius: 5px;
+  }
+
+  .navbar__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 8px 12px;
+    margin-left: 100px;
+    font-size: 24px;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  /* 기욱 */
+    </style>
+  </head>
+  <body>
+    <!-- 기욱 -->
+    <div id='nav_wrap'>
+      <nav class="navbar">
   
 
-    background: linear-gradient(#fff, #fff)
-    padding-box,
-
-    linear-gradient(45deg,)
-    border-box;
-
-    border-radius: 50%;
-    border: 5px solid transparent;
-    background-clip: content-box, border-box;
-    }
-    .face5 {
-    
-    background-color: blue;
-    width: 125px;
-    height: 125px;
-    margin:  300px 50px 20px 50px;
-    
-
-    background: linear-gradient(#fff, #fff)
-    padding-box,
-
-    linear-gradient(45deg,)
-    border-box;
-
-    border-radius: 50%;
-    border: 5px solid transparent;
-    background-clip: content-box, border-box;
-    }
-  .af {
-    display:inline-flex;
-  }
-    .faceA {
-        background-color: blanchedalmond;
-        width: 800px;
-        height: 300px;
-        margin-top: 100px;
-        margin-bottom: 50px;
-        
-       
-        border-radius: 10px;
-        position: relative;
-        left : 550px;
-        
-    }
-    .faceB {
-        background-color: blanchedalmond;
-        width: 800px;
-        height: 300px;
-        margin-top: 100px;
-        margin-bottom: 50px;
-       
-        border-radius: 10px;
-        position: relative;
-        left : 550px;
-        
-    }
-    .faceC {
-        background-color: blanchedalmond;
-        width: 800px;
-        height: 300px;
-        margin-top: 100px;
-        margin-bottom: 50px;
-       
-        border-radius: 10px;
-        position: relative;
-        left : 550px;
-        
-    }
-    .faceD {
-        background-color:blanchedalmond;
-        width: 800px;
-        height: 300px;
-        margin-top: 100px;
-        margin-bottom: 50px;
-       
-        border-radius: 10px;
-        position: relative;
-        left : 550px;
-        
-    }
-    .faceE {
-        background-color: blanchedalmond;
-        width: 800px;
-        height: 300px;
-        margin-top: 100px;
-        margin-bottom: 50px;
-       
-        border-radius: 10px;
-        position: relative;
-        left : 550px;
-        
-    }
-    .btn {
-            background-color: transparent;
-            display: flex;
-            flex-direction: low;
-            align-items: right;
-            justify-content: right;   
-            
-            
-        }
-    .btn>button {
-        margin-top: 260px;
-    }
- 
-      
-</style>
-<script>     
-       
-       // 토글
-       function openclose(){
-           $('#').toggle();
-        }
-   
-  </script>
-</head>
-
-<body>
- <div class="af">
-          
-    <div class="face1"></div>
-    <div class="face2"></div>
-    <div class="face3"></div>
-    <div class="face4"></div>
-    <div class="face5"></div>
+        <!-- navlogo -->
+        <div class="navbar__logo">
+          <div>
+            <a href="" class="navbar-logo">일 석 이 조</a>
+          </div>
+        </div>
+  
+        <!-- navMenu -->
+        <ul class="navbar__menu">
+          <li><a href="#" onclick ="location.href='main.html'" class="navbar-menu">Main</a></li>
+          <li><a href="#" onclick ="location.href='member.html'" class="navbar-menu">Members</a></li>
+        </ul>
+      </nav>
+      <!-- 기욱 -->
     </div>
-      
-  <div class="faceA">
-    <div class="btn">
-    <button type="button" class="btn btn-primary">상세보기</button>
-</div>
-</div>
-  <div class="faceB">
-<div class= "btn">
-    <button type="button" class="btn btn-outline-dark">상세보기</button>
-</div>
-</div>
-  <div class="faceC">
-  <div class= "btn">
-    <button type="button" class="btn btn-outline-dark">상세보기</button>
-  </div>
-  </div>
-  <div class="faceD">
-  <div class= "btn">
-    <button type="button" class="btn btn-outline-dark">상세보기</button>
-  </div>
-  </div>
-  <div class="faceE">
-  <div class= "btn">
-    <button type="button" class="btn btn-outline-dark">상세보기</button>
-  </div>
-  </div>
-       
-</body>
+
+    <div class="moo">
+
+    </div>
+    <!-- Member's profile -->
+    <div class="member_profile">
+      <!-- 
+            사진순서
+            1. 팀장
+            2. 팀원 이름 가나다순
+        -->
+      <div id="member_ej" class="member_profile_img">
+        <img src="./images/profiles/eunji.jpg" alt="유은지님" />
+      </div>
+      <div id="member_yw" class="member_profile_img">
+        <img src="./images/profiles/youngwoo.jpg" alt="김영우님" />
+      </div>
+      <div id="member_wk" class="member_profile_img">
+        <img src="./images/profiles/wook.jpg" alt="남궁욱님" />
+      </div>
+      <div id="member_kw" class="member_profile_img">
+        <img src="./images/profiles/giwook.jpg" alt="정기욱님" />
+      </div>
+      <div id="member_sy" class="member_profile_img">
+        <img src="./images/profiles/sooyoung.JPG" alt="최수영님" />
+      </div>
+    </div>
+<div>
+    <div id="member_detail_ej" class="member_box">
+      <p> 은지님</p>
+      <button class = "btn">더보기</button>
+    </div>
+    </div>
+    <div id="member_detail_yw" class="member_box">
+      <p> 영우님</p>
+      <button class = "btn">더보기</button>
+    </div>
+    <div id="member_detail_wk" class="member_box">
+      <p> 욱님</p>
+      <button class = "btn">더보기</button>
+    </div>
+    <div id="member_detail_kw" class="member_box">
+      <p> 기욱님</p>
+      <button class = "btn">더보기</button>
+    </div>
+    <div id="member_detail_sy" class="member_box">
+      <p> 수영님</p>
+      <button class = "btn">더보기</button>
+    </div>
+
+
+  </body>
 </html>
