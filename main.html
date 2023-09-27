@@ -28,7 +28,7 @@
 
     font-size: 40px;
 
-    margin-bottom: 200px;
+    margin-bottom: 150px;
   }
 
   /* 기욱님 css */
@@ -89,7 +89,6 @@
     margin-left: 15%;
   }
 
-
   /* 본문 타이틀 폰트 */
   .info_title {
     font-size: 50px;
@@ -98,20 +97,41 @@
   }
 </style>
 
+
+<!--김영우-->
 <style>
-  .aTeamGoal {
-      color: darkblue;
-  
-      height: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-  
-      background-position: center;
-      background-size: cover;
+  .InfoTeam {
+    width: 98%;
+    height: 400px;
+
+    border: 1px solid black;
+    color: blue;
+    border: 1px solid chocolate;
+    border-radius: 130px;
+
+    margin: 10px auto 0px auto;
   }
-  </style>
+
+  .aTeamGoal {
+    background-color: rgb(252, 250, 247);
+    background-position: center;
+    background-size: cover;
+    color: darkblue;
+
+    width: 85%;
+    height: 30%;
+    margin: 30px auto 0px auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid black;
+    border-radius: 95px;
+    text-align: center;
+  }
+</style>
 
 <body>
   <div id='nav_wrap'>
@@ -133,19 +153,28 @@
 
   </div>
 
-  <div id="info_wrap">
+  <!--김영우-->
+  <div class="InfoTeam">
 
-    <div class="aTeamGoal">
+    <div class="aTeamGoal" id="tn">
       <class= info_title>
         </class>
         <h2> INTRODUCTION</h2>
-        <hr> 의사소통 능력과 직무능력을 갖춰 내배캠 완주 후 3개월 이내 취업을 목표로 합니다.</hr>
         <div>
-          <div class="find-btn" style=" text-align: center;">
-            <button type="button" class="btn btn-navy navbar-btn find-btn1"
-              onclick="location.href='/donation'">후원하기</button>
+          <div class="find-btn">
           </div>
         </div>
+
+    </div>
+
+    <div class="aTeamGoal" id="tg">
+      <class= info_title>
+        </class>
+        <hr> 의사소통 능력과 직무능력을 갖춰 내배캠 완주 후 3개월 이내 취업을 목표로 합니다.</hr>
+    </div>
+
+    <div class="find-btn">
+      <button type="button" class="btn btn-navy navbar-btn find-btn1" onclick="location.href='/donation'">후원하기</button>
     </div>
 
   </div>
@@ -154,3 +183,5 @@
 </body>
 
 </html>
+
+<!-- box-shadow: 0px 0px 3px 0px blue -->
