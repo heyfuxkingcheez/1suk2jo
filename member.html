@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="module">
+    <!-- <script type="module">
       $("#member_ej").click(async function () {
         $("#member_detail_ej").toggle();
       });
@@ -26,7 +26,7 @@
       $("#member_sy").click(async function () {
         $("#member_detail_sy").toggle();
       });
-    </script>
+    </script> -->
 
     <title>Member's profiles</title>
 
@@ -211,7 +211,47 @@
       <p>수영님</p>
       <button>더보기</button>
     </div>
-
-
   </body>
+  <script>
+    $('#member_ej').on('click', function(){
+      $('#member_detail_ej').css('display', 'block');
+      $('#member_detail_yw').css('display', 'none');
+      $('#member_detail_wk').css('display', 'none');
+      $('#member_detail_kw').css('display', 'none');
+      $('#member_detail_sy').css('display', 'none');
+      
+    })
+  
+    $('#member_yw').on('click', function(){
+      $('#member_detail_ej').css('display', 'none');
+      $('#member_detail_yw').css('display', 'block');
+      $('#member_detail_wk').css('display', 'none');
+      $('#member_detail_kw').css('display', 'none');
+      $('#member_detail_sy').css('display', 'none');
+    })
+
+    $('#member_wk').on('click', function(){
+      $('#member_detail_ej').css('display', 'none');
+      $('#member_detail_yw').css('display', 'none');
+      $('#member_detail_wk').css('display', 'block');
+      $('#member_detail_kw').css('display', 'none');
+      $('#member_detail_sy').css('display', 'none');
+    })
+    
+    $('#member_kw').on('click', function(){
+      $('#member_detail_ej').css('display', 'none');
+      $('#member_detail_yw').css('display', 'none');
+      $('#member_detail_wk').css('display', 'none');
+      $('#member_detail_kw').css('display', 'block');
+      $('#member_detail_sy').css('display', 'none');
+    })
+  
+    $('#member_sy').on('click', function(){
+      $('#member_detail_ej').css('display', 'none');
+      $('#member_detail_yw').css('display', 'none');
+      $('#member_detail_wk').css('display', 'none');
+      $('#member_detail_kw').css('display', 'none');
+      $('#member_detail_sy').css('display', 'block');
+    })
+  </script>
 </html>
