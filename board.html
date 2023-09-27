@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+    <script>
+        console.log("hello world!")
+        
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+        /* 나머지 글씨 폰트 */
+        * {
+            font-family: 'Poor Story', cursive;
+            letter-spacing: 3px;
+            margin: 0px;
+        }
+    </style>
+    <style>
+        /* 기욱님 css */
+        .navbar {
+            width: 100%;
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+        }
+
+        .navbar__menu {
+            color: var(--accent-color);
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding-right: 300px;
+            font-size: 20px;
+        }
+
+        .navbar__menu li {
+            padding: 8px 30px;
+        }
+
+        .navbar__menu :focus {
+            text-decoration: underline;
+        }
+
+        .navbar__menu li:hover {
+            background-color: grey;
+            border-radius: 5px;
+        }
+
+        .navbar__logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--background-color);
+            padding: 8px 12px;
+            margin-left: 100px;
+            font-size: 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        /* 기욱님 css */
+
+        /* 기욱 게시판 css */
+        .board-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            padding-left: 15%;   
+            padding-top: 150px;
+
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='nav_wrap'>
+        <nav class="navbar">
+
+            <!-- navlogo -->
+            <div class="navbar__logo">
+                <div>
+                    <a href="#" onclick="location.href='main.html'" class="navbar-logo">일 석 이 조</a>
+                </div>
+            </div>
+
+            <!-- navMenu -->
+            <ul class="navbar__menu">
+                <li><a href="#" onclick="location.href='main.html'" class="navbar-menu">Main</a></li>
+                <li><a href="#" onclick="location.href='member.html'" class="navbar-menu">Members</a></li>
+                <li><a href="#" onclick="location.href='board.html'" class="navbar-menu">Board</a></li>
+            </ul>
+        </nav>
+
+
+
+
+    </div>
+
+    <div class="board-title">
+        <h1>Board</h1>
+        <p>자유롭게 글을 쓸 수 있는 공간입니다.</p>
+    </div>
+</body>
+
+</html>
