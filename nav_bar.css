@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+/* 나머지 글씨 폰트 */
+* {
+    font-family: 'Poor Story', cursive;
+    letter-spacing: 3px;
+    margin: 0px;
+}
+
+/* 기욱님 css */
+.navbar {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+}
+
+.navbar__menu {
+    color: var(--accent-color);
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-right: 300px;
+    font-size: 20px;
+}
+
+.navbar__menu li {
+    padding: 8px 30px;
+}
+
+.navbar__menu :focus {
+    text-decoration: underline;
+}
+
+.navbar__menu li:hover {
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.navbar__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 8px 12px;
+    margin-left: 100px;
+    font-size: 24px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* 기욱님 css */
