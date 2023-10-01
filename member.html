@@ -5,123 +5,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="nav_bar.css">
+    <!-- 공통 css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- memeber 관련 Css -->
+    <link rel="stylesheet" href="./styles/member.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<<<<<<< HEAD
+    <!--  실행이 안되서 script 태그 위치 바디 태그 하단으로 옮겼어요! -->
+    <!-- 엄격모드로 하게되면 제약이 있을 것 같아서 옮기면서 기본 script 로 사용했어요-->
+
+=======
+>>>>>>> 9d29352253292259423156f1281457ef3330ab81
     <title>Member's profiles</title>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
-    
-      /* 나머지 글씨 폰트 */
-      * {
-        font-family: 'Poor Story', cursive;
-        letter-spacing: 3px;
-        margin: 0px;
-      }
-    </style>
-
-    <style>
-      .container{
-        width: 100%;
-        height: 100%;
-      }
-
-      .member_box {
-        display: none;
-      }
-
-      .member_profile {
-        margin: 0 auto;
-        text-align: center;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 60%;
-        height: 200px;
-      }
-
-      /* 요소별 margin-right 추가 */
-      .member_profile_img {
-        margin-right: 20px;
-        width: 150px;
-        height: 150px;
-      }
-
-      /* 마지막 요소 Margin-right 필요 없으니 0 */
-      .member_profile_img:last-child {
-        margin-right: 0;
-      }
-
-      img {
-        display: block;
-        object-fit: cover;
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-      }
-
-      .member_toggle_box {
-        background-color: green;
-        width: 100%;
-        height: 100vh;
-      }
-
-      .member_box {
-        background-color: blanchedalmond;
-        width: 25%;
-        height: 25%;
-        min-width: 25%;
-        /* position: fixed; */
-        border : 2px solid black;
-
-        border-radius: 10px;
-        margin: 5% 15% 20px 37%;
-      }
-      .member_box > button {
-        background-color: transparent;
-        
-        width: 20%;
-        height: 15%;
-        min-width: 50%;
-
-        border-radius: 5px;
-        margin: 25% 20% 10% 45%;
-      }
-
-      .moo {
-        height: 300px;
-      }
-    </style>
   </head>
   <body>
     <!-- 기욱 -->
-    <div id='nav_wrap'>
+    <div id="nav_wrap">
       <nav class="navbar">
-  
         <!-- navlogo -->
         <div class="navbar__logo">
           <div>
-            <a href="#" onclick="location.href='main.html'" class="navbar-logo">일 석 이 조</a>
+            <a href="#" onclick="location.href='main.html'" class="navbar-logo"
+              >일 석 이 조</a
+            >
           </div>
         </div>
-  
+
         <!-- navMenu -->
         <ul class="navbar__menu">
-          <li><a href="#" onclick ="location.href='main.html'" class="navbar-menu">Main</a></li>
-          <li><a href="#" onclick ="location.href='member.html'" class="navbar-menu">Members</a></li>
-          <li><a href="#" onclick="location.href='board_list.html'" class="navbar-menu">Board</a></li>
+          <li>
+            <a href="#" onclick="location.href='main.html'" class="navbar-menu"
+              >Main</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="location.href='member.html'"
+              class="navbar-menu"
+              >Members</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="location.href='board_list.html'"
+              class="navbar-menu"
+              >Board</a
+            >
+          </li>
         </ul>
       </nav>
       <!-- 기욱 -->
     </div>
-    
-    
-    
+
     <!-- Member's profile -->
-    <div class = 'container'>
-      <div class="moo"></div>
+    <div class="container">
       <div class="member_profile">
         <!-- 
               사진순서
@@ -146,6 +86,39 @@
       </div>
 
       <div class="member_box_wrap">
+<<<<<<< HEAD
+        <div class="member_box_wrap">
+          <div id="member_ej_detail" class="member_box">
+            <p>은지님</p>
+            <button id="detail_ej" onclick="location.href='member_detail.html'">
+              더보기
+            </button>
+          </div>
+          <div id="member_yw_detail" class="member_box">
+            <p>영우님</p>
+            <button id="detail_yw" onclick="location.href='member_detail.html'">
+              더보기
+            </button>
+          </div>
+          <div id="member_wk_detail" class="member_box">
+            <p>욱님</p>
+            <button id="detail_wk" onclick="location.href='member_detail.html'">
+              더보기
+            </button>
+          </div>
+          <div id="member_kw_detail" class="member_box">
+            <p>기욱님</p>
+            <button id="detail_kw" onclick="location.href='member_detail.html'">
+              더보기
+            </button>
+          </div>
+          <div id="member_sy_detail" class="member_box">
+            <p>수영님</p>
+            <button id="detail_sy" onclick="location.href='member_detail.html'">
+              더보기
+            </button>
+          </div>
+=======
         <div id="member_ej_detail" class="member_box">
           <p>은지님</p>
           <button id ='detail_ej'  onclick = "location.href = 'detail.html#member_ej'"  >더보기</button>
@@ -165,6 +138,7 @@
         <div id="member_sy_detail" class="member_box">
           <p>수영님</p>
           <button id = 'detail_sy' onclick = "location.href = 'detail.html#member_sy'">더보기</button>
+>>>>>>> 9d29352253292259423156f1281457ef3330ab81
         </div>
       </div>
     </div>
@@ -172,6 +146,29 @@
       //이미지 누르면 해당 div 보여주기 + 바탕 누르면 보여진 div 다시 숨겨주기.
       //참고했어요 https://choonse.com/2022/02/02/789/
 
+<<<<<<< HEAD
+      $(".container").on("click", function (e) {
+        const member_list = [
+          "member_ej",
+          "member_yw",
+          "member_wk",
+          "member_kw",
+          "member_sy",
+        ];
+
+        if (!member_list.includes(e.target.parentElement.id)) {
+          $(".member_box").css("display", "none");
+        } else {
+          for (let member of member_list) {
+            if (member === e.target.parentElement.id) {
+              $(`#${member}_detail`).css("display", "block");
+            } else {
+              $(`#${member}_detail`).css("display", "none");
+            }
+          }
+        }
+      });
+=======
       $(document).click(function(e){
         const member_list = ["member_ej", "member_yw", "member_wk", "member_kw", "member_sy"];
 
@@ -188,7 +185,7 @@
         }
       })
 
+>>>>>>> 9d29352253292259423156f1281457ef3330ab81
     </script>
   </body>
-
 </html>
