@@ -1,157 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Board</title>
-    <link rel="stylesheet" href="nav_bar.css">
+    <!-- 공통 css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- board css -->
+    <link rel="stylesheet" href="./styles/board.css" />
     <script>
-        console.log("hello world!")
-    
+      console.log("hello world!");
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+  </head>
 
-        /* 나머지 글씨 폰트 */
-        * {
-            font-family: 'Poor Story', cursive;
-            letter-spacing: 3px;
-            margin: 0px;
-        }
-    </style>
-    <style>
+  <body>
+    <div id="nav_wrap">
+      <nav class="navbar">
+        <!-- navlogo -->
+        <div class="navbar__logo">
+          <div>
+            <a href="#" onclick="location.href='main.html'" class="navbar-logo"
+              >일 석 이 조</a
+            >
+          </div>
+        </div>
 
-        /* 기욱 게시판 css */
-        .board-title {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            padding-left: 15%;
-            padding-top: 150px;
-
-            font-size: 25px;
-        }
-
-        .search {
-            text-align: left;
-            padding-left: 15%;
-            padding-top: 30px;
-
-        }
-
-        .search input {
-            width: 300px;
-            padding: 0.5rem;
-        }
-
-        .search button {
-            padding: 0.5rem 1rem;
-            color: #fff;
-            background-color: #333;
-            cursor: pointer;
-        }
-
-        .board {
-            background-color: #fff;
-            margin: 1rem auto;
-            width: 68.5%;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .board-header {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1rem;
-        }
-
-        .write-button {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table th,
-        table td {
-            border: 1px solid #ddd;
-            padding: 0.5rem;
-            text-align: center;
-        }
-        .pagination {
-            text-align: center;
-            margin-top: 1rem;
-        }
-        /* 기욱 게시판 css */
-    </style>
-</head>
-
-<body>
-    <div id='nav_wrap'>
-        <nav class="navbar">
-
-            <!-- navlogo -->
-            <div class="navbar__logo">
-                <div>
-                    <a href="#" onclick="location.href='main.html'" class="navbar-logo">일 석 이 조</a>
-                </div>
-            </div>
-
-            <!-- navMenu -->
-            <ul class="navbar__menu">
-                <li><a href="#" onclick="location.href='main.html'" class="navbar-menu">Main</a></li>
-                <li><a href="#" onclick="location.href='member.html'" class="navbar-menu">Members</a></li>
-                <li><a href="#" onclick="location.href='board_list.html'" class="navbar-menu">Board</a></li>
-            </ul>
-        </nav>
+        <!-- navMenu -->
+        <ul class="navbar__menu">
+          <li>
+            <a href="#" onclick="location.href='main.html'" class="navbar-menu"
+              >Main</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="location.href='member.html'"
+              class="navbar-menu"
+              >Members</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="location.href='board_list.html'"
+              class="navbar-menu"
+              >Board</a
+            >
+          </li>
+        </ul>
+      </nav>
     </div>
 
     <div class="board-title">
-        <h1>Board</h1>
-        <p>자유롭게 글을 쓸 수 있는 공간입니다.</p>
+      <h1>Board</h1>
+      <p>자유롭게 글을 쓸 수 있는 공간입니다.</p>
     </div>
 
     <section class="search">
-        <input type="text" placeholder="검색어를 입력하세요">
-        <button>검색</button>
+      <input type="text" placeholder="검색어를 입력하세요" />
+      <button>검색</button>
     </section>
 
     <section class="board">
-        <table>
-            <thead>
-                <tr>
-                    <th>글 번호</th>
-                    <th>제목</th>
-                    <th>글쓴이</th>
-                    <th>작성일</th>
-                    <th>조회수</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- 글 목록을 동적으로 추가-->
-            </tbody>
-        </table>
-        <div class="board-header">
-            <a onclick="location.href='board_write.html'" class="write-button" >글쓰기</a>
-        </div>
-        
+      <table>
+        <thead>
+          <tr>
+            <th>글 번호</th>
+            <th>제목</th>
+            <th>글쓴이</th>
+            <th>작성일</th>
+            <th>조회수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 글 목록을 동적으로 추가-->
+        </tbody>
+      </table>
+      <div class="board-header">
+        <a onclick="location.href='board_write.html'" class="write-button"
+          >글쓰기</a
+        >
+      </div>
     </section>
 
     <section class="pagination">
-        <!-- 페이지 번호를 동적으로 추가 -->
+      <!-- 페이지 번호를 동적으로 추가 -->
     </section>
-<script src="board_list.js"></script>
-</body>
-
+    <script src="board_list.js"></script>
+  </body>
 </html>
