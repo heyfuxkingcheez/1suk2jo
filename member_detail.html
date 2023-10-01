@@ -7,63 +7,17 @@
     <title>Member's Details</title>
     <!-- 공통 css -->
     <link rel="stylesheet" href="./styles/style.css" />
+    <!-- member detail css -->
+    <!-- 겹치는 클래스명이 있어서 따로 분리해뒀어요! -->
+    <link rel="stylesheet" href="./styles/member_detail.css" />
   </head>
-  <style>
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
-    .blank {
-      height: 100px;
-    }
-
-    .container .detail {
-      width: 70%;
-      height: auto;
-      /* background-color: rgb(212, 129, 21); */
-      margin: 150px auto 400px auto;
-
-      display: grid;
-      grid-template-columns: repeat(2, 50%);
-      grid-template-rows: 300px;
-    }
-
-    img {
-      display: flex;
-      object-fit: cover;
-      border-radius: 50%;
-      width: 300px;
-      height: 300px;
-    }
-
-    .member_profile_img {
-      /* margin-right: 20px; */
-      /* width: 150px;
-    height: 150px; */
-      margin-left: 10%;
-      /* background-color: blue; */
-    }
-
-    .member_detail {
-      /* background-color: blue; */
-
-      height: auto;
-      margin-right: 10%;
-
-      font-size: 20px;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-    }
-    #footer {
-      height: 400px;
-    }
-  </style>
+  <style></style>
 
   <body>
+    <!-- 정기욱 -->
     <div id="nav_wrap">
       <nav class="navbar">
+        <!-- navlogo -->
         <div class="navbar__logo">
           <div>
             <a href="#" onclick="location.href='main.html'" class="navbar-logo"
@@ -71,6 +25,8 @@
             >
           </div>
         </div>
+
+        <!-- navMenu -->
         <ul class="navbar__menu">
           <li>
             <a href="#" onclick="location.href='main.html'" class="navbar-menu"
@@ -96,6 +52,7 @@
         </ul>
       </nav>
     </div>
+    <!-- 정기욱 -->
 
     <div class="blank"></div>
 
@@ -118,7 +75,7 @@
         </div>
       </div>
       <div class="detail">
-        <div id="member_yw" class="member_profile_img">
+        <div id="member_yw_detail" class="member_profile_img">
           <img src="./images/profiles/youngwoo.jpg" alt="김영우님" />
         </div>
         <div class="member_detail">
@@ -135,7 +92,7 @@
         </div>
       </div>
       <div class="detail">
-        <div id="member_ej" class="member_profile_img">
+        <div id="member_wk_detail" class="member_profile_img">
           <img src="./images/profiles/wook.jpg" alt="남궁욱님" />
         </div>
         <div class="member_detail">
@@ -152,7 +109,7 @@
         </div>
       </div>
       <div class="detail">
-        <div id="member_yw" class="member_profile_img">
+        <div id="member_yw_detail" class="member_profile_img">
           <img src="./images/profiles/giwook.jpg" alt="정기욱님" />
         </div>
         <div class="member_detail">
@@ -169,7 +126,7 @@
         </div>
       </div>
       <div class="detail">
-        <div id="member_wk" class="member_profile_img">
+        <div id="member_wk_detail" class="member_profile_img">
           <img src="./images/profiles/sooyoung.JPG" alt="최수영님" />
         </div>
         <div class="member_detail">

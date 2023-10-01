@@ -1,62 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Board write</title>
-    <link rel="stylesheet" href="nav_bar.css">
-    <style>
-        .board-write {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+    <!-- 공통 css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- board css -->
+    <link rel="stylesheet" href="./styles/board.css" />
+  </head>
 
-            padding-left: 15%;
-            padding-top: 150px;
-
-            font-size: 25px;
-        }
-    </style>
-</head>
-
-
-<body>
+  <body>
     <!-- 정기욱 -->
-    <div id='nav_wrap'>
-        <nav class="navbar">
+    <div id="nav_wrap">
+      <nav class="navbar">
+        <!-- navlogo -->
+        <div class="navbar__logo">
+          <div>
+            <a href="#" onclick="location.href='main.html'" class="navbar-logo"
+              >일 석 이 조</a
+            >
+          </div>
+        </div>
 
-            <!-- navlogo -->
-            <div class="navbar__logo">
-                <div>
-                    <a href="#" onclick="location.href='main.html'" class="navbar-logo">일 석 이 조</a>
-                </div>
-            </div>
-
-            <!-- navMenu -->
-            <ul class="navbar__menu">
-                <li><a href="#" onclick="location.href='main.html'" class="navbar-menu">Main</a></li>
-                <li><a href="#" onclick="location.href='member.html'" class="navbar-menu">Members</a></li>
-                <li><a href="#" onclick="location.href='board_list.html'" class="navbar-menu">Board</a></li>
-            </ul>
-        </nav>
+        <!-- navMenu -->
+        <ul class="navbar__menu">
+          <li>
+            <a href="#" onclick="location.href='main.html'" class="navbar-menu"
+              >Main</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="location.href='member.html'"
+              class="navbar-menu"
+              >Members</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="location.href='board_list.html'"
+              class="navbar-menu"
+              >Board</a
+            >
+          </li>
+        </ul>
+      </nav>
     </div>
     <!-- 정기욱 -->
-    
+
     <div class="board-write">
-        <h1>Board_write</h1>
-        <p>글 작성 페이지 입니다.</p>
+      <h1>Board_write</h1>
+      <p>글 작성 페이지 입니다.</p>
     </div>
 
     <form id="writeFrm">
-        <div>제목: <input type="text" name="subject"></div>
-        <div>작성자: <input type="text" name="writer"></div>
-        <div>내용: <textarea name="content"></textarea></div>
-        <input type="submit" value="글작성" />
+      <div>제목: <input type="text" name="subject" /></div>
+      <div>작성자: <input type="text" name="writer" /></div>
+      <div>내용: <textarea name="content"></textarea></div>
+      <input type="submit" value="글작성" />
     </form>
     <a href="./board_list.html">뒤로가기</a>
     <script src="write.js"></script>
-
-</body>
-
+  </body>
 </html>
