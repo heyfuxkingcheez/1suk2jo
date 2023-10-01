@@ -8,30 +8,6 @@
     <link rel="stylesheet" href="nav_bar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!--  실행이 안되서 script 태그 위치 바디 태그 하단으로 옮겼어요! -->
-    <!-- 엄격모드로 하게되면 제약이 있을 것 같아서 옮기면서 기본 script 로 사용했어요-->
-    <!-- <script type="module">   
-      $("#member_ej").click(async function () {
-        $("#member_detail_ej").toggle();
-      });
-
-      $("#member_yw").click(async function () {
-        $("#member_detail_yw").toggle();
-      });
-
-      $("#member_wk").click(async function () {
-        $("#member_detail_wk").toggle();
-      });
-
-      $("#member_kw").click(async function () {
-        $("#member_detail_kw").toggle();
-      });
-
-      $("#member_sy").click(async function () {
-        $("#member_detail_sy").toggle();
-      });
-    </script> -->
-
     <title>Member's profiles</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
@@ -172,45 +148,44 @@
       <div class="member_box_wrap">
         <div id="member_ej_detail" class="member_box">
           <p>은지님</p>
-          <button id ='detail_ej'  onclick="location.href='detail.html'" >더보기</button>
+          <button id ='detail_ej'  onclick = "location.href = 'detail.html#member_ej'"  >더보기</button>
         </div>
         <div id="member_yw_detail" class="member_box">
           <p>영우님</p>
-          <button id = 'detail_yw' onclick="location.href='detail.html'">더보기</button>
+          <button id = 'detail_yw' onclick = "location.href = 'detail.html#member_yw'" >더보기</button>
         </div>
         <div id="member_wk_detail" class="member_box">
           <p>욱님</p>
-          <button id = 'detail_wk' onclick="location.href='detail.html'">더보기</button>
+          <button id = 'detail_wk' onclick = "location.href = 'detail.html#member_wk'">더보기</button>
         </div>
         <div id="member_kw_detail" class="member_box">
           <p>기욱님</p>
-          <button id = 'detail_kw' onclick="location.href='detail.html'">더보기</button>
+          <button id = 'detail_kw' onclick = "location.href = 'detail.html#member_kw'">더보기</button>
         </div>
         <div id="member_sy_detail" class="member_box">
           <p>수영님</p>
-          <button id = 'detail_sy' onclick="location.href='detail.html'">더보기</button>
+          <button id = 'detail_sy' onclick = "location.href = 'detail.html#member_sy'">더보기</button>
         </div>
       </div>
     </div>
-    <script>
+    <script type="module">
       //이미지 누르면 해당 div 보여주기 + 바탕 누르면 보여진 div 다시 숨겨주기.
       //참고했어요 https://choonse.com/2022/02/02/789/
 
-      $('.container').on('click', function(e){
+      $(document).click(function(e){
         const member_list = ["member_ej", "member_yw", "member_wk", "member_kw", "member_sy"];
 
-        if(!member_list.includes(e.target.parentElement.id)){
-          $('.member_box').css('display', 'none');
-        }else{
-          for(let member of member_list){
-            if(member === e.target.parentElement.id){
-              $(`#${member}_detail`).css('display', 'block');
-            }else{
-              $(`#${member}_detail`).css('display', 'none');
-            }
+        for(let member of member_list){
+          if(member === e.target.parentElement.id){
+            $(`#${member}_detail`).css('display', 'block');
+          }else{
+            $(`#${member}_detail`).css('display', 'none');
           }
         }
-       
+
+        if(e.target.id === "detail_ej"){
+          $.get()
+        }
       })
 
     </script>
