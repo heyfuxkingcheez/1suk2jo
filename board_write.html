@@ -50,19 +50,33 @@
       </nav>
     </div>
     <!-- 정기욱 -->
+    
+    <div class="container">
+        <div class="board-write">
+            <h1>Board_write</h1>
+            <p>글 작성 페이지 입니다.</p>
+        </div>
 
-    <div class="board-write">
-      <h1>Board_write</h1>
-      <p>글 작성 페이지 입니다.</p>
+        <form id="writeFrm">
+            <div class="input_container">
+                <div class = 'title'>
+                    <!-- <label for="write_title">제목</label> -->
+                    <input id= 'write_title' type="text" name="subject" placeholder="제목을 적어주세요">
+                </div>
+                <!-- <div class = 'name'>
+                    <label for= "write_name">작성자</label>
+                    <input id = 'write_name' type="text" name="writer" placeholder="이름을 적어주세요">
+                </div> -->
+                <!-- <label for="write_text" >내용</label> -->
+                <div class = 'text'>
+                    <textarea id = 'write_text' name="content" placeholder="내용!! 하고싶은 말을 적어주세요"></textarea>
+                </div>
+                <input type="submit" value="저장하기" id = 'submit'>
+                <input type="button" value="뒤로가기" onclick = "location.href = './board_list.html'" id = 'return'>
+                <div class="blank"></div>
+            </div>
+        </form>
     </div>
-
-    <form id="writeFrm">
-      <div>제목: <input type="text" name="subject" /></div>
-      <div>작성자: <input type="text" name="writer" /></div>
-      <div>내용: <textarea name="content"></textarea></div>
-      <input type="submit" value="글작성" />
-    </form>
-    <a href="./board_list.html">뒤로가기</a>
     <script src="write.js"></script>
   </body>
 </html>
