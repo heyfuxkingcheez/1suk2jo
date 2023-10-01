@@ -10,14 +10,12 @@
     <!-- member detail css -->
     <!-- 겹치는 클래스명이 있어서 따로 분리해뒀어요! -->
     <link rel="stylesheet" href="./styles/member_detail.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
-  <style></style>
 
   <body>
-    <!-- 정기욱 -->
     <div id="nav_wrap">
       <nav class="navbar">
-        <!-- navlogo -->
         <div class="navbar__logo">
           <div>
             <a href="#" onclick="location.href='main.html'" class="navbar-logo"
@@ -25,8 +23,6 @@
             >
           </div>
         </div>
-
-        <!-- navMenu -->
         <ul class="navbar__menu">
           <li>
             <a href="#" onclick="location.href='main.html'" class="navbar-menu"
@@ -52,7 +48,6 @@
         </ul>
       </nav>
     </div>
-    <!-- 정기욱 -->
 
     <div class="blank"></div>
 
@@ -75,7 +70,7 @@
         </div>
       </div>
       <div class="detail">
-        <div id="member_yw_detail" class="member_profile_img">
+        <div id="member_yw" class="member_profile_img">
           <img src="./images/profiles/youngwoo.jpg" alt="김영우님" />
         </div>
         <div class="member_detail">
@@ -92,7 +87,7 @@
         </div>
       </div>
       <div class="detail">
-        <div id="member_wk_detail" class="member_profile_img">
+        <div id="member_wk" class="member_profile_img">
           <img src="./images/profiles/wook.jpg" alt="남궁욱님" />
         </div>
         <div class="member_detail">
@@ -109,7 +104,7 @@
         </div>
       </div>
       <div class="detail">
-        <div id="member_yw_detail" class="member_profile_img">
+        <div id="member_kw" class="member_profile_img">
           <img src="./images/profiles/giwook.jpg" alt="정기욱님" />
         </div>
         <div class="member_detail">
@@ -126,7 +121,7 @@
         </div>
       </div>
       <div class="detail">
-        <div id="member_wk_detail" class="member_profile_img">
+        <div id="member_sy" class="member_profile_img">
           <img src="./images/profiles/sooyoung.JPG" alt="최수영님" />
         </div>
         <div class="member_detail">
@@ -145,5 +140,24 @@
     </div>
     <div id="footer"></div>
   </body>
-  <script></script>
+  <script>
+    //멤버 상세설명 페이지 자동 스크롤 기능
+    $(window).scroll(function () {
+      let y = window.scrollY;
+      console.log(y);
+      if (y === 500) {
+        window.scrollTo(0, 250);
+      } else if (y === 1200) {
+        window.scrollTo(0, 890);
+      } else if (y === 1900) {
+        window.scrollTo(0, 1600);
+      } else if (y === 2600) {
+        window.scrollTo(0, 2300);
+      } else if (y === 1200) {
+        window.scrollTo(0, 890);
+      } else if (y === 3300) {
+        window.scrollTo(0, 3000);
+      }
+    });
+  </script>
 </html>
