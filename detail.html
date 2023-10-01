@@ -1,228 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Member's Details</title>
+    <!-- 공통 css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <style>
+    a {
+      text-decoration: none;
+      color: black;
+    }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Member's Details</title>
-  <link rel="stylesheet" href="nav_bar.css">
-</head>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+    .blank {
+      height: 100px;
+    }
 
-  /* 나머지 글씨 폰트 */
-  * {
-    font-family: 'Poor Story', cursive;
-    letter-spacing: 3px;
-    margin: 0px;
-  }
-</style>
-<style>
-  * {
-    margin: 0, auto;
-  }
+    .container .detail {
+      width: 70%;
+      height: auto;
+      /* background-color: rgb(212, 129, 21); */
+      margin: 150px auto 400px auto;
 
-  .navbar {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-  }
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      grid-template-rows: 300px;
+    }
 
-  .navbar__menu {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding-right: 300px;
-    font-size: 20px;
-  }
+    img {
+      display: flex;
+      object-fit: cover;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+    }
 
-  .navbar__menu li {
-    padding: 8px 30px;
-  }
-
-  .navbar__menu :focus {
-    text-decoration: underline;
-  }
-
-  .navbar__menu li:hover {
-    background-color: grey;
-    border-radius: 5px;
-  }
-
-  .navbar__logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--background-color);
-    padding: 8px 12px;
-    margin-left: 100px;
-    font-size: 24px;
-  }
-
-  a {
-    text-decoration: none;
-    color: black
-  }
-
-  .blank {
-    height: 100px;
-  }
-
-  .container .detail {
-    width: 70%;
-    height: auto;
-    /* background-color: rgb(212, 129, 21); */
-    margin: 400px auto 400px auto;
-
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-template-rows: 300px;
-  }
-
-  img {
-    display: flex;
-    object-fit: cover;
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-  }
-
-  .member_profile_img {
-    /* margin-right: 20px; */
-    /* width: 150px;
+    .member_profile_img {
+      /* margin-right: 20px; */
+      /* width: 150px;
     height: 150px; */
-    margin-left: 10%;
-    /* background-color: blue; */
-  }
+      margin-left: 10%;
+      /* background-color: blue; */
+    }
 
-  .member_detail{
-    /* background-color: blue; */
+    .member_detail {
+      /* background-color: blue; */
 
-    height: auto;
-    margin-right: 10%;
+      height: auto;
+      margin-right: 10%;
 
-    font-size: 20px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+      font-size: 20px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+    #footer {
+      height: 400px;
+    }
+  </style>
 
-  }
-  #footer{
-    height: 400px;
-  }
-</style>
+  <body>
+    <div id="nav_wrap">
+      <nav class="navbar">
+        <div class="navbar__logo">
+          <div>
+            <a href="#" onclick="location.href='main.html'" class="navbar-logo"
+              >일 석 이 조</a
+            >
+          </div>
+        </div>
+        <ul class="navbar__menu">
+          <li>
+            <a href="#" onclick="location.href='main.html'" class="navbar-menu"
+              >Main</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="location.href='member.html'"
+              class="navbar-menu"
+              >Members</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              onclick="location.href='board_list.html'"
+              class="navbar-menu"
+              >Board</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-<body>
-  <div id='nav_wrap'>
+    <div class="blank"></div>
 
-    <nav class="navbar">
-      <div class="navbar__logo">
-        <div>
-          <a href="#" onclick="location.href='main.html'" class="navbar-logo">일 석 이 조</a>
+    <div class="container">
+      <div class="detail">
+        <div id="member_ej" class="member_profile_img">
+          <img src="./images/profiles/eunji.jpg" alt="유은지님" />
+        </div>
+        <div class="member_detail">
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            cumque asperiores impedit. Doloribus eaque ad sequi reprehenderit
+            quasi quis obcaecati labore quia aliquid? Eligendi eveniet
+            consequatur, libero maiores fuga quae? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Corporis cumque asperiores impedit.
+            Doloribus eaque ad sequi reprehenderit quasi quis obcaecati labore
+            quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
+            quae?
+          </span>
         </div>
       </div>
-      <ul class="navbar__menu">
-        <li><a href="#" onclick="location.href='main.html'" class="navbar-menu">Main</a></li>
-        <li><a href="#" onclick="location.href='member.html'" class="navbar-menu">Members</a></li>
-        <li><a href="#" onclick="location.href='board_list.html'" class="navbar-menu">Board</a></li>
-      </ul>
-    </nav>
-
-  </div>
-  
-  <div class="blank"></div>
-
-  <div class="container">
-    <div class="detail">
-      <div id="member_ej" class="member_profile_img">
-        <img src="./images/profiles/eunji.jpg" alt="유은지님" />
+      <div class="detail">
+        <div id="member_yw" class="member_profile_img">
+          <img src="./images/profiles/youngwoo.jpg" alt="김영우님" />
+        </div>
+        <div class="member_detail">
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            cumque asperiores impedit. Doloribus eaque ad sequi reprehenderit
+            quasi quis obcaecati labore quia aliquid? Eligendi eveniet
+            consequatur, libero maiores fuga quae? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Corporis cumque asperiores impedit.
+            Doloribus eaque ad sequi reprehenderit quasi quis obcaecati labore
+            quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
+            quae?
+          </span>
+        </div>
       </div>
-      <div class="member_detail">
-        <span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-
-        </span>
+      <div class="detail">
+        <div id="member_ej" class="member_profile_img">
+          <img src="./images/profiles/wook.jpg" alt="남궁욱님" />
+        </div>
+        <div class="member_detail">
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            cumque asperiores impedit. Doloribus eaque ad sequi reprehenderit
+            quasi quis obcaecati labore quia aliquid? Eligendi eveniet
+            consequatur, libero maiores fuga quae? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Corporis cumque asperiores impedit.
+            Doloribus eaque ad sequi reprehenderit quasi quis obcaecati labore
+            quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
+            quae?
+          </span>
+        </div>
       </div>
-    </div>
-    <div class="detail">
-      <div id="member_ej" class="member_profile_img">
-        <img src="./images/profiles/eunji.jpg" alt="유은지님" />
+      <div class="detail">
+        <div id="member_yw" class="member_profile_img">
+          <img src="./images/profiles/giwook.jpg" alt="정기욱님" />
+        </div>
+        <div class="member_detail">
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            cumque asperiores impedit. Doloribus eaque ad sequi reprehenderit
+            quasi quis obcaecati labore quia aliquid? Eligendi eveniet
+            consequatur, libero maiores fuga quae? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Corporis cumque asperiores impedit.
+            Doloribus eaque ad sequi reprehenderit quasi quis obcaecati labore
+            quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
+            quae?
+          </span>
+        </div>
       </div>
-      <div class="member_detail">
-        <span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-
-        </span>
-      </div>
-    </div><div class="detail">
-      <div id="member_ej" class="member_profile_img">
-        <img src="./images/profiles/eunji.jpg" alt="유은지님" />
-      </div>
-      <div class="member_detail">
-        <span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-
-        </span>
-      </div>
-    </div><div class="detail">
-      <div id="member_ej" class="member_profile_img">
-        <img src="./images/profiles/eunji.jpg" alt="유은지님" />
-      </div>
-      <div class="member_detail">
-        <span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-
-        </span>
-      </div>
-    </div><div class="detail">
-      <div id="member_ej" class="member_profile_img">
-        <img src="./images/profiles/eunji.jpg" alt="유은지님" />
-      </div>
-      <div class="member_detail">
-        <span>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis cumque asperiores impedit. Doloribus eaque ad
-          sequi reprehenderit quasi quis obcaecati labore quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
-          quae?
-
-        </span>
+      <div class="detail">
+        <div id="member_wk" class="member_profile_img">
+          <img src="./images/profiles/sooyoung.JPG" alt="최수영님" />
+        </div>
+        <div class="member_detail">
+          <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            cumque asperiores impedit. Doloribus eaque ad sequi reprehenderit
+            quasi quis obcaecati labore quia aliquid? Eligendi eveniet
+            consequatur, libero maiores fuga quae? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Corporis cumque asperiores impedit.
+            Doloribus eaque ad sequi reprehenderit quasi quis obcaecati labore
+            quia aliquid? Eligendi eveniet consequatur, libero maiores fuga
+            quae?
+          </span>
+        </div>
       </div>
     </div>
-
-  </div>
-  <div id="footer"></div>
-
-</body>
-<script>
-
-</script>
-
+    <div id="footer"></div>
+  </body>
+  <script></script>
 </html>
