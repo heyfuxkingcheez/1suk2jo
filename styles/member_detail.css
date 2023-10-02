@@ -19,7 +19,7 @@ a {
   grid-template-rows: 300px;
 }
 
-img {
+.profile {
   display: flex;
   object-fit: cover;
   border-radius: 50%;
@@ -27,17 +27,29 @@ img {
   height: 300px;
 }
 
+.link{
+  display: flex;
+  width: 300px;
+  height: 50px;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgb(203, 183, 174); */
+  /* border-radius: 10px; */
+}
+
+.emoge{
+  margin: 0px 20px 0px 20px;
+  width: 30px;
+  height: 30px;
+  /* background-color: aqua; */
+}
+
 .member_profile_img {
-  /* margin-right: 20px; */
-  /* width: 150px;
-  height: 150px; */
   margin-left: 10%;
-  /* background-color: blue; */
 }
 
 .member_detail {
-  /* background-color: blue; */
-
   height: auto;
   margin-right: 10%;
 
