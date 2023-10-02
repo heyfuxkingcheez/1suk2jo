@@ -10,6 +10,13 @@
     <!-- memeber 관련 Css -->
     <link rel="stylesheet" href="./styles/member.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<<<<<<< HEAD
+=======
+
+    <!--  실행이 안되서 script 태그 위치 바디 태그 하단으로 옮겼어요! -->
+    <!-- 엄격모드로 하게되면 제약이 있을 것 같아서 옮기면서 기본 script 로 사용했어요-->
+
+>>>>>>> 3a4a585eeedf3e7e2484fb341e241992ea2eaede
     <title>Member's profiles</title>
   </head>
   <body>
@@ -81,23 +88,48 @@
       <div class="member_box_wrap">
         <div id="member_ej_detail" class="member_box">
           <p>은지님</p>
-          <button id ='detail_ej'  onclick = "location.href = 'member_detail.html#member_ej'"  >더보기</button>
+          <button
+            id="detail_ej"
+            onclick="location.href = 'member_detail.html#member_ej'"
+          >
+            더보기
+          </button>
         </div>
         <div id="member_yw_detail" class="member_box">
           <p>영우님</p>
-          <button id = 'detail_yw' onclick = "location.href = 'member_detail.html#member_yw'" >더보기</button>
+          <button
+            id="detail_yw"
+            onclick="location.href = 'member_detail.html#member_yw'"
+          >
+            더보기
+          </button>
         </div>
         <div id="member_wk_detail" class="member_box">
           <p>욱님</p>
-          <button id = 'detail_wk' onclick = "location.href = 'member_detail.html#member_wk'">더보기</button>
+          <button
+            id="detail_wk"
+            onclick="location.href = 'member_detail.html#member_wk'"
+          >
+            더보기
+          </button>
         </div>
         <div id="member_kw_detail" class="member_box">
           <p>기욱님</p>
-          <button id = 'detail_kw' onclick = "location.href = 'member_detail.html#member_kw'">더보기</button>
+          <button
+            id="detail_kw"
+            onclick="location.href = 'member_detail.html#member_kw'"
+          >
+            더보기
+          </button>
         </div>
         <div id="member_sy_detail" class="member_box">
           <p>수영님</p>
-          <button id = 'detail_sy' onclick = "location.href = 'member_detail.html#member_sy'">더보기</button>
+          <button
+            id="detail_sy"
+            onclick="location.href = 'member_detail.html#member_sy'"
+          >
+            더보기
+          </button>
         </div>
       </div>
     </div>
@@ -105,22 +137,27 @@
       //이미지 누르면 해당 div 보여주기 + 바탕 누르면 보여진 div 다시 숨겨주기.
       //참고했어요 https://choonse.com/2022/02/02/789/
 
-      $(document).click(function(e){
-        const member_list = ["member_ej", "member_yw", "member_wk", "member_kw", "member_sy"];
+      $(document).click(function (e) {
+        const member_list = [
+          "member_ej",
+          "member_yw",
+          "member_wk",
+          "member_kw",
+          "member_sy",
+        ];
 
-        for(let member of member_list){
-          if(member === e.target.parentElement.id){
-            $(`#${member}_detail`).css('display', 'block');
-          }else{
-            $(`#${member}_detail`).css('display', 'none');
+        for (let member of member_list) {
+          if (member === e.target.parentElement.id) {
+            $(`#${member}_detail`).css("display", "block");
+          } else {
+            $(`#${member}_detail`).css("display", "none");
           }
         }
 
-        if(e.target.id === "detail_ej"){
-          $.get()
+        if (e.target.id === "detail_ej") {
+          $.get();
         }
-      })
-
+      });
     </script>
   </body>
 </html>
