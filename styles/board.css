@@ -126,7 +126,7 @@ table td {
   text-align: center;
 }
 
-input{
+.input{
   height: 30px;
   width: 90%;
   max-width: 1100px;
@@ -154,10 +154,10 @@ textarea{
 }
 
 
-label{
+/* label{
   font-size: 25px;
   padding: 0px 0px 0px 6%;
-}
+} */
 
 #submit, #return {
   height: 50px;
@@ -174,12 +174,14 @@ label{
   margin-right: 5%;
 }
 
-input:hover{
+.input:hover{
   border: 1px groove rgb(0, 30, 13);
   font-size: 25px;
   /* color: rgb(52, 187, 10); */
-
 }
 
+textarea:hover{
+  font-size: 25px;
+}
 
 /* 기욱 게시판 css */
