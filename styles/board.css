@@ -119,6 +119,8 @@ table td {
 
   margin: 0px auto 300px auto;
   padding: 30px;    
+
+  outline: none;
 }
 
 .input_container div{
@@ -135,6 +137,7 @@ table td {
   margin: 10px auto 10px auto;
   padding: 15px;
   font-size: 20px;
+  outline: none;
 }
 
 textarea{
@@ -146,6 +149,8 @@ textarea{
   padding: 15px;
   font-size: 17px;
   border-radius: 10px;
+  outline: none;
+
 }
 
 .blank{
