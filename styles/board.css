@@ -109,10 +109,10 @@ table td {
 
 
 .input_container{
-  border: 1px solid transparent;
+  border: 10px dashed  rgb(116, 75, 47);
   border-radius: 20px;
   /* background-color: rgb(221, 239, 221); */
-  background-color: rgb(116, 75, 47);
+  background-color:  #b2937f;
   height: 80%;
   width: 70%;
   max-width: 1200px;
