@@ -12,72 +12,73 @@
 
   <body>
     <!-- 정기욱 -->
-    <div id="nav_wrap">
+    <div id="navWrap">
       <nav class="navbar">
         <!-- navlogo -->
-        <div class="navbar__logo">
+        <div class="navLogo">
           <div>
-            <a href="#" onclick="location.href='main.html'" class="navbar-logo"
-              >일 석 이 조</a
-            >
+            <a href="#" onclick="location.href='main.html'">일 석 이 조</a>
           </div>
         </div>
-
         <!-- navMenu -->
-        <ul class="navbar__menu">
+        <ul class="navMenu">
           <li>
-            <a href="#" onclick="location.href='main.html'" class="navbar-menu"
-              >Main</a
-            >
+            <a href="#" onclick="location.href='main.html'">Main</a>
           </li>
           <li>
-            <a
-              href="#"
-              onclick="location.href='member.html'"
-              class="navbar-menu"
-              >Members</a
-            >
+            <a href="#" onclick="location.href='member.html'">Members</a>
           </li>
           <li>
-            <a
-              href="#"
-              onclick="location.href='board_list.html'"
-              class="navbar-menu"
-              >Board</a
-            >
+            <a href="#" onclick="location.href='board_list.html'">Board</a>
           </li>
         </ul>
       </nav>
     </div>
     <!-- 정기욱 -->
-    
-    <div class="container">
-        <div class="board-write">
-            <h1>Board_write</h1>
-            <p>글 작성 페이지 입니다.</p>
-        </div>
 
-        <form id="writeFrm">
-            <div class="input_container">
-                <div class = 'title'>
-                    <!-- <label for="write_title">제목</label> -->
-                    <input class = 'input' id= 'write_title' type="text" name="subject" placeholder="제목을 적어주세요">
-                </div>
-                <!-- <div class = 'name'>
+    <div class="container">
+      <div class="boardWrite">
+        <h1>Board_write</h1>
+        <p>글 작성 페이지 입니다.</p>
+      </div>
+
+      <form id="writeFrm">
+        <div class="inputContainer">
+          <div class="title">
+            <!-- <label for="write_title">제목</label> -->
+            <input
+              class="input"
+              id="writeTitle"
+              type="text"
+              name="subject"
+              placeholder="제목을 적어주세요"
+            />
+          </div>
+          <!-- <div class = 'name'>
                     <label for= "write_name">작성자</label>
                     <input id = 'write_name' type="text" name="writer" placeholder="이름을 적어주세요">
                 </div> -->
-                <!-- <label for="write_text" >내용</label> -->
-                <div class = 'text'>
-                    <textarea id = 'write_text' name="content" placeholder="내용!! 하고싶은 말을 적어주세요"></textarea>
-                </div>
-                <input class = 'input' type="submit" value="저장하기" id = 'submit'>
-                <input class = 'input' type="button" value="뒤로가기" onclick = "location.href = './board_list.html'" id = 'return'>
-                <div class="blank"></div>
-            </div>
-        </form>
+          <!-- <label for="write_text" >내용</label> -->
+          <div class="text">
+            <textarea
+              id="writeText"
+              name="content"
+              placeholder="내용!! 하고싶은 말을 적어주세요"
+            ></textarea>
+          </div>
+          <input class="input" type="submit" value="저장하기" id="submit" />
+          <input
+            class="input"
+            type="button"
+            value="뒤로가기"
+            onclick="location.href = './board_list.html'"
+            id="return"
+          />
+          <div class="blank"></div>
+        </div>
+      </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type = 'module' src="board_write.js"></script>
+    <script type="module" src="board_write.js"></script>
   </body>
 </html>
