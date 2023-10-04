@@ -14,112 +14,84 @@
   </head>
   <body>
     <!-- 기욱 -->
-    <div id="nav_wrap">
+    <div id="navWrap">
       <nav class="navbar">
         <!-- navlogo -->
-        <div class="navbar__logo">
+        <div class="navLogo">
           <div>
-            <a href="#" onclick="location.href='main.html'" class="navbar-logo"
-              >일 석 이 조</a
-            >
+            <a href="#" onclick="location.href='main.html'">일 석 이 조</a>
           </div>
         </div>
-
         <!-- navMenu -->
-        <ul class="navbar__menu">
+        <ul class="navMenu">
           <li>
-            <a href="#" onclick="location.href='main.html'" class="navbar-menu"
-              >Main</a
-            >
+            <a href="#" onclick="location.href='main.html'">Main</a>
           </li>
           <li>
-            <a
-              href="#"
-              onclick="location.href='member.html'"
-              class="navbar-menu"
-              >Members</a
-            >
+            <a href="#" onclick="location.href='member.html'">Members</a>
           </li>
           <li>
-            <a
-              href="#"
-              onclick="location.href='board_list.html'"
-              class="navbar-menu"
-              >Board</a
-            >
+            <a href="#" onclick="location.href='board_list.html'">Board</a>
           </li>
         </ul>
       </nav>
-      <!-- 기욱 -->
     </div>
 
     <!-- Member's profile -->
     <div class="container">
-      <div class="member_profile">
+      <div class="memProfileS">
         <!-- 
               사진순서
               1. 팀장
               2. 팀원 이름 가나다순
           -->
-        <div id="member_ej" class="member_profile_img">
+        <div id="memEj" class="memProfImg">
           <img src="./images/profiles/eunji.jpg" alt="유은지님" />
         </div>
-        <div id="member_yw" class="member_profile_img">
+        <div id="memYw" class="memProfImg">
           <img src="./images/profiles/youngwoo.jpg" alt="김영우님" />
         </div>
-        <div id="member_wk" class="member_profile_img">
-          <img src="./images/profiles/wook.jpg" alt="남궁욱님" />
-        </div>
-        <div id="member_kw" class="member_profile_img">
+        <div id="memGw" class="memProfImg">
           <img src="./images/profiles/giwook.jpg" alt="정기욱님" />
         </div>
-        <div id="member_sy" class="member_profile_img">
+        <div id="memSy" class="memProfImg">
           <img src="./images/profiles/sooyoung.JPG" alt="최수영님" />
         </div>
       </div>
 
-      <div class="member_box_wrap">
-        <div id="member_ej_detail" class="member_box">
+      <div class="memBoxWrap">
+        <div id="memEjDetail" class="memberBox">
           <p>은지님</p>
           <button
-            id="detail_ej"
-            onclick="location.href = 'member_detail.html#member_ej'"
+            id="detailEj"
+            onclick="location.href = 'member_detail.html#memEj'"
           >
             더보기
           </button>
         </div>
-        <div id="member_yw_detail" class="member_box">
+        <div id="memYwDetail" class="memberBox">
           <p>영우님</p>
           <button
-            id="detail_yw"
-            onclick="location.href = 'member_detail.html#member_yw'"
+            id="detailYw"
+            onclick="location.href = 'member_detail.html#memYw'"
           >
             더보기
           </button>
         </div>
-        <div id="member_wk_detail" class="member_box">
-          <p>욱님</p>
-          <button
-            id="detail_wk"
-            onclick="location.href = 'member_detail.html#member_wk'"
-          >
-            더보기
-          </button>
-        </div>
-        <div id="member_kw_detail" class="member_box">
+        <div id="memGwDetail" class="memberBox">
           <p>기욱님</p>
           <button
-            id="detail_kw"
-            onclick="location.href = 'member_detail.html#member_kw'"
+            id="detailGw"
+            onclick="location.href = 'member_detail.html#memGw'"
           >
             더보기
           </button>
         </div>
-        <div id="member_sy_detail" class="member_box">
+        <div id="memSyDetail" class="memberBox">
           <p>수영님</p>
           <button
-            id="detail_sy"
-            onclick="location.href = 'member_detail.html#member_sy'"
+            id="detailSy"
+            onclick="location.href = 'member_detail.html#memSy'"
           >
             더보기
           </button>
@@ -131,19 +103,13 @@
       //참고했어요 https://choonse.com/2022/02/02/789/
 
       $(document).click(function (e) {
-        const member_list = [
-          "member_ej",
-          "member_yw",
-          "member_wk",
-          "member_kw",
-          "member_sy",
-        ];
+        const member_list = ["memEj", "memYw", "memGw", "memSy"];
 
         for (let member of member_list) {
           if (member === e.target.parentElement.id) {
-            $(`#${member}_detail`).css("display", "block");
+            $(`#${member}Detail`).css("display", "block");
           } else {
-            $(`#${member}_detail`).css("display", "none");
+            $(`#${member}Detail`).css("display", "none");
           }
         }
       });
