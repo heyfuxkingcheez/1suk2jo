@@ -79,7 +79,7 @@ table td {
 }
 
 /* VIEW */
-.board-view {
+.boardView {
   display: flex;
   flex-direction: column;
   justify-content: center;
