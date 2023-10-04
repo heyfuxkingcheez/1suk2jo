@@ -28,7 +28,7 @@ a {
 /* Navbar */
 /* Navbar는 저의 페이지 모든 곳에 들어있으니 공통 Css 파일에 넣어놨어요! */
 /* 기욱님 navbar css 수정했어요! - 수영 */
-#nav_wrap {
+#navWrap {
   margin-top: 30px;
   display: flex;
   justify-content: center;
@@ -45,7 +45,7 @@ a {
   justify-content: space-around;
 }
 
-.navbar__menu {
+.navMenu {
   font-size: 35px;
   margin: 0;
   display: flex;
@@ -55,20 +55,20 @@ a {
   flex-direction: row;
 }
 
-.navbar__menu li {
+.navMenu li {
   padding: 8px 30px;
 }
 
-.navbar__menu li:hover {
+.navMenu li:hover {
   background-color: #fbc531;
   border-radius: 5px;
 }
 
 @media screen and (min-width: 1000px) {
-  .navbar__menu {
+  .navMenu {
     margin-right: 30px;
   }
-  .navbar__menu:last-child {
+  .navMenu:last-child {
     margin-right: 0;
   }
 }

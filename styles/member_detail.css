@@ -27,7 +27,7 @@ a {
   height: 300px;
 }
 
-.link{
+.link {
   display: flex;
   width: 300px;
   height: 50px;
@@ -38,21 +38,20 @@ a {
   /* border-radius: 10px; */
 }
 
-.emoge{
+.emoge {
   margin: 0px 20px 0px 20px;
   width: 30px;
   height: 30px;
   /* background-color: aqua; */
 }
 
-.member_profile_img {
+.memProfImg {
   margin-left: 10%;
 }
 
-.member_detail {
+.memDetail {
   height: auto;
   margin-right: 10%;
-
   font-size: 20px;
   justify-content: center;
   align-items: center;
