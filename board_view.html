@@ -1,59 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Board view</title>
-    <link rel="stylesheet" href="nav_bar.css">
-    <style>
-        .board-view {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            padding-left: 15%;
-            padding-top: 150px;
-
-            font-size: 25px;
-        }
-    </style>
-</head>
-<body>
+    <!-- 공통 css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- board css -->
+    <link rel="stylesheet" href="./styles/board.css" />
+    <style></style>
+  </head>
+  <body>
     <!-- 정기욱 -->
-    <div id='nav_wrap'>
-        <nav class="navbar">
-
-            <!-- navlogo -->
-            <div class="navbar__logo">
-                <div>
-                    <a href="#" onclick="location.href='main.html'" class="navbar-logo">일 석 이 조</a>
-                </div>
-            </div>
-
-            <!-- navMenu -->
-            <ul class="navbar__menu">
-                <li><a href="#" onclick="location.href='main.html'" class="navbar-menu">Main</a></li>
-                <li><a href="#" onclick="location.href='member.html'" class="navbar-menu">Members</a></li>
-                <li><a href="#" onclick="location.href='board_list.html'" class="navbar-menu">Board</a></li>
-            </ul>
-        </nav>
+    <div id="navWrap">
+      <nav class="navbar">
+        <!-- navlogo -->
+        <div class="navLogo">
+          <div>
+            <a href="#" onclick="location.href='main.html'">일 석 이 조</a>
+          </div>
+        </div>
+        <!-- navMenu -->
+        <ul class="navMenu">
+          <li>
+            <a href="#" onclick="location.href='main.html'">Main</a>
+          </li>
+          <li>
+            <a href="#" onclick="location.href='member.html'">Members</a>
+          </li>
+          <li>
+            <a href="#" onclick="location.href='board_list.html'">Board</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <!-- 정기욱 -->
-    <div class="board-view">
-        <h1>Board_view</h1>
-        <p>작성된 글 보기</p>
+    <div class="boardView">
+      <h1>Board_view</h1>
+      <p>작성된 글 보기</p>
     </div>
-    
+
     <form id="viewFrm">
-        <div id="subject">제목:</div>
-        <div id="wirter">작성자:</div>
-        <div id="date">작성일:</div>
-        <div id="content">내용:</div>
+      <div id="subject">제목:</div>
+      <div id="wirter">작성자:</div>
+      <div id="date">작성일:</div>
+      <div id="content">내용:</div>
     </form>
 
     <button id="modify">수정</button>
     <a href="./board_list.html">뒤로가기</a>
     <button id="delete">삭제</button>
     <script src=".board_view.js"></script>
-</body>
+  </body>
 </html>

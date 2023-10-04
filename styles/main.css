@@ -1,0 +1,41 @@
+/* Team information */
+/* 영우님 */
+.infoTeam {
+  width: 50vw;
+  height: 400px;
+  border: 2px solid chocolate;
+  border-radius: 130px;
+  margin: 200px auto 0px auto;
+}
+
+.aTeamGoal {
+  background-color: rgb(241, 240, 238);
+  width: 80%;
+  height: 30%;
+  margin: 30px auto 0px auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: darkblue;
+  border: 1px solid chocolate;
+  border-radius: 95px;
+  text-align: center;
+}
+
+/* 팀명 폰트 */
+#team_name {
+  font-family: "Moirai One", cursive;
+  font-size: 90px;
+  letter-spacing: 20px;
+  margin-left: 15%;
+}
+
+/* 본문 타이틀 폰트 */
+.infoTitle {
+  font-size: 30px;
+  text-align: center;
+  font-family: "Gamja Flower", cursive;
+  padding: 30px;
+}

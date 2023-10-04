@@ -1,0 +1,74 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+
+* {
+  color: black;
+  font-family: "Poor Story", cursive;
+  letter-spacing: 3px;
+  margin: 0px;
+  padding: 0;
+}
+
+/* * {} 여기에 뒀더니 우선순위가 높아 다른 배경 색이 적용되지 않아 따로 뺴놨습니다. */
+body {
+  background-color: #fff6cf;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Navbar */
+/* Navbar는 저의 페이지 모든 곳에 들어있으니 공통 Css 파일에 넣어놨어요! */
+/* 기욱님 navbar css 수정했어요! - 수영 */
+#navWrap {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 150px;
+  font-size: 40px;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navMenu {
+  font-size: 35px;
+  margin: 0;
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.navMenu li {
+  padding: 8px 30px;
+}
+
+.navMenu li:hover {
+  background-color: #fbc531;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+  .navMenu {
+    margin-right: 30px;
+  }
+  .navMenu:last-child {
+    margin-right: 0;
+  }
+}

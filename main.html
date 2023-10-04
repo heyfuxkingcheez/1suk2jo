@@ -1,138 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css 파일 분리 했습니다. - 수영 -->
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1suk2jo</title>
-  <link rel="stylesheet" href="nav_bar.css">
-</head>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+    <!-- 공통 css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- main 페이지 관련 css -->
+    <link rel="stylesheet" href="./styles/main.css" />
 
-  /* 나머지 글씨 폰트 */
-  * {
-    font-family: 'Poor Story', cursive;
-    letter-spacing: 3px;
-    margin: 0px;
-  }
-</style>
-<style>
-  #nav_wrap {
-    background-image: url(./images/profiles/bg4.png);
-    background-position: center;
-    background-size: cover;
-    height: 450px;
-    width: 100%;
+    <title>1suk2jo</title>
+  </head>
 
-    font-size: 40px;
+  <body>
+    <!-- 정기욱 -->
+    <div id="navWrap">
+      <nav class="navbar">
+        <!-- navlogo -->
+        <div class="navLogo">
+          <div>
+            <a href="#" onclick="location.href='main.html'">
+              <span>🍔</span>
+              먹 고 하 조</a
+            >
+          </div>
+        </div>
+        <!-- navMenu -->
+        <ul class="navMenu">
+          <li>
+            <a href="#" onclick="location.href='main.html'">Main</a>
+          </li>
+          <li>
+            <a href="#" onclick="location.href='member.html'">Members</a>
+          </li>
+          <li>
+            <a href="#" onclick="location.href='board_list.html'">Board</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- 정기욱 -->
 
-    margin-bottom: 150px;
-  }
-
-  /* 팀명 폰트 */
-  #team_name {
-    font-family: 'Moirai One', cursive;
-    font-size: 90px;
-    letter-spacing: 20px;
-    margin-left: 15%;
-  }
-
-  /* 본문 타이틀 폰트 */
-  .info_title {
-    font-size: 50px;
-    text-align: center;
-    font-family: 'Gamja Flower', cursive;
-  }
-</style>
-
-
-<!--김영우-->
-<style>
-  .InfoTeam {
-    width: 98%;
-    height: 400px;
-
-    border: 1px solid black;
-    border: 1px solid chocolate;
-    border-radius: 130px;
-
-    margin: 10px auto 0px auto;
-  }
-
-  .aTeamGoal {
-    background-color: rgb(241, 240, 238);
-    background-position: center;
-    background-size: cover;
-
-    width: 85%;
-    height: 30%;
-    margin: 30px auto 0px auto;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    color: darkblue;
-
-    border: 1px solid black;
-    border-radius: 95px;
-    text-align: center;
-  }
-</style>
-
-
-<body>
-  
-  <!-- 정기욱 -->
-  <div id='nav_wrap'>
-    <nav class="navbar">
-
-      <!-- navlogo -->
-      <div class="navbar__logo">
-        <div>
-          <a href="#" onclick="location.href='main.html'" class="navbar-logo">일 석 이 조</a>
+    <!--김영우-->
+    <div class="infoTeam">
+      <div class="aTeamGoal">
+        <div class="infoTitle">
+          하나를 배우면 둘을 알아가는 스펀지와 같은 팀 입니다.
         </div>
       </div>
 
-      <!-- navMenu -->
-      <ul class="navbar__menu">
-        <li><a href="#" onclick="location.href='main.html'" class="navbar-menu">Main</a></li>
-        <li><a href="#" onclick="location.href='member.html'" class="navbar-menu">Members</a></li>
-        <li><a href="#" onclick="location.href='board_list.html'" class="navbar-menu">Board</a></li>
-      </ul>
-    </nav>
-  </div>
-  <!-- 정기욱 -->
+      <div class="aTeamGoal">
+        <div class="infoTitle">
+          의사소통 능력과 직무능력을 갖춰 내배캠 완주 후 3개월 이내 취업을
+          목표로 합니다.
+        </div>
+      </div>
 
-  <!--김영우-->
-  <div class="InfoTeam">
-
-    <div class="aTeamGoal" id="tn">
-      <class= info_title>
-        </class>
-        <h3>하나를 배우면 둘을 알아가는 스펀지와 같은 팀 입니다.</h3>
+      <div class="findBtn">
+        <button type="button" onclick="location.href='/donation'">
+          후원하기
+        </button>
+      </div>
     </div>
-
-    <div class="aTeamGoal" id="tg">
-      <class= info_title>
-        </class>
-        <hr> 의사소통 능력과 직무능력을 갖춰 내배캠 완주 후 3개월 이내 취업을 목표로 합니다.</hr>
-    </div>
-
-    <div class="find-btn">
-      <button type="button" class="btn btn-navy navbar-btn find-btn1" onclick="location.href='/donation'">후원하기</button>
-    </div>
-
-  </div>
-
-
-</body>
-
+  </body>
 </html>
-
-<!-- box-shadow: 0px 0px 3px 0px blue -->

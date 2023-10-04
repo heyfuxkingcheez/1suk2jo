@@ -1,0 +1,63 @@
+/* member_detail.html */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.blank {
+  height: 100px;
+}
+
+.container .detail {
+  width: 70%;
+  height: auto;
+  /* background-color: rgb(212, 129, 21); */
+  margin: 150px auto 400px auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: 300px;
+}
+
+.profile {
+  display: flex;
+  object-fit: cover;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+.link {
+  display: flex;
+  width: 300px;
+  height: 50px;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgb(203, 183, 174); */
+  /* border-radius: 10px; */
+}
+
+.emoge {
+  margin: 0px 20px 0px 20px;
+  width: 30px;
+  height: 30px;
+  /* background-color: aqua; */
+}
+
+.memProfImg {
+  margin-left: 10%;
+}
+
+.memDetail {
+  height: auto;
+  margin-right: 10%;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+#footer {
+  height: 400px;
+}
