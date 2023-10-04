@@ -24,6 +24,40 @@
   text-align: center;
 }
 
+.donation {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#arrow {
+  margin-top: 5%;
+  margin: 0px auto 20px auto;
+  position: relative;
+  top: 15px;
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+  transform: rotate(45deg);
+}
+
+#payText {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 20px;
+  bottom: 10px;
+}
+
+.payImg {
+  margin: 20px auto 20px auto;
+
+}
+
 /* 팀명 폰트 */
 #team_name {
   font-family: "Moirai One", cursive;
