@@ -38,31 +38,63 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.boardHeader {
+.writeBtnWrap {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
 .writeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 30px;
+  margin-right: 2px;
   background-color: #333;
   color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 table {
+  font-size: 20px;
   width: 100%;
-  border-collapse: collapse;
+  text-align: center;
 }
 
 table th,
 table td {
+  width: 100%;
+  height: 50px;
   border: 1px solid #ddd;
-  padding: 0.5rem;
-  text-align: center;
 }
+
+td {
+  height: 80px;
+}
+
+.listNum,
+.listViews {
+  width: 10%;
+}
+
+.listTitle {
+  width: 40%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.listAutor,
+.listDate {
+  width: 20%;
+}
+
 .pagination {
   text-align: center;
   margin-top: 1rem;
@@ -79,7 +111,7 @@ table td {
 }
 
 /* VIEW */
-.board-view {
+.boardView {
   display: flex;
   flex-direction: column;
   justify-content: center;
