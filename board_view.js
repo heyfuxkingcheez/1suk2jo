@@ -43,14 +43,17 @@ $("#delete").click(async function (e) {
 
 //데이터 보여주기
 let docs = await getDocs(collection(db, "board"));
+console.log(docs)
 docs.forEach((doc) => {
   let row = doc.data();
   let writeTitle = row["writeTitle"];
   let writeName = row["writeName"];
   let when = row["when"];
   let writeText = row['writeText'];
-  console.log(writeTitle, writeText, writeName, when)
-  console.log(docs);
+  // let id = row[]
+  console.log(row)
+  // console.log(writeTitle, writeText, writeName, when)
+  // console.log(docs);
   let append_html = `
     <div id="subject">
       <span>제목 : ${writeTitle}</span>
