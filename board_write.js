@@ -36,9 +36,12 @@ $("#writeFrm").submit(async function (e) {
   let date = now.getDate();
   let hours = String(now.getHours()).padStart(2, "0");
   let minutes = String(now.getMinutes()).padStart(2, "0");
+  let second = String(now.getSeconds()).padStart(2, "0");
+
 
   let when = `${year}.${month}.${date}  ${hours}:${minutes}`;
   console.log(when);
+  
 
   let writeTitle = $("#writeTitle").val();
   let writeText = $("#writeText").val();
