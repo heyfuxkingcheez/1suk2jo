@@ -1,14 +1,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
-    collection,
-    addDoc,
+  collection,
+  addDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
-    doc,
-    setDoc,
-    deleteDoc,
+  orderBy,
+  query,
+  doc,
+  setDoc,
+  deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -31,15 +33,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const board = collection(db, "board");
+
+const que = await query(board, orderBy("when", "desc"));
+
 // list
-let docs = await getDocs(collection(db, "board"));
+let docs = await getDocs(que);
 docs.forEach((doc) => {
-    let row = doc.data();
-    let writeTitle = row["writeTitle"];
-    let writeName = row["writeName"];
-    let when = row["when"];
-    console.log(docs);
-    let append_html = `
+  let row = doc.data();
+  let writeTitle = row["writeTitle"];
+  let writeName = row["writeName"];
+  let when = row["when"];
+  console.log(docs);
+  let append_html = `
   <tr>
       <td class="listNum"></td>
       <td class="listTitle">
@@ -52,5 +58,5 @@ docs.forEach((doc) => {
       <td class="listViews">3</td>
   </tr>`;
 
-    $("#listCard").append(append_html);
+  $("#listCard").append(append_html);
 });
