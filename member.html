@@ -108,7 +108,6 @@
 
       $(document).click(function (e) {
         const member_list = ["memEj", "memYw", "memGw", "memSy"];
-
         for (let member of member_list) {
           if (member === e.target.parentElement.id) {
             $(`#${member}Detail`).css("display", "block");
