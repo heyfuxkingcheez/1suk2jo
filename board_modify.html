@@ -44,7 +44,7 @@
       <h1>글 수정</h1>
       <p>글 수정하는 페이지 입니다.</p>
 
-      <form id="modifyFrm">
+      <form id="modifyFrm" action="./board_view.html">
         <div>제목: <input type="text" name="subject" /></div>
         <div>작성자: <input type="text" name="writer" /></div>
         <div>내용: <textarea name="content"></textarea></div>
@@ -54,11 +54,6 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src=".board_modify.js"></script>
       <script>
-        $('#ko').click(function(e){
-          e.preventDefault();
-          console.log('dkdk')
-          location.href = './board_list.html'
-        })
       </script>
     </div>
   </body>
