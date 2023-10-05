@@ -34,8 +34,8 @@ $("#writeFrm").submit(async function (e) {
   let year = now.getFullYear();
   let month = now.getMonth() + 1;
   let date = now.getDate();
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
+  let hours = String(now.getHours()).padStart(2, "0");
+  let minutes = String(now.getMinutes()).padStart(2, "0");
 
   let when = `${year}.${month}.${date}  ${hours}:${minutes}`;
   console.log(when);
