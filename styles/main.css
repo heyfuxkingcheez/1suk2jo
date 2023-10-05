@@ -1,4 +1,11 @@
 /* Team information */
+
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+
+
 /* 영우님 */
 .infoTeam {
   width: 50vw;
@@ -59,7 +66,7 @@
 }
 
 /* 팀명 폰트 */
-#team_name {
+.navLogo{
   font-family: "Moirai One", cursive;
   font-size: 90px;
   letter-spacing: 20px;

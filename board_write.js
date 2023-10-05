@@ -54,5 +54,7 @@ $("#writeFrm").submit(async function (e) {
   console.log(docs);
   await addDoc(collection(db, "board"), docs);
   alert("저장 완료!");
+
   window.location.reload();
+
 });
