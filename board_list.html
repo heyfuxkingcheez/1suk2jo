@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./styles/style.css" />
     <!-- board css -->
     <link rel="stylesheet" href="./styles/board.css" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
     <script>
       console.log("hello world!");
     </script>
@@ -20,8 +22,9 @@
         <!-- navlogo -->
         <div class="navLogo">
           <div>
-            <a href="#" onclick="location.href='main.html'"><span>🍔</span>
-              먹 고 하 조</a>
+            <a href="#" onclick="location.href='main.html'"
+              ><span>🍔</span> 먹 고 하 조</a
+            >
           </div>
         </div>
         <!-- navMenu -->
@@ -52,19 +55,158 @@
     <section class="board">
       <table>
         <thead>
-          <tr>
-            <th>글 번호</th>
-            <th>제목</th>
-            <th>글쓴이</th>
-            <th>작성일</th>
-            <th>조회수</th>
+          <tr class="thWrap">
+            <th class="listNum">글 번호</th>
+            <th class="listTitle">제목</th>
+            <th class="listAutor">글쓴이</th>
+            <th class="listDate">작성일</th>
+            <th class="listViews">조회수</th>
           </tr>
         </thead>
         <tbody>
-          <!-- 글 목록을 동적으로 추가-->
+          <tr>
+            <td class="listNum">10</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
+          <tr>
+            <td class="listNum">9</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
+          <tr>
+            <td class="listNum">8</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
+          <tr>
+            <td class="listNum">7</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
+          <tr>
+            <td class="listNum">6</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
+          <tr>
+            <td class="listNum">5</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
+          <tr>
+            <td class="listNum">4</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
+          <tr>
+            <td class="listNum">3</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
+          <tr>
+            <td class="listNum">2</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
+          <tr>
+            <td class="listNum">1</td>
+            <td class="listTitle">
+              <a href="board_view.html" id="tdTitle">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Consectetur maiores dolore at velit labore nemo facilis cumque,
+                recusandae voluptates soluta, provident est vel aperiam illum!
+                Eum alias possimus officiis maxime?
+              </a>
+            </td>
+            <td class="listAutor">최수영</td>
+            <td class="listDate">23.10.04.</td>
+            <td class="listViews">3</td>
+          </tr>
         </tbody>
       </table>
-      <div class="boardHeader">
+      <div class="writeBtnWrap">
         <a onclick="location.href='board_write.html'" class="writeButton"
           >글쓰기</a
         >
@@ -74,6 +216,6 @@
     <section class="pagination">
       <!-- 페이지 번호를 동적으로 추가 -->
     </section>
-    <script src="board_list.js"></script>
+    <script type="module" src="board_list.js"></script>
   </body>
 </html>
