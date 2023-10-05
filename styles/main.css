@@ -65,14 +65,6 @@
 
 }
 
-/* 팀명 폰트 */
-.navLogo{
-  font-family: "Moirai One", cursive;
-  font-size: 90px;
-  letter-spacing: 20px;
-  margin-left: 15%;
-}
-
 /* 본문 타이틀 폰트 */
 .infoTitle {
   font-size: 30px;

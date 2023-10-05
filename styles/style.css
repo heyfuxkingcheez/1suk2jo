@@ -38,6 +38,14 @@ a {
   font-size: 40px;
 }
 
+/* 팀명 폰트 */
+.navLogo{
+  font-family: "Moirai One", cursive;
+  font-size: 50px;
+  letter-spacing: 20px;
+  margin-left: 15px;
+}
+
 .navbar {
   display: flex;
   width: 100%;
