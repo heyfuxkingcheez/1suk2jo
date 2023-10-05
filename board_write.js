@@ -34,6 +34,7 @@ const db = getFirestore(app);
 
 $("#writeFrm").submit(async function (e) {
   e.preventDefault();
+
   //저장한 시간 가져오기.
   let now = new Date();
 
@@ -44,10 +45,9 @@ $("#writeFrm").submit(async function (e) {
   let minutes = String(now.getMinutes()).padStart(2, "0");
   let second = String(now.getSeconds()).padStart(2, "0");
 
-
   let when = `${year}.${month}.${date}  ${hours}:${minutes}`;
   console.log(when);
-  
+  console.log(second);
 
   let writeTitle = $("#writeTitle").val();
   let writeText = $("#writeText").val();
