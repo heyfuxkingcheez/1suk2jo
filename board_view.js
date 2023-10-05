@@ -43,30 +43,37 @@ $("#delete").click(async function (e) {
 
 //데이터 보여주기
 let docs = await getDocs(collection(db, "board"));
-console.log(docs)
+let query = window.location.search.substr(11);
+
 docs.forEach((doc) => {
   let row = doc.data();
   let writeTitle = row["writeTitle"];
   let writeName = row["writeName"];
   let when = row["when"];
   let writeText = row['writeText'];
-  // let id = row[]
+  let num = row['num']
   console.log(row)
+  console.log(num)
+  console.log(query);
   // console.log(writeTitle, writeText, writeName, when)
   // console.log(docs);
-  let append_html = `
-    <div id="subject">
-      <span>제목 : ${writeTitle}</span>
-    </div>
-    <div id="wirter">
-      <span>작성자 : ${writeName}</span>  
-    </div>
-    <div id="date">
-      <span>작성일 : ${when}</span>  
-    </div>
-    <div id="content">
-      <span>내용 : ${writeText}</span>  
-    </div>`
+  if(num === query){
+    console.log('같으')
+    let append_html = `
+      <div id="subject">
+        <span>제목 : ${writeTitle}</span>
+      </div>
+      <div id="wirter">
+        <span>작성자 : ${writeName}</span>  
+      </div>
+      <div id="date">
+        <span>작성일 : ${when}</span>  
+      </div>
+      <div id="content">
+        <span>내용 : ${writeText}</span>  
+      </div>
+    `
+    $("#viewFrm").append(append_html);
+  }
 
-  $("#listCard").append(append_html);
 });

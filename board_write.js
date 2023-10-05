@@ -42,30 +42,39 @@ $("#writeFrm").submit(async function (e) {
   let date = now.getDate();
   let hours = String(now.getHours()).padStart(2, "0");
   let minutes = String(now.getMinutes()).padStart(2, "0");
+  let second = String(now.getSeconds()).padStart(2, "0");
+
 
   let when = `${year}.${month}.${date}  ${hours}:${minutes}`;
   console.log(when);
+  
 
   let writeTitle = $("#writeTitle").val();
   let writeText = $("#writeText").val();
   let writeName = $("#writeName").val();
-
-  console.log(writeTitle, writeName, writeText);
+  var newID = function () {
+    return Math.random().toString(36).substr(2, 16);
+  }
+  console.log(newID());
+  // console.log(writeTitle, writeName, writeText);
   let docs = {
     writeTitle: writeTitle,
     writeText: writeText,
     writeName: writeName,
     when: when,
+    num : newID()
   };
+  const num = docs.num.toString();
+  console.log(num +'!!!');
   console.log(docs)
   let add = addDoc(collection(db, "board"), docs);
-  // add.setData({
-  //   'id': add.id
-  // }).then(()=> console.log('set완료'))
-  // // .catch(error=> console.log('에러'))
   await add;
-  alert("저장 완료!");
 
-  window.location.href = 'board_view.html';
+  alert("저장 완료!");
+ 
+  // const num = docs.num
+  window.location.href = `board_view.html?ID=" +${num}`;
+
+  // window.location.href = 'board_view.html?ID =${newID()}';
 
 });
