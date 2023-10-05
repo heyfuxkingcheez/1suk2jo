@@ -41,6 +41,7 @@ $("#writeFrm").submit(async function (e) {
 
   let when = `${year}.${month}.${date}  ${hours}:${minutes}`;
   console.log(when);
+  console.log(second);
   
 
   let writeTitle = $("#writeTitle").val();
