@@ -39,4 +39,18 @@ $('#writeFrm').submit(async function(e){
   console.log(when);
 
   let writeTitle = $('#writeTitle').val();
-})
+  let writeText = $('#writeText').val();
+  let writeName = $('#writeName').val();
+
+  console.log(writeTitle, writeName, writeText);
+  let docs = {
+    'writeTitle' : writeTitle,
+    'writeText' : writeText,
+    'writeName' : writeName,
+    'when' : when
+  };
+  console.log(docs)
+  await addDoc(collection(db, "board"), docs);
+  alert("저장 완료!");
+  window.location.reload()
+});
