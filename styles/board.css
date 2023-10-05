@@ -220,3 +220,27 @@ textarea:hover {
 }
 
 /* 기욱 게시판 css */
+div.paging {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+  font-size: 25px;
+}
+
+div.pages {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+div.paging>i,
+div.paging>div.pages>span {
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+span.active {
+  color: rgb(40, 85, 51);
+  font-weight: bold;
+}
