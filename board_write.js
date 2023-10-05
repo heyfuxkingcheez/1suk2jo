@@ -6,29 +6,31 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-import {doc, setDoc, deleteDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import {
+  doc,
+  setDoc,
+  deleteDoc,
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
-  authDomain: "sparta-e533a.firebaseapp.com",
-  projectId: "sparta-e533a",
-  storageBucket: "sparta-e533a.appspot.com",
-  messagingSenderId: "176323692514",
-  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
-  measurementId: "G-H5C27X8E9M"
+  apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
+  authDomain: "soo-test-15c67.firebaseapp.com",
+  projectId: "soo-test-15c67",
+  storageBucket: "soo-test-15c67.appspot.com",
+  messagingSenderId: "239246841609",
+  appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
+  measurementId: "G-7BLCRSRLW5",
 };
 
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-
-$('#writeFrm').submit(async function(e){
+$("#writeFrm").submit(async function (e) {
   e.preventDefault();
   //저장한 시간 가져오기.
   let now = new Date();
-  
+
   let year = now.getFullYear();
   let month = now.getMonth() + 1;
   let date = now.getDate();
@@ -38,19 +40,19 @@ $('#writeFrm').submit(async function(e){
   let when = `${year}.${month}.${date}  ${hours}:${minutes}`;
   console.log(when);
 
-  let writeTitle = $('#writeTitle').val();
-  let writeText = $('#writeText').val();
-  let writeName = $('#writeName').val();
+  let writeTitle = $("#writeTitle").val();
+  let writeText = $("#writeText").val();
+  let writeName = $("#writeName").val();
 
   console.log(writeTitle, writeName, writeText);
   let docs = {
-    'writeTitle' : writeTitle,
-    'writeText' : writeText,
-    'writeName' : writeName,
-    'when' : when
+    writeTitle: writeTitle,
+    writeText: writeText,
+    writeName: writeName,
+    when: when,
   };
-  console.log(docs)
+  console.log(docs);
   await addDoc(collection(db, "board"), docs);
   alert("저장 완료!");
-  window.location.reload()
+  window.location.reload();
 });
