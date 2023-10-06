@@ -19,23 +19,23 @@ import {
   limit,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:40149b8fa66ce19b1c289c",
-};
+  apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
+  authDomain: "soo-test-15c67.firebaseapp.com",
+  projectId: "soo-test-15c67",
+  storageBucket: "soo-test-15c67.appspot.com",
+  messagingSenderId: "239246841609",
+  appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
+  measurementId: "G-7BLCRSRLW5"
+  };
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const board = collection(db, "board");
-
 let lastVisibleDoc = null; //이전 페이지의 마지막 문서
 const que = await query(board, orderBy("when", "desc"));
-
 
 //게시글 번호
 const countAll = await getCountFromServer(que);
@@ -150,26 +150,24 @@ docs.forEach((eachDoc) => {
 // 누르는 페이지 마다 class=active; 추가, 색상 변경
 $(".paging").click(async function (e) {
   $(".active").removeClass("active");
-  $(e.target).addClass("active");
+  $(e.target).addCgitass("active");
 });
 
-
 // 검색기능
+// DB 데이터 값 중에서 writeTitle 값만 가져옴
 let searbb = await getDocs(collection(db, "board"));
 docs.forEach((eachDoc) => {
   let row = eachDoc.data();
   let writeTitle = row["writeTitle"];
-
+  console.log(writeTitle)
 });
-$(".searchBtn").click(async function (e) {
-  e.preventDefault();
-  alert("검색")
-  let sear = $("#searchContent").val();
-  console.log(sear)
-  
-  // if (writeTitle.val == sear.val) {
-  //   console.log("찾음")
-  // }
 
-
+// jquery 에서 searchContent 값으로 DB값과 비교
+$(document).ready(function(){
+  $("#searchContent").keyup(function() {
+    var k = $(this).val(); // searchContent 값 지정
+    $("tr").hide(); // tr요소를 숨김
+    var temp = $("tr:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
+    $(temp).show(); //지정된 temp를 보여줌
+  });
 });
