@@ -159,7 +159,7 @@ let searbb = await getDocs(collection(db, "board"));
 docs.forEach((eachDoc) => {
   let row = eachDoc.data();
   let writeTitle = row["writeTitle"];
-  console.log(writeTitle)
+  
 });
 
 // jquery 에서 searchContent 값으로 DB값과 비교
