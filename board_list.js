@@ -68,7 +68,8 @@ docs.forEach((eachDoc) => {
 
   $(document).click(async function (e) {
     e.preventDefault();    
-    //게시글 보여주기 처음에 타이틀로 가져와서 비교했는데 갑자기 안먹어서 변경
+    //게시글 보여주기 기능 갑자기 안먹은거 해결방법
+    //처음에 타이틀로 가져와서 비교했는데, 누른것의 num 값을 가져와 비교.
     let clickNum = e.target.previousElementSibling.innerText;
 
     if(clickNum === num){
