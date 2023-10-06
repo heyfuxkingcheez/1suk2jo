@@ -10,7 +10,11 @@ import {
   orderBy,
   query,
   doc,
+  limit,
   setDoc,
+  startAt,
+  endAt,
+  startAfter,
   deleteDoc,
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
@@ -36,7 +40,6 @@ const countAll = await getCountFromServer(que);
 let listNum = countAll.data().count + 1;
 // list
 let docs = await getDocs(que);
-
 //forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 docs.forEach((eachDoc) => {
   //데이터의 문서id 값 출력해 봤어요
