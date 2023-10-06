@@ -35,7 +35,7 @@ const board = collection(db, "board");
 let lastVisibleDoc = null;  //이전 페이지의 마지막 문서
 
 // list 
-const que = await query(board, orderBy("when", "desc"), limit(10));
+const que = await query(board, orderBy("when", "desc"));
 let docs = await getDocs(que);
 lastVisibleDoc = docs[docs.length -1];
 console.log(docs)
