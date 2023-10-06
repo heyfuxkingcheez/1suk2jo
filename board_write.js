@@ -62,14 +62,17 @@ $("#writeFrm").submit(async function (e) {
     writeText: writeText,
     writeName: writeName,
     when: when,
-    num : newID()
+    num : newID(),
+    howMany : 0
   };
   const num = docs.num.toString();
   console.log(num +'!!!');
   console.log(docs)
+  console.log(docs.howMany)
   let add = addDoc(collection(db, "board"), docs);
-  await add;
-
+  //데이터 저장하고 해당 아이디값 출력해 봤어요
+  await add.then((ID)=> console.log(ID.id));
+  
   alert("저장 완료!");
  
   // const num = docs.num

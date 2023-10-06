@@ -52,13 +52,11 @@ docs.forEach((doc) => {
   let when = row["when"];
   let writeText = row['writeText'];
   let num = row['num']
-  console.log(row)
-  console.log(num)
-  console.log(query);
   // console.log(writeTitle, writeText, writeName, when)
   // console.log(docs);
   if(num === query){
     console.log('같으')
+    console.log(row)
     let append_html = `
       <div id="subject">
         <span>제목 : ${writeTitle}</span>
