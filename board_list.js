@@ -36,6 +36,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const board = collection(db, "board");
 let lastVisibleDoc = null; //이전 페이지의 마지막 문서
+
 // const que = await query(board, orderBy("when", "desc"));
 
 const dArr = [];
@@ -51,6 +52,7 @@ docs.forEach((ds) => {
   dArr.push(ds.data());
 });
 console.log("디알알", dArr);
+
 
 //게시글 번호
 
@@ -120,14 +122,6 @@ $(".paging").click(async function (e) {
   $(e.target).addCgitass("active");
 });
 
-// 검색기능
-// DB 데이터 값 중에서 writeTitle 값만 가져옴
-let searbb = await getDocs(collection(db, "board"));
-docs.forEach((eachDoc) => {
-  let row = eachDoc.data();
-  let writeTitle = row["writeTitle"];
-  // console.log(writeTitle)
-});
 
 // jquery 에서 searchContent 값으로 DB값과 비교
 $(document).ready(function () {

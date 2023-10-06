@@ -21,6 +21,7 @@ const firebaseConfig = {
   measurementId: "G-7BLCRSRLW5",
 };
 
+
 // Firebase 인스턴스 초기화
 
 const app = initializeApp(firebaseConfig);
