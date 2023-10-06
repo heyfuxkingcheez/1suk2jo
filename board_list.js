@@ -27,19 +27,25 @@ const firebaseConfig = {
   messagingSenderId: "982632789909",
   appId: "1:982632789909:web:40149b8fa66ce19b1c289c",
 };
-
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const board = collection(db, "board");
-const que = await query(board, orderBy("when", "desc"));
+let lastVisibleDoc = null;  //이전 페이지의 마지막 문서
+
+// list 
+const que = await query(board, orderBy("when", "desc"), limit(10));
+let docs = await getDocs(que);
+lastVisibleDoc = docs[docs.length -1];
+
+//게시글 번호
 const countAll = await getCountFromServer(que);
 // console.log(countAll.data().count);
-
 let listNum = countAll.data().count + 1;
-// list
-let docs = await getDocs(que);
+
+
+
 //forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 docs.forEach((eachDoc) => {
   //데이터의 문서id 값 출력해 봤어요

@@ -26,20 +26,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-//데이터 삭제
-$("#delete").click(async function (e) {
-  e.preventDefault();
-
-  console.log("gt");
-
-  //삭제 예시
-  // const desertRef = doc(db, [컬렉션명], [도큐멘트명], [하위컬렉션명], [삭제할 도큐멘트명]);
-  // await deleteDoc(desertRef);
-
-  // let dodo = doc(db, 'eatJoo', '5');
-  // await deleteDoc(dodo);
-  window.location.href = "./board_list.html";
-});
 
 //데이터 보여주기
 let docs = await getDocs(collection(db, "board"));
@@ -52,11 +38,14 @@ docs.forEach((eachDoc) => {
   let when = row["when"];
   let writeText = row["writeText"];
   let num = row["num"];
+  let id = eachDoc.id
+  let which;
   // console.log(writeTitle, writeText, writeName, when)
   // console.log(docs);
   if (num === query) {
     console.log("같으");
     console.log(row);
+    which = id;
     let append_html = `
       <div id="subject">
         <span>제목 : ${writeTitle}</span>
@@ -74,7 +63,8 @@ docs.forEach((eachDoc) => {
     $("#viewFrm").append(append_html);
   }
 
-  console.log(which)
+  // console.log(which);
+
   //데이터 삭제
   $("#delete").click(async function (e) {
     e.preventDefault();
@@ -82,7 +72,7 @@ docs.forEach((eachDoc) => {
     if(id === which){
       if (confirm("정말로 삭제 하시겠습니까?")) {
         await deleteDoc(doc(db, 'board', which)) ;
-      window.location.href = './board_list.html';
+        window.location.href = './board_list.html';
       } else {
         return false;
       }
