@@ -17,8 +17,6 @@ import {
   startAfter,
   deleteDoc,
   updateDoc,
-  startAfter,
-  limit,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -104,34 +102,9 @@ docs.forEach((eachDoc) => {
 });
 
 // pagination
-// let pagePrev = document.getElementById("#pagePrev");
-// let page1 = document.getElementById("#page1");
-// let page2 = document.getElementById("#page2");
-// let page3 = document.getElementById("#page3");
-// let page4 = document.getElementById("#page4");
-// let pageNext = document.getElementById("#pageNext");
 
+// 누르는 페이지 마다 class=active; 추가, 색상 변경
 $(".paging").click(async function (e) {
-  // $(".paging").removeClass("active");
-  let clickTag = e.target;
-  // $(clickTag).addClass("active");
-  console.log(clickTag);
-
-  const pageBtnList = [
-    "pagePrev",
-    "page1",
-    "page2",
-    "page3",
-    "page4",
-    "pageNext",
-  ];
-  for (let pageBtn of pageBtnList) {
-    if ($(clickTag).hasClass("active") === false) {
-      // class가 존재함
-      $(clickTag).addClass("active");
-    } else {
-      // class가 존재하지않음
-      $(clickTag).not(".active").addClass("active");
-    }
-  }
+  $(".active").removeClass("active");
+  $(e.target).addClass("active");
 });
