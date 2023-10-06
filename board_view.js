@@ -65,11 +65,14 @@ docs.forEach((eachDoc) => {
   //데이터 삭제
   $("#delete").click(async function (e) {
     e.preventDefault();
-
     console.log(id);
     if(id === which){
-      await deleteDoc(doc(db, 'board', which));
+      if (confirm("정말로 삭제 하시겠습니까?")) {
+        await deleteDoc(doc(db, 'board', which)) ;
       window.location.href = './board_list.html';
+      } else {
+        return false;
+      }
     }
     //삭제 예시
     // const desertRef = doc(db, [컬렉션명], [도큐멘트명], [하위컬렉션명], [삭제할 도큐멘트명]);
