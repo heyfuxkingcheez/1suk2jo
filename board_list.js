@@ -1,10 +1,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
-  getFirestore,
   collection,
   addDoc,
   getCountFromServer,
-  getDocs,
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import {
   orderBy,
   query,
   doc,
@@ -28,7 +30,11 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const board = collection(db, "board");
-const que = await query(board, orderBy("when", "desc"));
+const que = await query(
+  board,
+  orderBy("when", "desc")
+  // limit()
+);
 const countAll = await getCountFromServer(que);
 // console.log(countAll.data().count);
 

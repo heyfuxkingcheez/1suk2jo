@@ -46,8 +46,8 @@ $("#delete").click(async function (e) {
 let docs = await getDocs(collection(db, "board"));
 let query = window.location.search.substr(11);
 
-docs.forEach((doc) => {
-  let row = doc.data();
+docs.forEach((eachDoc) => {
+  let row = eachDoc.data();
   let writeTitle = row["writeTitle"];
   let writeName = row["writeName"];
   let when = row["when"];
