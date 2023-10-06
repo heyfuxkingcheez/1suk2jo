@@ -10,13 +10,13 @@ import {
   orderBy,
   query,
   doc,
-  limit,
   setDoc,
   startAt,
   endAt,
   startAfter,
   deleteDoc,
   updateDoc,
+  limit,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -32,19 +32,57 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const board = collection(db, "board");
-let lastVisibleDoc = null;  //이전 페이지의 마지막 문서
 
-// list 
+let lastVisibleDoc = null; //이전 페이지의 마지막 문서
 const que = await query(board, orderBy("when", "desc"));
-let docs = await getDocs(que);
-lastVisibleDoc = docs[docs.length -1];
-console.log(docs)
+
+
 //게시글 번호
 const countAll = await getCountFromServer(que);
 // console.log(countAll.data().count);
 let listNum = countAll.data().count + 1;
 
+// list
 
+let docs = await getDocs(que);
+
+// pagination
+// currentPage: 현재 페이지
+// totalCount: 총 데이터의 갯수
+// pageCount: 화면에 나타날 페이지 갯수
+// limit: 한 페이지 당 나타낼 데이터의 갯수
+let currentPage = 1;
+let totalCount = listNum - 1;
+let pageCount = 5;
+let limitNum = 5;
+
+// 총 데이터의 개수를 한 페이지당 나타낼 데이터의 개수로 나눠주기.
+// 올림의 이유 마지막 페이지가
+let totalPage = Math.ceil(totalCount / limitNum);
+let pageGroup = Math.ceil(currentPage / pageCount);
+
+let lastNumber = pageGroup * pageCount;
+if (lastNumber > totalPage) {
+  lastNumber = totalPage;
+}
+let firstNumber = lastNumber - (pageCount - 1);
+
+// const next = lastNumber + 1;
+// const prev = firstNumber - 1;
+
+// 1~5만큼 페이지네이션 그려줌
+
+for (let i = firstNumber; i <= lastNumber; i++) {
+  if (i === 1) {
+    let pageAppend = `
+    <span id="page${i}" class="active">${i}</span>`;
+    $(".pages").append(pageAppend);
+  } else {
+    let pageAppend = `
+    <span id="page${i}">${i}</span>`;
+    $(".pages").append(pageAppend);
+  }
+}
 
 //forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 docs.forEach((eachDoc) => {
@@ -97,9 +135,7 @@ docs.forEach((eachDoc) => {
       await updateDoc(b, { howMany: newHowMany });
       // console.log(row['howMany']);
 
-      
       // alert('과연');  //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
-
 
       //클릭한 게시물 보여주도록
       window.location.href = `board_view.html?ID=" +${num}`;
