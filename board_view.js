@@ -20,11 +20,26 @@ const firebaseConfig = {
   projectId: "ejoo-a1fd7",
   storageBucket: "ejoo-a1fd7.appspot.com",
   messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:40149b8fa66ce19b1c289c"
+  appId: "1:982632789909:web:40149b8fa66ce19b1c289c",
 };
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+//데이터 삭제
+$("#delete").click(async function (e) {
+  e.preventDefault();
+
+  console.log("gt");
+
+  //삭제 예시
+  // const desertRef = doc(db, [컬렉션명], [도큐멘트명], [하위컬렉션명], [삭제할 도큐멘트명]);
+  // await deleteDoc(desertRef);
+
+  // let dodo = doc(db, 'eatJoo', '5');
+  // await deleteDoc(dodo);
+  window.location.href = "./board_list.html";
+});
 
 //데이터 보여주기
 let docs = await getDocs(collection(db, "board"));
@@ -35,15 +50,12 @@ docs.forEach((eachDoc) => {
   let writeTitle = row["writeTitle"];
   let writeName = row["writeName"];
   let when = row["when"];
-  let writeText = row['writeText'];
-  let num = row['num']
-  let id = eachDoc.id;
+  let writeText = row["writeText"];
+  let num = row["num"];
   // console.log(writeTitle, writeText, writeName, when)
   // console.log(docs);
-
-  let which;
-  if(num === query){
-    which = id
+  if (num === query) {
+    console.log("같으");
     console.log(row);
     let append_html = `
       <div id="subject">
@@ -58,9 +70,10 @@ docs.forEach((eachDoc) => {
       <div id="content">
         <span>내용 : ${writeText}</span>  
       </div>
-    `
+    `;
     $("#viewFrm").append(append_html);
   }
+
   console.log(which)
   //데이터 삭제
   $("#delete").click(async function (e) {
@@ -79,5 +92,5 @@ docs.forEach((eachDoc) => {
     // await deleteDoc(desertRef);
 
   });
-});
 
+});
