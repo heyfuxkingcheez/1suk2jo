@@ -36,6 +36,8 @@ const countAll = await getCountFromServer(que);
 let listNum = countAll.data().count + 1;
 // list
 let docs = await getDocs(que);
+
+//forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 docs.forEach((eachDoc) => {
   //데이터의 문서id 값 출력해 봤어요
   console.log(eachDoc.id);
@@ -67,18 +69,19 @@ docs.forEach((eachDoc) => {
   $(document).click(async function (e) {
     e.preventDefault();    
     let clickNum = e.target.previousElementSibling.innerText;
-    console.log(clickNum);
-    console.log(writeTitle)
 
     if(clickNum === num){
+      
+      //조회수 데이터 수정하기
       let newHowMany = howMany+ 1;
-      // let numHowMany = Number(newHowMany)+1
-      console.log(newHowMany )
+      // console.log(newHowMany );
       let b = doc(db, 'board', id);
       await updateDoc(b, {howMany : newHowMany});
+      // console.log(row['howMany']);
+      
+      alert('과연');  //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
 
-      console.log(row['howMany']);
-      alert('과연');
+      //클릭한 게시물 보여주도록
       window.location.href = `board_view.html?ID=" +${num}`;
     }else if(clickNum !== num){
       // alert('존재하지 않는 게시글을 눌렀습니다.');
