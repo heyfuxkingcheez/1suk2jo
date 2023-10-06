@@ -26,37 +26,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-//데이터 삭제
-$("#delete").click(async function (e) {
-  e.preventDefault();
-
-  console.log("gt");
-
-  //삭제 예시
-  // const desertRef = doc(db, [컬렉션명], [도큐멘트명], [하위컬렉션명], [삭제할 도큐멘트명]);
-  // await deleteDoc(desertRef);
-
-  // let dodo = doc(db, 'eatJoo', '5');
-  // await deleteDoc(dodo);
-  window.location.href = './board_list.html';
-});
-
 //데이터 보여주기
 let docs = await getDocs(collection(db, "board"));
 let query = window.location.search.substr(11);
 
-docs.forEach((doc) => {
-  let row = doc.data();
+docs.forEach((eachDoc) => {
+  let row = eachDoc.data();
   let writeTitle = row["writeTitle"];
   let writeName = row["writeName"];
   let when = row["when"];
   let writeText = row['writeText'];
   let num = row['num']
+  let id = eachDoc.id;
   // console.log(writeTitle, writeText, writeName, when)
   // console.log(docs);
+
+  let which;
   if(num === query){
-    console.log('같으')
-    console.log(row)
+    which = id
+    console.log(row);
     let append_html = `
       <div id="subject">
         <span>제목 : ${writeTitle}</span>
@@ -73,5 +61,20 @@ docs.forEach((doc) => {
     `
     $("#viewFrm").append(append_html);
   }
+  console.log(which)
+  //데이터 삭제
+  $("#delete").click(async function (e) {
+    e.preventDefault();
 
+    console.log(id);
+    if(id === which){
+      await deleteDoc(doc(db, 'board', which));
+      window.location.href = './board_list.html';
+    }
+    //삭제 예시
+    // const desertRef = doc(db, [컬렉션명], [도큐멘트명], [하위컬렉션명], [삭제할 도큐멘트명]);
+    // await deleteDoc(desertRef);
+
+  });
 });
+

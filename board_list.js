@@ -68,6 +68,7 @@ docs.forEach((eachDoc) => {
 
   $(document).click(async function (e) {
     e.preventDefault();    
+    //게시글 보여주기 처음에 타이틀로 가져와서 비교했는데 갑자기 안먹어서 변경
     let clickNum = e.target.previousElementSibling.innerText;
 
     if(clickNum === num){
