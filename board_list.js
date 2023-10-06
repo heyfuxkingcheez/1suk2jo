@@ -100,14 +100,19 @@ docs.forEach((eachDoc) => {
 });
 
 // pagination
-let pagePrev = document.getElementById("#pagePrev");
-let page1 = document.getElementById("#page1");
-let page2 = document.getElementById("#page2");
-let page3 = document.getElementById("#page3");
-let page4 = document.getElementById("#page4");
-let pageNext = document.getElementById("#pageNext");
+// let pagePrev = document.getElementById("#pagePrev");
+// let page1 = document.getElementById("#page1");
+// let page2 = document.getElementById("#page2");
+// let page3 = document.getElementById("#page3");
+// let page4 = document.getElementById("#page4");
+// let pageNext = document.getElementById("#pageNext");
 
-$(document).click(function (e) {
+$(".paging").click(async function (e) {
+  // $(".paging").removeClass("active");
+  let clickTag = e.target;
+  // $(clickTag).addClass("active");
+  console.log(clickTag);
+
   const pageBtnList = [
     "pagePrev",
     "page1",
@@ -117,10 +122,12 @@ $(document).click(function (e) {
     "pageNext",
   ];
   for (let pageBtn of pageBtnList) {
-    if (pageBtn === e.target.id) {
-      $(`${pageBtn}`).addClass("active");
+    if ($(clickTag).hasClass("active") === false) {
+      // class가 존재함
+      $(clickTag).addClass("active");
     } else {
-      $(`${pageBtn}`).removeClass("active");
+      // class가 존재하지않음
+      $(clickTag).not(".active").addClass("active");
     }
   }
 });
