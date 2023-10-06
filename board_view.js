@@ -15,12 +15,13 @@ import {
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:40149b8fa66ce19b1c289c"
+  apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
+  authDomain: "soo-test-15c67.firebaseapp.com",
+  projectId: "soo-test-15c67",
+  storageBucket: "soo-test-15c67.appspot.com",
+  messagingSenderId: "239246841609",
+  appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
+  measurementId: "G-7BLCRSRLW5",
 };
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
@@ -38,7 +39,7 @@ $("#delete").click(async function (e) {
 
   // let dodo = doc(db, 'eatJoo', '5');
   // await deleteDoc(dodo);
-  window.location.href = './board_list.html';
+  window.location.href = "./board_list.html";
 });
 
 //데이터 보여주기
@@ -50,13 +51,13 @@ docs.forEach((doc) => {
   let writeTitle = row["writeTitle"];
   let writeName = row["writeName"];
   let when = row["when"];
-  let writeText = row['writeText'];
-  let num = row['num']
+  let writeText = row["writeText"];
+  let num = row["num"];
   // console.log(writeTitle, writeText, writeName, when)
   // console.log(docs);
-  if(num === query){
-    console.log('같으')
-    console.log(row)
+  if (num === query) {
+    console.log("같으");
+    console.log(row);
     let append_html = `
       <div id="subject">
         <span>제목 : ${writeTitle}</span>
@@ -70,8 +71,7 @@ docs.forEach((doc) => {
       <div id="content">
         <span>내용 : ${writeText}</span>  
       </div>
-    `
+    `;
     $("#viewFrm").append(append_html);
   }
-
 });

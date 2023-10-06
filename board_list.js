@@ -1,12 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
+  getFirestore,
   collection,
   addDoc,
   getCountFromServer,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import {
+  getDocs,
   orderBy,
   query,
   doc,
@@ -16,12 +14,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:40149b8fa66ce19b1c289c"
+  apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
+  authDomain: "soo-test-15c67.firebaseapp.com",
+  projectId: "soo-test-15c67",
+  storageBucket: "soo-test-15c67.appspot.com",
+  messagingSenderId: "239246841609",
+  appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
+  measurementId: "G-7BLCRSRLW5",
 };
 
 // Firebase 인스턴스 초기화
@@ -47,10 +46,19 @@ docs.forEach((eachDoc) => {
   let writeTitle = row["writeTitle"];
   let writeName = row["writeName"];
   let when = row["when"];
-  let num = row['num'].toString();
-  var howMany = row['howMany'];
+  let num = row["num"].toString();
+  var howMany = row["howMany"];
 
   let id = eachDoc.id;
+
+  // 제목 너무 길면 줄이고 말줄임(...) 처리,
+  // css로 하니 다 깨져서 css는 삭제했슴당
+  let limitLength = 35;
+  if (writeTitle.length > limitLength) {
+    writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
+  } else {
+    return writeTitle;
+  }
 
   let append_html = `
   <tr>
@@ -66,25 +74,27 @@ docs.forEach((eachDoc) => {
 
   $("#listCard").append(append_html);
 
+  // console.log(writeTitle, writeName);
+  // console.log(typeof writeTitle, typeof writeName);
+
   $(document).click(async function (e) {
-    e.preventDefault();    
+    e.preventDefault();
     let clickNum = e.target.previousElementSibling.innerText;
 
-    if(clickNum === num){
-      
+    if (clickNum === num) {
       //조회수 데이터 수정하기
-      let newHowMany = howMany+ 1;
+      let newHowMany = howMany + 1;
       // console.log(newHowMany );
-      let b = doc(db, 'board', id);
-      await updateDoc(b, {howMany : newHowMany});
+      let b = doc(db, "board", id);
+      await updateDoc(b, { howMany: newHowMany });
       // console.log(row['howMany']);
-      
-      alert('과연');  //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
+
+      alert("과연"); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
 
       //클릭한 게시물 보여주도록
       window.location.href = `board_view.html?ID=" +${num}`;
-    }else if(clickNum !== num){
+    } else if (clickNum !== num) {
       // alert('존재하지 않는 게시글을 눌렀습니다.');
     }
-  })
+  });
 });
