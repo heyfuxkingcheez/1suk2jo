@@ -154,6 +154,7 @@ $(".paging").click(async function (e) {
 });
 
 // 검색기능
+// DB 데이터 값 중에서 writeTitle 값만 가져옴
 let searbb = await getDocs(collection(db, "board"));
 docs.forEach((eachDoc) => {
   let row = eachDoc.data();
@@ -161,11 +162,12 @@ docs.forEach((eachDoc) => {
   console.log(writeTitle)
 });
 
+// jquery 에서 searchContent 값으로 DB값과 비교
 $(document).ready(function(){
   $("#searchContent").keyup(function() {
-    var k = $(this).val();
-    $("tr").hide();
-    var temp = $("tr:contains('" + k + "')");
-    $(temp).show();
+    var k = $(this).val(); // searchContent 값 지정
+    $("tr").hide(); // tr요소를 숨김
+    var temp = $("tr:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
+    $(temp).show(); //지정된 temp를 보여줌
   });
 });
