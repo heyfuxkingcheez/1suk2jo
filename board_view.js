@@ -70,7 +70,7 @@ docs.forEach((eachDoc) => {
     e.preventDefault();
     console.log(id);
     if(id === which){
-      if (confirm("정말로 삭제 하시겠습니까?")) {
+      if (confirm("정말 삭제 하시겠습니까?")) {
         await deleteDoc(doc(db, 'board', which)) ;
         window.location.href = './board_list.html';
       } else {

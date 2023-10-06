@@ -34,6 +34,7 @@ const db = getFirestore(app);
 const board = collection(db, "board");
 const que = await query(board, orderBy("when", "desc"));
 
+
 //게시글 번호
 const countAll = await getCountFromServer(que);
 // console.log(countAll.data().count);
@@ -148,4 +149,25 @@ docs.forEach((eachDoc) => {
 $(".paging").click(async function (e) {
   $(".active").removeClass("active");
   $(e.target).addClass("active");
+});
+
+
+// 검색기능
+let searbb = await getDocs(collection(db, "board"));
+docs.forEach((eachDoc) => {
+  let row = eachDoc.data();
+  let writeTitle = row["writeTitle"];
+
+});
+$(".searchBtn").click(async function (e) {
+  e.preventDefault();
+  alert("검색")
+  let sear = $("#searchContent").val();
+  console.log(sear)
+  
+  // if (writeTitle.val == sear.val) {
+  //   console.log("찾음")
+  // }
+
+
 });
