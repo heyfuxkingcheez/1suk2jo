@@ -36,18 +36,19 @@ const countAll = await getCountFromServer(que);
 let listNum = countAll.data().count + 1;
 // list
 let docs = await getDocs(que);
-docs.forEach((doc) => {
+docs.forEach((eachDoc) => {
   //데이터의 문서id 값 출력해 봤어요
-  console.log(doc.id);
+  console.log(eachDoc.id);
 
   listNum--;
-  let row = doc.data();
+  let row = eachDoc.data();
   let writeTitle = row["writeTitle"];
   let writeName = row["writeName"];
   let when = row["when"];
   let num = row['num'].toString();
   var howMany = row['howMany'];
-  let id = doc.id;
+
+  let id = eachDoc.id;
 
   let append_html = `
   <tr>
@@ -63,30 +64,24 @@ docs.forEach((doc) => {
 
   $("#listCard").append(append_html);
 
-  let howManyAdd =  async function(){
-    let newHowMany = row['howMany']++;
-    // let board = collection(db, "board");
-    // board.doc(doc.get(id)).update({howMany: newHowMany});
-
-    let update = doc(db, 'board', id);
-    await updateDoc(update, {
-      howMany : 4,
-    })
-  }
-
-  $(document).click(function (e) {
-    // e.preventDefault();    
+  $(document).click(async function (e) {
+    e.preventDefault();    
     let clickNum = e.target.previousElementSibling.innerText;
-    console.log( clickNum);
+    console.log(clickNum);
     console.log(writeTitle)
+
     if(clickNum === num){
-      console.log('dleh')
-      howManyAdd()
+      let newHowMany = howMany+ 1;
+      // let numHowMany = Number(newHowMany)+1
+      console.log(newHowMany )
+      let b = doc(db, 'board', id);
+      await updateDoc(b, {howMany : newHowMany});
+
       console.log(row['howMany']);
-      alert('과연')
+      alert('과연');
       window.location.href = `board_view.html?ID=" +${num}`;
     }else if(clickNum !== num){
-      console.log('달라')
+      // alert('존재하지 않는 게시글을 눌렀습니다.');
     }
   })
 });
