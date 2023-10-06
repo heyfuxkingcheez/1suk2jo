@@ -86,14 +86,9 @@ td {
   width: 10%;
 }
 
+/* 제목에 마우스 두면 마우스 클릭 커서로 변경 */
 .listTitle {
-  /* overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: normal; */
+  cursor: pointer;
 }
 
 .listAutor,
