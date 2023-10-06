@@ -33,11 +33,27 @@ const db = getFirestore(app);
 
 const board = collection(db, "board");
 let lastVisibleDoc = null;  //이전 페이지의 마지막 문서
-
+let showNum = 10;
+let que =await query(board, orderBy("when", "desc"), limit(showNum));
+let getdata = await getDocs(que);
 // list 
-const que = await query(board, orderBy("when", "desc"), limit(10));
-let docs = await getDocs(que);
-lastVisibleDoc = docs[docs.length -1];
+async function fetchNextPage(){
+  // que = await query(board, orderBy("when", "desc"), limit(10));
+  // let docs = await getDocs(que);
+
+  if(lastVisibleDoc){
+    que =  que.startAfter(lastVisibleDoc)
+  }
+
+  if(docs.size > 1){
+    lastVisibleDoc = docs[docs.length -1];
+    console.log(lastVisibleDoc);
+    console.log
+  };
+
+}
+console.log(docs.size);
+fetchNextPage()
 
 //게시글 번호
 const countAll = await getCountFromServer(que);
