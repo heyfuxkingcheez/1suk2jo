@@ -27,6 +27,21 @@ const db = getFirestore(app);
 
 $("#writeFrm").submit(async function (e) {
   e.preventDefault();
+  if (document.getElementById("writeTitle").value == "") {
+    e.preventDefault();
+    alert("제목을 입력하세요");
+    return false;
+  }
+  if (document.getElementById("writeName").value == "") {
+    e.preventDefault();
+    alert("닉네임을 입력하세요");
+    return false;
+  }
+  if (document.getElementById("writeText").value == "") {
+    e.preventDefault();
+    alert("내용을 입력하세요");
+    return false;
+  }
 
   //저장한 시간 가져오기.
   let now = new Date();
@@ -39,8 +54,7 @@ $("#writeFrm").submit(async function (e) {
   let second = String(now.getSeconds()).padStart(2, "0");
 
   let when = `${year}.${month}.${date}  ${hours}:${minutes}`;
-  console.log(when);
-  console.log(second);
+  console.log(when, second);
 
   let writeTitle = $("#writeTitle").val();
   let writeText = $("#writeText").val();
@@ -73,3 +87,35 @@ $("#writeFrm").submit(async function (e) {
 
   // window.location.href = 'board_view.html?ID =${newID()}';
 });
+
+let writeTitle = $("#writeTitle").val();
+let writeText = $("#writeText").val();
+let writeName = $("#writeName").val();
+var newID = function () {
+  return Math.random().toString(36).substr(2, 16);
+};
+console.log(newID());
+// console.log(writeTitle, writeName, writeText);
+let docs = {
+  writeTitle: writeTitle,
+  writeText: writeText,
+  writeName: writeName,
+  when: when,
+  num: newID(),
+  howMany: 0,
+};
+const num = docs.num.toString();
+console.log(num + "!!!");
+console.log(docs);
+console.log(docs.howMany);
+let add = addDoc(collection(db, "board"), docs);
+//데이터 저장하고 해당 아이디값 출력해 봤어요
+await add.then((ID) => console.log(ID.id));
+
+alert("저장 완료!");
+
+// const num = docs.num
+window.location.href = `board_view.html?ID=" +${num}`;
+
+// window.location.href = 'board_view.html?ID =${newID()}';
+// });
