@@ -32,52 +32,72 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-$("#writeFrm").submit(async function (e) {
-  e.preventDefault();
+  $("#writeFrm").submit(async function (e) {
+      e.preventDefault()
+      if (document.getElementById('writeTitle').value == '') {
+        e.preventDefault()
+        alert('제목을 입력하세요')
+        return false;
+      }
+      if (document.getElementById('writeName').value == '') {
+        e.preventDefault()
+        alert('닉네임을 입력하세요')
+        return false;
+      }
+      if (document.getElementById('writeText').value == '') {
+        e.preventDefault()
+        alert('내용을 입력하세요')
+        return false;
+      }
+    
+      //저장한 시간 가져오기.
+      let now = new Date();
 
-  //저장한 시간 가져오기.
-  let now = new Date();
+      let year = now.getFullYear();
+      let month = now.getMonth() + 1;
+      let date = now.getDate();
+      let hours = String(now.getHours()).padStart(2, "0");
+      let minutes = String(now.getMinutes()).padStart(2, "0");
+      let second = String(now.getSeconds()).padStart(2, "0");
 
-  let year = now.getFullYear();
-  let month = now.getMonth() + 1;
-  let date = now.getDate();
-  let hours = String(now.getHours()).padStart(2, "0");
-  let minutes = String(now.getMinutes()).padStart(2, "0");
-  let second = String(now.getSeconds()).padStart(2, "0");
+      let when = `${year}.${month}.${date}  ${hours}:${minutes}`;
+      console.log(when,second);
+      
 
-  let when = `${year}.${month}.${date}  ${hours}:${minutes}`;
-  console.log(when);
-  console.log(second);
+      let writeTitle = $("#writeTitle").val();
+      let writeText = $("#writeText").val();
+      let writeName = $("#writeName").val();
+      var newID = function () {
+        return Math.random().toString(36).substr(2, 16);
+      }
+      console.log(newID());
+      // console.log(writeTitle, writeName, writeText);
+      let docs = {
+        writeTitle: writeTitle,
+        writeText: writeText,
+        writeName: writeName,
+        when: when,
+        num: newID(),
+        howMany: 0
+      };
+      const num = docs.num.toString();
+      console.log(num + '!!!');
+      console.log(docs)
+      console.log(docs.howMany)
+      let add = addDoc(collection(db, "board"), docs);
+      //데이터 저장하고 해당 아이디값 출력해 봤어요
+      await add.then((ID) => console.log(ID.id));
 
-  let writeTitle = $("#writeTitle").val();
-  let writeText = $("#writeText").val();
-  let writeName = $("#writeName").val();
-  var newID = function () {
-    return Math.random().toString(36).substr(2, 16);
-  }
-  console.log(newID());
-  // console.log(writeTitle, writeName, writeText);
-  let docs = {
-    writeTitle: writeTitle,
-    writeText: writeText,
-    writeName: writeName,
-    when: when,
-    num : newID(),
-    howMany : 0
-  };
-  const num = docs.num.toString();
-  console.log(num +'!!!');
-  console.log(docs)
-  console.log(docs.howMany)
-  let add = addDoc(collection(db, "board"), docs);
-  //데이터 저장하고 해당 아이디값 출력해 봤어요
-  await add.then((ID)=> console.log(ID.id));
-  
-  alert("저장 완료!");
- 
-  // const num = docs.num
-  window.location.href = `board_view.html?ID=" +${num}`;
+      alert("저장 완료!");
 
-  // window.location.href = 'board_view.html?ID =${newID()}';
+      // const num = docs.num
+      window.location.href = `board_view.html?ID=" +${num}`;
 
-});
+      // window.location.href = 'board_view.html?ID =${newID()}';
+    
+    });
+
+
+
+
+
