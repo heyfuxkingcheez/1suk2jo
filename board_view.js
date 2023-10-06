@@ -20,11 +20,12 @@ const firebaseConfig = {
   projectId: "ejoo-a1fd7",
   storageBucket: "ejoo-a1fd7.appspot.com",
   messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:40149b8fa66ce19b1c289c"
+  appId: "1:982632789909:web:40149b8fa66ce19b1c289c",
 };
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
 
 //데이터 보여주기
 let docs = await getDocs(collection(db, "board"));
@@ -35,16 +36,16 @@ docs.forEach((eachDoc) => {
   let writeTitle = row["writeTitle"];
   let writeName = row["writeName"];
   let when = row["when"];
-  let writeText = row['writeText'];
-  let num = row['num']
-  let id = eachDoc.id;
+  let writeText = row["writeText"];
+  let num = row["num"];
+  let id = eachDoc.id
+  let which;
   // console.log(writeTitle, writeText, writeName, when)
   // console.log(docs);
-
-  let which;
-  if(num === query){
-    which = id
+  if (num === query) {
+    console.log("같으");
     console.log(row);
+    which = id;
     let append_html = `
       <div id="subject">
         <span>제목 : ${writeTitle}</span>
@@ -58,10 +59,12 @@ docs.forEach((eachDoc) => {
       <div id="content">
         <span>내용 : ${writeText}</span>  
       </div>
-    `
+    `;
     $("#viewFrm").append(append_html);
   }
-  console.log(which)
+
+  // console.log(which);
+
   //데이터 삭제
   $("#delete").click(async function (e) {
     e.preventDefault();
@@ -69,7 +72,7 @@ docs.forEach((eachDoc) => {
     if(id === which){
       if (confirm("정말로 삭제 하시겠습니까?")) {
         await deleteDoc(doc(db, 'board', which)) ;
-      window.location.href = './board_list.html';
+        window.location.href = './board_list.html';
       } else {
         return false;
       }
@@ -79,5 +82,5 @@ docs.forEach((eachDoc) => {
     // await deleteDoc(desertRef);
 
   });
-});
 
+});
