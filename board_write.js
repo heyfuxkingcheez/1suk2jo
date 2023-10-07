@@ -12,13 +12,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
-  authDomain: "soo-test-15c67.firebaseapp.com",
-  projectId: "soo-test-15c67",
-  storageBucket: "soo-test-15c67.appspot.com",
-  messagingSenderId: "239246841609",
-  appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
-  measurementId: "G-7BLCRSRLW5",
+  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
+  authDomain: "sparta-e533a.firebaseapp.com",
+  projectId: "sparta-e533a",
+  storageBucket: "sparta-e533a.appspot.com",
+  messagingSenderId: "176323692514",
+  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
+  measurementId: "G-H5C27X8E9M"
 };
 
 

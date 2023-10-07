@@ -15,14 +15,21 @@ import {
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
-  authDomain: "soo-test-15c67.firebaseapp.com",
-  projectId: "soo-test-15c67",
-  storageBucket: "soo-test-15c67.appspot.com",
-  messagingSenderId: "239246841609",
-  appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
-  measurementId: "G-7BLCRSRLW5"
-  };
+  // apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
+  // authDomain: "soo-test-15c67.firebaseapp.com",
+  // projectId: "soo-test-15c67",
+  // storageBucket: "soo-test-15c67.appspot.com",
+  // messagingSenderId: "239246841609",
+  // appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
+  // measurementId: "G-7BLCRSRLW5"
+  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
+  authDomain: "sparta-e533a.firebaseapp.com",
+  projectId: "sparta-e533a",
+  storageBucket: "sparta-e533a.appspot.com",
+  messagingSenderId: "176323692514",
+  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
+  measurementId: "G-H5C27X8E9M"
+};
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -70,9 +77,9 @@ docs.forEach((eachDoc) => {
   $("#delete").click(async function (e) {
     e.preventDefault();
     console.log(id);
-    if(id === which){
+    if (id === which) {
       if (confirm("정말 삭제 하시겠습니까?")) {
-        await deleteDoc(doc(db, 'board', which)) ;
+        await deleteDoc(doc(db, 'board', which));
         window.location.href = './board_list.html';
       } else {
         return false;
@@ -85,3 +92,27 @@ docs.forEach((eachDoc) => {
   });
 
 });
+
+
+// 댓글 기능 추가
+$("#commentBtn").click(async function (e) {
+  e.preventDefault();
+
+  let query = window.location.search.substr(11);
+  
+  const data = {
+    commentName: $("#commentName").val(), // 댓글 닉네임 input value
+    commentText: $("#commentText").val(), // 댓글 내용 input value
+    date: new Date().getTime(), // 현재 시간 밀리세컨드
+    num : query
+  };
+
+  if (data.commentName.length <= 0 || data.commentText.length <= 0) {
+    return alert('내용을 입력해주세요.');
+  } else {
+    await addDoc(collection(db, "comments"), data);
+    console.log(data)
+  }
+
+
+}) 
