@@ -84,7 +84,7 @@ docs.forEach((eachDoc) => {
     writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
   }  
   console.log(dataArr);
-
+})
 let pageArr = [];
 for (let i = 0; i < dataArr.length; i += 5) {
   // 빈 배열에 특정 길이만큼 분리된 배열 추가
