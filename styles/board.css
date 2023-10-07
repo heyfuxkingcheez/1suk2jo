@@ -230,8 +230,8 @@ div.pages {
   padding-right: 10px;
 }
 
-div.paging > i,
-div.paging > div.pages > span {
+div.paging>i,
+div.paging>div.pages>span {
   margin: 0 3px;
   cursor: pointer;
 }
@@ -239,4 +239,34 @@ div.paging > div.pages > span {
 span.active {
   color: rgb(235, 101, 39);
   font-weight: bold;
+}
+
+.msg {}
+
+
+#input #commentName {
+  width: 15%;
+}
+
+#input #commentText {
+  flex-grow: 1;
+  resize: none;
+  outline: none;
+  padding: 5px;
+  margin: 0;
+  border-radius: 5px;
+  margin-right: 5px;
+  text-indent: 5px;
+}
+
+.textdiv {
+  display: flex;
+  height: 50px;
+  margin-top: 5px;
+  position: relative;
+}
+
+#input {
+  display: flex;
+  flex-direction: column;
 }
