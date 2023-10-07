@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Board view</title>
-    <!-- 공통 css -->
-    <link rel="stylesheet" href="./styles/style.css" />
-    <!-- board css -->
-    <link rel="stylesheet" href="./styles/board.css" />
-    <!-- favicon -->
-    <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
-    <style></style>
-  </head>
-  <body>
-    <!-- 정기욱 -->
-    <div id="navWrap">
-      <nav class="navbar">
-        <!-- navlogo -->
-        <div class="navLogo">
-          <div>
-            <a href="#" onclick="location.href='main.html'"
-              ><span>🍔</span> 먹 고 하 조</a
-            >
-          </div>
-        </div>
-        <!-- navMenu -->
-        <ul class="navMenu">
-          <li>
-            <a href="#" onclick="location.href='main.html'">Main</a>
-          </li>
-          <li>
-            <a href="#" onclick="location.href='member.html'">Members</a>
-          </li>
-          <li>
-            <a href="#" onclick="location.href='board_list.html'">Board</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="boardView">
-      <h1>Board_view</h1>
-      <p>작성된 글 보기</p>
-    </div>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Board view</title>
+  <!-- 공통 css -->
+  <link rel="stylesheet" href="./styles/style.css" />
+  <!-- board css -->
+  <link rel="stylesheet" href="./styles/board.css" />
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
+  <style></style>
+</head>
+
+<body>
+  <!-- 정기욱 -->
+  <div id="navWrap">
+    <nav class="navbar">
+      <!-- navlogo -->
+      <div class="navLogo">
+        <div>
+          <a href="#" onclick="location.href='main.html'"><span>🍔</span> 먹 고 하 조</a>
+        </div>
+      </div>
+      <!-- navMenu -->
+      <ul class="navMenu">
+        <li>
+          <a href="#" onclick="location.href='main.html'">Main</a>
+        </li>
+        <li>
+          <a href="#" onclick="location.href='member.html'">Members</a>
+        </li>
+        <li>
+          <a href="#" onclick="location.href='board_list.html'">Board</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="boardView">
+    <h1>Board_view</h1>
+    <p>작성된 글 보기</p>
+  </div>
+  <section class="board">
     <form id="viewFrm">
-      
+
       <!-- <div id="subject">
         <span>제목 : </span>
       </div>
@@ -58,12 +58,38 @@
         <span>내용 : </span>  
       </div> -->
     </form>
+    <div class="writeBtnWrap">
+      <button class="writeButton" id="modify">수정</button>
+      <button class="writeButton" id="delete">삭제</button>
+      <a class="writeButton" href="./board_list.html">목록으로</a>
+    </div>
+  </section>
 
-    <button id="modify">수정</button>
-    <a href="./board_list.html">목록으로</a>
-    <button id="delete">삭제</button>
+  <section class="board">
+    <div class="msg">
+      <div>댓글</div>
+      <div id="commentField">
+        <div id="result" class="resultMsg">
+          <!-- <span id="resultName">작성자</span>
+          <span id="resultContent">내용</span>
+          <div id="resultTime">시간</div> -->
+        </div>
+      </div>
+      <div id="commentForm">
+        <div id="input">
+          <input type="text" id="commentName" placeholder="닉네임">
+          <div class="textdiv">
+            <textarea id="commentText" placeholder="댓글 내용"></textarea>
+            <button id="commentBtn">등록</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type = 'module' src="board_view.js"></script>
-  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type='module' src="board_view.js"></script>
+</body>
+
 </html>

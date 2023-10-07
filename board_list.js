@@ -21,13 +21,13 @@ import {
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
-  authDomain: "soo-test-15c67.firebaseapp.com",
-  projectId: "soo-test-15c67",
-  storageBucket: "soo-test-15c67.appspot.com",
-  messagingSenderId: "239246841609",
-  appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
-  measurementId: "G-7BLCRSRLW5",
+  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
+  authDomain: "sparta-e533a.firebaseapp.com",
+  projectId: "sparta-e533a",
+  storageBucket: "sparta-e533a.appspot.com",
+  messagingSenderId: "176323692514",
+  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
+  measurementId: "G-H5C27X8E9M"
 };
 
 // Firebase 인스턴스 초기화
@@ -63,6 +63,26 @@ docs.forEach((ds) => {
   dataArr.push(ds.data());
 });
 
+
+//forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
+docs.forEach((eachDoc) => {
+  //데이터의 문서id 값 출력해 봤어요
+  // console.log(eachDoc.id);
+  listNum--;
+  let row = eachDoc.data();
+  let writeTitle = row["writeTitle"];
+  let writeName = row["writeName"];
+  let when = row["when"];
+  let num = row["num"].toString();
+  var howMany = row["howMany"];
+  let id = eachDoc.id;
+
+  // 제목 너무 길면 줄이고 말줄임(...) 처리,
+  // css로 하니 다 깨져서 css는 삭제했슴당
+  let limitLength = 20;
+  if (writeTitle.length > limitLength) {
+    writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
+
 console.log(dataArr);
 
 let pageArr = [];
@@ -94,6 +114,7 @@ for (let page_num of totalPageNumArr) {
   if (page_num === 1) {
     viewArr.push(pageArr[0]);
     viewFunc();
+
   }
   $(`#page${page_num}`).click((e) => {
     let slicePageNum = Number(e.target.id.slice(-1)); // "1"

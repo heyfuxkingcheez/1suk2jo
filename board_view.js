@@ -22,6 +22,7 @@ const firebaseConfig = {
   messagingSenderId: "239246841609",
   appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
   measurementId: "G-7BLCRSRLW5",
+
 };
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
@@ -29,8 +30,33 @@ const db = getFirestore(app);
 
 //데이터 보여주기
 let docs = await getDocs(collection(db, "board"));
+let comment = await getDocs(collection(db, "comments"));
 let query = window.location.search.substr(11);
 
+// 댓글 DB불러오기
+comment.forEach((eachdoc) => {
+  let row = eachdoc.data();
+  let commentName = row["commentName"];
+  let commentText = row["commentText"];
+  let date = row["date"];
+  let num = row["num"];
+  let id = eachdoc.id
+  let which;
+
+  if (num === query) {
+    console.log("같음");
+    console.log(row);
+    which = id;
+    let append_comment = `
+      <span id="resultName">${commentName}</span>
+      <span id="resultContent">${commentText}</span>
+      <div id="resultTime">${date}</div>
+    `;
+    $("#result").append(append_comment);
+  }
+})
+
+// 게시글 DB불러오기
 docs.forEach((eachDoc) => {
   let row = eachDoc.data();
   let writeTitle = row["writeTitle"];
@@ -46,7 +72,7 @@ docs.forEach((eachDoc) => {
     console.log("같으");
     console.log(row);
     which = id;
-    let append_html = `
+    const append_html = `
       <div id="subject">
         <span>제목 : ${writeTitle}</span>
       </div>
@@ -61,6 +87,7 @@ docs.forEach((eachDoc) => {
       </div>
     `;
     $("#viewFrm").append(append_html);
+    
   }
 
   // console.log(which);
@@ -71,8 +98,9 @@ docs.forEach((eachDoc) => {
     console.log(id);
     if (id === which) {
       if (confirm("정말 삭제 하시겠습니까?")) {
-        await deleteDoc(doc(db, "board", which));
-        window.location.href = "./board_list.html";
+        await deleteDoc(doc(db, 'board', which));
+        window.location.href = './board_list.html';
+
       } else {
         return false;
       }
@@ -82,3 +110,27 @@ docs.forEach((eachDoc) => {
     // await deleteDoc(desertRef);
   });
 });
+
+
+// 댓글 기능 추가
+$("#commentBtn").click(async function (e) {
+  e.preventDefault();
+
+  let query = window.location.search.substr(11);
+
+  const data = {
+    commentName: $("#commentName").val(), // 댓글 닉네임 input value
+    commentText: $("#commentText").val(), // 댓글 내용 input value
+    date: new Date().getTime(), // 현재 시간 밀리세컨드
+    num: query // num id값
+  };
+
+  if (data.commentName.length <= 0 || data.commentText.length <= 0) {
+    return alert('내용을 입력해주세요.');
+  } else {
+    await addDoc(collection(db, "comments"), data);
+    console.log(data)
+    window.location.reload()
+  }
+})
+

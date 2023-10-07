@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
 
-  padding-left: 15%;
+  padding-left: 15.7%;
   padding-top: 150px;
 
   font-size: 25px;
@@ -13,7 +13,7 @@
 
 .search {
   text-align: left;
-  padding-left: 15%;
+  padding-left: 15.7%;
   padding-top: 30px;
 }
 
@@ -116,7 +116,7 @@ td {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 15%;
+  padding-left: 15.7%;
   padding-top: 150px;
   font-size: 25px;
 }
@@ -168,11 +168,10 @@ td {
   outline: none;
 }
 
-textarea {
+.writeTextArea {
   height: 600px;
   width: 90%;
   max-width: 1100px;
-
   margin-top: 0px;
   padding: 15px;
   font-size: 17px;
@@ -230,8 +229,8 @@ div.pages {
   padding-right: 10px;
 }
 
-div.paging > i,
-div.paging > div.pages > span {
+div.paging>i,
+div.paging>div.pages>span {
   margin: 0 3px;
   cursor: pointer;
 }
@@ -239,4 +238,74 @@ div.paging > div.pages > span {
 span.active {
   color: rgb(235, 101, 39);
   font-weight: bold;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+
+#input #commentName {
+  width: 15%;
+}
+
+#commentBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 2px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#input #commentText {
+  flex-grow: 1;
+  resize: none;
+  outline: none;
+  padding: 5px;
+  margin: 0;
+  border-radius: 5px;
+  margin-right: 5px;
+  text-indent: 5px;
+}
+
+.textdiv {
+  display: flex;
+  height: 50px;
+  margin-top: 5px;
+  position: relative;
+}
+
+#input {
+  display: flex;
+  flex-direction: column;
+}
+
+#commentField {
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid ;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.resultMsg {
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid ;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
