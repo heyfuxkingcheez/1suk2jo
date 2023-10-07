@@ -123,13 +123,15 @@ $(".paging").click(async function (e) {
 });
 
 
-// jquery 에서 searchContent 값으로 DB값과 비교
-$(document).ready(function () {
-  $(".searchBtn").click(function (e) {
-    // let serch = this.previousElementSibling.value;
-    var k = $(this).val(); // searchContent 값 지정
-    $("tr").hide(); // tr요소를 숨김
-    var temp = $("tr:contains('" + serch + "')"); // tr요소 중 contains()의 값과 비교해서 지정
-    $(temp).show(); //지정된 temp를 보여줌
+// 검색 버튼 눌렀을때 검색 되는 코드
+$(document).ready(function() {
+
+  $("#searchBtn").click(function(e) {
+    let k = $(searchInput).val(); //searchInput 값 지정
+    // console.log(k)
+    $("tr").hide(); // tr 요소를 숨김
+    let temp = $("tr:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
+    $(temp).show(); // 지정된 temp를 보여줌
+
   });
 });
