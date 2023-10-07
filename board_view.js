@@ -9,6 +9,8 @@ import {
   doc,
   updateDoc,
   deleteField,
+  orderBy,
+  query,
   deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
@@ -37,11 +39,14 @@ const db = getFirestore(app);
 
 //데이터 보여주기
 let docs = await getDocs(collection(db, "board"));
-let comment = await getDocs(collection(db, "comments"));
-let query = window.location.search.substr(11);
+// let comment = await getDocs(collection(db, "comments"));
+const comments = collection(db,'comments');
+const d = await query(comments, orderBy("date", "asc"));
+const docsd = await getDocs(d);
+let que = window.location.search.substr(11);
 
 // 댓글 DB불러오기
-comment.forEach((eachdoc) => {
+docsd.forEach((eachdoc) => {
   let row = eachdoc.data();
   let commentName = row["commentName"];
   let commentText = row["commentText"];
@@ -50,7 +55,7 @@ comment.forEach((eachdoc) => {
   let id = eachdoc.id
   let which;
 
-  if (num === query) {
+  if (num === que) {
     console.log("같음");
     console.log(row);
     which = id;
