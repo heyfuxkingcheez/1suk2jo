@@ -58,9 +58,9 @@ console.log(docs);
 let viewArr = [];
 // 전체 data 배열
 let dataArr = [];
-
+//id값 같이 넣기
 docs.forEach((ds) => {
-  dataArr.push(ds.data());
+  dataArr.push([ds.data(), ds.id]);
 });
 
 
@@ -82,8 +82,8 @@ docs.forEach((eachDoc) => {
   let limitLength = 20;
   if (writeTitle.length > limitLength) {
     writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
-
-console.log(dataArr);
+  }  
+  console.log(dataArr);
 
 let pageArr = [];
 for (let i = 0; i < dataArr.length; i += 5) {
@@ -135,37 +135,58 @@ for (let page_num of totalPageNumArr) {
 function viewFunc() {
   viewArr.forEach((eachDoc) => {
     // console.log(dataArr.length);
-    for (let i = 0; i < eachDoc.length + 1; i++) {
+    for (let i = 0; i < eachDoc.length; i++) {
       console.log(eachDoc[i]);
-      let writeTitle = eachDoc[i].writeTitle;
-      let writeName = eachDoc[i].writeName;
-      let when = eachDoc[i].when;
-      let num = eachDoc[i].num;
+      let writeTitle = eachDoc[i][0].writeTitle;
+      let writeName = eachDoc[i][0].writeName;
+      let when = eachDoc[i][0].when;
+      let num = eachDoc[i][0].num;
       // console.log();
-      // console.log(num);
+      console.log(num);
       let howMany = eachDoc[i].howMany;
-      // let id = eachDoc[i].id;
-
+      // let id = eachDoc[i][1];
+      // console.log(id)
       // console.log(writeTitle, writeName, when, num, howMany, id);
       // 제목 너무 길면 줄이고 말줄임(...) 처리,
       // css로 하니 다 깨져서 css는 삭제했슴당
       let limitLength = 35;
+      console.log(writeTitle)
       if (writeTitle.length > limitLength) {
         writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
       }
       let append_html = `
-  <tr>
-  <td class="listNum">${listNum}</td>
-  <td style = 'display : none'>${num}</td>
-  <td class="listTitle">
-  ${writeTitle}
-  </td>
-  <td class="listAutor">${writeName}</td>
-  <td class="listDate">${when}</td>
-  <td class="listViews">${howMany}</td>
-  </tr>`;
+        <tr>
+        <td class="listNum">${listNum}</td>
+        <td style = 'display : none'>${num}</td>
+        <td class="listTitle">
+        ${writeTitle}
+        </td>
+        <td class="listAutor">${writeName}</td>
+        <td class="listDate">${when}</td>
+        <td class="listViews">${howMany}</td>
+        </tr>`;
 
       $("#listCard").append(append_html);
+
+      $("#listCard").click(async function (e) {
+        e.preventDefault();
+        let clickNum = parseInt(e.target.previousElementSibling.innerText);
+        console.log(typeof clickNum)
+        if (clickNum === num) {
+          //조회수 데이터 수정하기
+          let newHowMany = howMany + 1;
+          // console.log(newHowMany );
+          let b = doc(db, "board", id);
+          await updateDoc(b, { howMany: newHowMany });
+          // console.log(row['howMany']);
+          // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
+          //클릭한 게시물 보여주도록
+      
+          window.location.href = `board_view.html?ID=" +${num}`;
+        } else if (clickNum !== num) {
+          // alert('존재하지 않는 게시글을 눌렀습니다.');
+        }
+      });
     }
 
     // console.log(writeTitle, writeName);
@@ -182,24 +203,7 @@ var listNum = countAll.data().count + 1;
 
 //forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 
-$("#listCard").click(async function (e) {
-  e.preventDefault();
-  let clickNum = e.target.previousElementSibling.innerText;
-  if (clickNum === num) {
-    //조회수 데이터 수정하기
-    let newHowMany = howMany + 1;
-    // console.log(newHowMany );
-    let b = doc(db, "board", id);
-    await updateDoc(b, { howMany: newHowMany });
-    // console.log(row['howMany']);
-    // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
-    //클릭한 게시물 보여주도록
 
-    window.location.href = `board_view.html?ID=" +${num}`;
-  } else if (clickNum !== num) {
-    // alert('존재하지 않는 게시글을 눌렀습니다.');
-  }
-});
 
 // pagination
 // 누르는 페이지 마다 class=active; 추가, 색상 변경
