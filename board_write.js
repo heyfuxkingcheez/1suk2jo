@@ -9,8 +9,11 @@ import {
   doc,
   setDoc,
   deleteDoc,
+  query,
+  getDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
   authDomain: "soo-test-15c67.firebaseapp.com",
@@ -21,13 +24,37 @@ const firebaseConfig = {
   measurementId: "G-7BLCRSRLW5",
 };
 
-
 // Firebase 인스턴스 초기화
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+const d = await query(board, orderBy("when", "desc"));
+const docRef = doc(db, "cities", "SF");
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+  console.log("Document data:", docSnap.data());
+} else {
+  // docSnap.data() will be undefined in this case
+  console.log("No such document!");
+}
+
+let dataArr = [];
+
+gDocs.forEach((ds) => {
+  dataArr.push(ds.data());
+});
+
+console.log(dataArr);
+
+let which;
+
+let index = 0;
+
 $("#writeFrm").submit(async function (e) {
   e.preventDefault();
+  index = index + 1;
 
   if (document.getElementById("writeTitle").value == "") {
     e.preventDefault();
@@ -67,11 +94,11 @@ $("#writeFrm").submit(async function (e) {
   let writeText = $("#writeText").val();
   let writeName = $("#writeName").val();
 
-  var newID = function () {
-    return Math.random().toString(36).substr(2, 16);
-  };
-
-  console.log(newID());
+  // var newID = function () {
+  //   let i = 1;
+  //   // return Math.random().toString(36).substr(2, 16);
+  //   return i++;
+  // };
 
   // console.log(writeTitle, writeName, writeText);
 
@@ -80,7 +107,7 @@ $("#writeFrm").submit(async function (e) {
     writeText: writeText,
     writeName: writeName,
     when: when,
-    num: newID(),
+    num: index,
     howMany: 0,
     nowDate: time,
   };
