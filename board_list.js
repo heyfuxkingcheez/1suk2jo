@@ -75,7 +75,7 @@ docs.forEach((eachDoc) => {
 
   // 제목 너무 길면 줄이고 말줄임(...) 처리,
   // css로 하니 다 깨져서 css는 삭제했슴당
-  let limitLength = 35;
+  let limitLength = 20;
   if (writeTitle.length > limitLength) {
     writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
   }
