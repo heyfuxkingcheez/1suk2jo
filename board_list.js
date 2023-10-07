@@ -124,14 +124,37 @@ $(".paging").click(async function (e) {
 
 
 // 검색 버튼 눌렀을때 검색 되는 코드
-$(document).ready(function() {
+$(document).ready(function () {
 
-  $("#searchBtn").click(function(e) {
+  $("#searchBtn").click(function (e) {
     let k = $(searchInput).val(); //searchInput 값 지정
     // console.log(k)
     $("tr").hide(); // tr 요소를 숨김
     let temp = $("tr:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
-    $(temp).show(); // 지정된 temp를 보여줌
-
+    if (temp.length == 0) {
+      $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td></tr>`) // 결과가 없을때
+    } else {
+      $(temp).show(); // 결과가 있을때 지정된 temp를 보여줌 
+    }
   });
+
+  // 엔터 눌렀을때 검색 되는 코드
+  $("#searchInput").keyup(function (event) {
+    let keyCode = event.keyCode ? event.keyCode : event.which;
+    if (keyCode == 13) {
+      let k = $(searchInput).val(); //searchInput 값 지정
+    // console.log(k)
+    $("tr").hide(); // tr 요소를 숨김
+    let temp = $("tr:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
+    if (temp.length == 0) {
+      $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td></tr>`) // 결과가 없을때
+    } else {
+      $(temp).show(); // 결과가 있을때 지정된 temp를 보여줌 
+    }
+    } else {
+      return false;
+    }
+  })
 });
+
+
