@@ -79,7 +79,6 @@ docs.forEach((eachDoc) => {
   if (writeTitle.length > limitLength) {
     writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
   }
-
   let append_html = `
   <tr>
   <td class="listNum">${listNum}</td>
@@ -91,7 +90,6 @@ docs.forEach((eachDoc) => {
   <td class="listDate">${when}</td>
   <td class="listViews">${howMany}</td>
   </tr>`;
-
 
   $("#listCard").append(append_html);
   // console.log(writeTitle, writeName);
@@ -123,6 +121,7 @@ $(".paging").click(async function (e) {
   $(".active").removeClass("active");
   $(e.target).addCgitass("active");
 });
+
 
 // 검색 버튼 눌렀을때 검색 되는 코드
 $(document).ready(function () {
