@@ -42,14 +42,15 @@ const docs = await getDocs(d);
 console.log(docs);
 
 let bigDocs = [];
-let a = 1;
+let a = docs.size;
 docs.forEach((data)=>{
   let dat =  {
     ...data.data(),
-    index : a
+    index : a,
+    ID : data.id
   } 
   bigDocs.push(dat)
-  a++
+  a--
 })
 
 console.log(bigDocs)
@@ -113,24 +114,6 @@ for (let page_num of totalPageNumArr) {
   });
 }
 
-//forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
-bigDocs.forEach((eachDoc) => {
-  console.log(eachDoc)
-
-  let writeTitle = eachDoc["writeTitle"];
-  let writeName =  eachDoc["writeName"];
-  let when =  eachDoc["when"];
-  let num =  eachDoc["num"].toString();
-  var howMany =  eachDoc["howMany"];
-  let listNum = eachDoc.index;
-
-  // 제목 너무 길면 줄이고 말줄임(...) 처리, css로 하니 다 깨져서 css는 삭제했슴당
-  let limitLength = 20;
-  if (writeTitle.length > limitLength) {
-    writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
-  }  
-  console.log(dataArr);
-})
 
 function viewFunc() {
   viewArr.forEach((eachDoc) => {
@@ -145,6 +128,8 @@ function viewFunc() {
       let howMany = eachDoc[i].howMany;
       let index = eachDoc[i].index;
       console.log(index)
+      let ID = eachDoc[i].ID;
+      console.log(ID)
       // console.log(writeTitle, writeName, when, num, howMany, id);
 
       // 제목 너무 길면 줄이고 말줄임(...) 처리,
@@ -176,14 +161,15 @@ function viewFunc() {
         console.log('num =>', num)
         if (clickNum === num) {
           console.log('조회수')
-          //조회수 데이터 수정하기
+          console.log('기존 howMany =>', howMany)
+          // //조회수 데이터 수정하기
           let newHowMany = howMany + 1;
-          // console.log(newHowMany );
-          let b = doc(db, "board", id);
+          console.log('새로운 howMany =>', newHowMany)
+          let b = doc(db, "board", ID);
           await updateDoc(b, { howMany: newHowMany });
-          // console.log(row['howMany']);
-          // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
-          //클릭한 게시물 보여주도록
+          // // console.log(row['howMany']);
+          alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
+          // //클릭한 게시물 보여주도록
 
           window.location.href = `board_view.html?ID=" +${num}`;
         } else if (clickNum !== num) {
@@ -226,13 +212,15 @@ $(document).ready(function () {
 
   // 엔터 눌렀을때 검색 되는 코드
   $("#searchInput").keyup(function (event) {
+    event.preventDefault();
     let keyCode = event.keyCode ? event.keyCode : event.which;
     if (keyCode == 13) {
       let k = $(searchInput).val(); //searchInput 값 지정
       // console.log(k)
-      $("tr").hide(); // tr 요소를 숨김
-      let temp = $("tr:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
+      $("#listCard").hide(); // tr 요소를 숨김
+      let temp = $(".listTitle:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
       if (temp.length == 0) {
+        // $(".listCard").hide(); // tr 요소를 숨김
         $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td></tr>`); // 결과가 없을때
       } else {
         $(temp).show(); // 결과가 있을때 지정된 temp를 보여줌
