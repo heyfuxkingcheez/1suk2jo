@@ -309,3 +309,17 @@ span.active {
     padding: 10px 15px;
     border-radius: 5px;
 }
+
+.resultBottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.resultBottom div {
+  margin-right: 0;
+  display: flex;
+}
