@@ -21,12 +21,13 @@ import {
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:acc8b044fd5f40be1c289c"
+  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
+  authDomain: "sparta-e533a.firebaseapp.com",
+  projectId: "sparta-e533a",
+  storageBucket: "sparta-e533a.appspot.com",
+  messagingSenderId: "176323692514",
+  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
+  measurementId: "G-H5C27X8E9M"
 };
 
 // Firebase 인스턴스 초기화
@@ -37,10 +38,11 @@ let lastVisibleDoc = null; //이전 페이지의 마지막 문서
 
 const d = await query(board, orderBy("when", "desc"));
 
-const dArr = [];
+const dArr = [];1
 const docs = await getDocs(d);
 console.log(docs);
 
+// 글 번호
 let bigDocs = [];
 let a = docs.size;
 docs.forEach((data)=>{
