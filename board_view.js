@@ -113,7 +113,11 @@ docs.forEach((eachDoc) => {
     $("#viewFrm").append(append_html);
 
   }
-
+  //데이터 수정
+  $('#modify').click(function(e){
+    e.preventDefault();
+    window.location.href = `board_modify.html?ID=" +${que}`;
+  })
   // console.log(which);
 
   //게시글 삭제
