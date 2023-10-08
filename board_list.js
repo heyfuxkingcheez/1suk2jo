@@ -27,7 +27,7 @@ const firebaseConfig = {
   storageBucket: "sparta-e533a.appspot.com",
   messagingSenderId: "176323692514",
   appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
-  measurementId: "G-H5C27X8E9M"
+  measurementId: "G-H5C27X8E9M",
 };
 
 // Firebase 인스턴스 초기화
@@ -38,24 +38,25 @@ let lastVisibleDoc = null; //이전 페이지의 마지막 문서
 
 const d = await query(board, orderBy("when", "desc"));
 
-const dArr = [];1
+const dArr = [];
+1;
 const docs = await getDocs(d);
 console.log(docs);
 
 // 글 번호
 let bigDocs = [];
 let a = docs.size;
-docs.forEach((data)=>{
-  let dat =  {
+docs.forEach((data) => {
+  let dat = {
     ...data.data(),
-    index : a,
-    ID : data.id
-  } 
-  bigDocs.push(dat)
-  a--
-})
+    index: a,
+    ID: data.id,
+  };
+  bigDocs.push(dat);
+  a--;
+});
 
-console.log(bigDocs)
+console.log(bigDocs);
 
 // 페이징
 let viewArr = [];
@@ -65,7 +66,7 @@ let dataArr = [];
 bigDocs.forEach((ds) => {
   dataArr.push(ds);
 });
-console.log(dataArr)
+console.log(dataArr);
 
 let pageArr = [];
 
@@ -98,7 +99,6 @@ for (let page_num of totalPageNumArr) {
   if (page_num === 1) {
     viewArr.push(pageArr[0]);
     viewFunc();
-
   }
   $(`#page${page_num}`).click((e) => {
     let slicePageNum = Number(e.target.id.slice(-1)); // "1"
@@ -116,7 +116,6 @@ for (let page_num of totalPageNumArr) {
   });
 }
 
-
 function viewFunc() {
   viewArr.forEach((eachDoc) => {
     // console.log(dataArr.length);
@@ -129,15 +128,15 @@ function viewFunc() {
       console.log(num);
       let howMany = eachDoc[i].howMany;
       let index = eachDoc[i].index;
-      console.log(index)
+      console.log(index);
       let ID = eachDoc[i].ID;
-      console.log(ID)
+      console.log(ID);
       // console.log(writeTitle, writeName, when, num, howMany, id);
 
       // 제목 너무 길면 줄이고 말줄임(...) 처리,
       // css로 하니 다 깨져서 css는 삭제했슴당
       let limitLength = 35;
-      console.log(writeTitle)
+      console.log(writeTitle);
       if (writeTitle.length > limitLength) {
         writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
       }
@@ -155,18 +154,18 @@ function viewFunc() {
 
       $("#listCard").append(append_html);
 
-    //조회수 기능
+      //조회수 기능
       $("#listCard").click(async function (e) {
         e.preventDefault();
-        let clickNum = e.target.nextElementSibling.innerText;
-        console.log('clickNum => ', clickNum)
-        console.log('num =>', num)
+        let clickNum = e.target.previousElementSibling.innerText;
+        console.log("clickNum => ", clickNum);
+        console.log("num =>", num);
         if (clickNum === num) {
-          console.log('조회수')
-          console.log('기존 howMany =>', howMany)
+          console.log("조회수");
+          console.log("기존 howMany =>", howMany);
           // //조회수 데이터 수정하기
           let newHowMany = howMany + 1;
-          console.log('새로운 howMany =>', newHowMany)
+          console.log("새로운 howMany =>", newHowMany);
           let b = doc(db, "board", ID);
           await updateDoc(b, { howMany: newHowMany });
           // // console.log(row['howMany']);
@@ -178,7 +177,6 @@ function viewFunc() {
           // alert('존재하지 않는 게시글을 눌렀습니다.');
         }
       });
-
     }
   });
 }
@@ -188,8 +186,6 @@ const countAll = await getCountFromServer(d);
 var listNum = countAll.data().count + 1;
 
 //forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
-
-
 
 // pagination
 // 누르는 페이지 마다 class=active; 추가, 색상 변경
