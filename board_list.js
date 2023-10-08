@@ -158,7 +158,7 @@ function viewFunc() {
     //조회수 기능
       $("#listCard").click(async function (e) {
         e.preventDefault();
-        let clickNum = e.target.nextElementSibling.innerText;
+        let clickNum = e.target.previousElementSibling.innerText;
         console.log('clickNum => ', clickNum)
         console.log('num =>', num)
         if (clickNum === num) {
