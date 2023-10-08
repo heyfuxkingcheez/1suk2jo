@@ -21,13 +21,12 @@ import {
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
-  authDomain: "sparta-e533a.firebaseapp.com",
-  projectId: "sparta-e533a",
-  storageBucket: "sparta-e533a.appspot.com",
-  messagingSenderId: "176323692514",
-  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
-  measurementId: "G-H5C27X8E9M"
+  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
+  authDomain: "ejoo-a1fd7.firebaseapp.com",
+  projectId: "ejoo-a1fd7",
+  storageBucket: "ejoo-a1fd7.appspot.com",
+  messagingSenderId: "982632789909",
+  appId: "1:982632789909:web:acc8b044fd5f40be1c289c"
 };
 
 // Firebase 인스턴스 초기화
@@ -133,7 +132,6 @@ bigDocs.forEach((eachDoc) => {
   console.log(dataArr);
 })
 
-
 function viewFunc() {
   viewArr.forEach((eachDoc) => {
     // console.log(dataArr.length);
@@ -170,7 +168,29 @@ function viewFunc() {
 
       $("#listCard").append(append_html);
 
-    
+    //조회수 기능
+      $("#listCard").click(async function (e) {
+        e.preventDefault();
+        let clickNum = e.target.previousElementSibling.innerText;
+        console.log('clickNum => ', clickNum)
+        console.log('num =>', num)
+        if (clickNum === num) {
+          console.log('조회수')
+          //조회수 데이터 수정하기
+          let newHowMany = howMany + 1;
+          // console.log(newHowMany );
+          let b = doc(db, "board", id);
+          await updateDoc(b, { howMany: newHowMany });
+          // console.log(row['howMany']);
+          // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
+          //클릭한 게시물 보여주도록
+
+          window.location.href = `board_view.html?ID=" +${num}`;
+        } else if (clickNum !== num) {
+          // alert('존재하지 않는 게시글을 눌렀습니다.');
+        }
+      });
+
     }
   });
 }
@@ -181,26 +201,6 @@ var listNum = countAll.data().count + 1;
 
 //forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 
-//조회수 기능
-$("#listCard").click(async function (e) {
-  e.preventDefault();
-  let clickNum = parseInt(e.target.previousElementSibling.innerText);
-  console.log(typeof clickNum)
-  if (clickNum === num) {
-    //조회수 데이터 수정하기
-    let newHowMany = howMany + 1;
-    // console.log(newHowMany );
-    let b = doc(db, "board", id);
-    await updateDoc(b, { howMany: newHowMany });
-    // console.log(row['howMany']);
-    // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
-    //클릭한 게시물 보여주도록
-
-    window.location.href = `board_view.html?ID=" +${num}`;
-  } else if (clickNum !== num) {
-    // alert('존재하지 않는 게시글을 눌렀습니다.');
-  }
-});
 
 
 // pagination

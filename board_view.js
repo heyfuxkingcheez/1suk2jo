@@ -17,14 +17,12 @@ import {
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCcYRfJBHpKg9mG3EJp6urawO5OlhPHoIs",
-  authDomain: "soo-test-15c67.firebaseapp.com",
-  projectId: "soo-test-15c67",
-  storageBucket: "soo-test-15c67.appspot.com",
-  messagingSenderId: "239246841609",
-  appId: "1:239246841609:web:0ade4f7652e36060eba5d8",
-  measurementId: "G-7BLCRSRLW5",
-
+  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
+  authDomain: "ejoo-a1fd7.firebaseapp.com",
+  projectId: "ejoo-a1fd7",
+  storageBucket: "ejoo-a1fd7.appspot.com",
+  messagingSenderId: "982632789909",
+  appId: "1:982632789909:web:acc8b044fd5f40be1c289c"
 };
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
@@ -72,8 +70,10 @@ docs.forEach((eachDoc) => {
   let id = eachDoc.id;
   let which;
   // console.log(writeTitle, writeText, writeName, when)
-  // console.log(docs);
-  if (num === query) {
+  // console.log(row);
+  console.log('num =>',num);
+  console.log('que =>',que)
+  if (num === que) {
     console.log("같으");
     console.log(row);
     which = id;
