@@ -170,7 +170,7 @@ function viewFunc() {
           let b = doc(db, "board", ID);
           await updateDoc(b, { howMany: newHowMany });
           // // console.log(row['howMany']);
-          alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
+          // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
           // //클릭한 게시물 보여주도록
 
           window.location.href = `board_view.html?ID=" +${num}`;
