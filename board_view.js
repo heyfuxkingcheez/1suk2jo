@@ -56,12 +56,14 @@ docsd.forEach((eachdoc) => {
     <div id="result" class="resultMsg">
       <span id="resultName">${commentName}</span>
       <span id="resultContent">${commentText}</span>
-      <span style="display : none">${commentNum}</span>
+      
       <div class="resultBottom">
       <div id="resultTime">${when}</div>
-      <div>
+      <div id="DeleteBtn">
       <button class="" id="commentUpdate">수정
+      <button style="display : none">${commentNum}</button>
       <button class="" id="commentDelete">삭제
+      <button style="display : none">${commentNum}</button>
       </div>
       </div>
       </div>
@@ -69,9 +71,19 @@ docsd.forEach((eachdoc) => {
     $("#result").append(append_comment);
   }
   // 댓글 삭제
-  $("#commentDelete").click(async function (e) {
+  $("#commentField").click(async function (e) {
     e.preventDefault();
-    console.log();
+    let clickCoNum = e.target.nextElementSibling.innerText;;
+    console.log('clickCoNum => ', clickCoNum)
+    console.log('commentNum =>', commentNum)
+    if (clickCoNum === commentNum) {
+      await deleteDoc(doc(db, 'comments', which));
+      window.location.reload();
+    } else {
+      return false;
+    }
+
+
     // if (id === which) {
     //   await deleteDoc(doc(db, 'comments', which));
     //   window.location.reload();
