@@ -213,14 +213,14 @@ $(document).ready(function () {
   });
 
   // 엔터 눌렀을때 검색 되는 코드
-  $("#searchInput").keyup(function (event) {
-    event.preventDefault();
-    let keyCode = event.keyCode ? event.keyCode : event.which;
+  $("#searchInput").keyup(function (e) {
+    e.preventDefault();
+    let keyCode = e.keyCode ? e.keyCode : e.which;
     if (keyCode == 13) {
       let k = $(searchInput).val(); //searchInput 값 지정
       // console.log(k)
       $("#listCard").hide(); // tr 요소를 숨김
-      let temp = $(".listTitle:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
+      let temp = $("tr:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
       if (temp.length == 0) {
         // $(".listCard").hide(); // tr 요소를 숨김
         $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td></tr>`); // 결과가 없을때
