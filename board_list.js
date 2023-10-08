@@ -69,58 +69,55 @@ console.log(dataArr)
 //페이지 숫자 담아서 붙여줄 배열
 let pageArr = [];
 
-function page(){
-  let pageArr = [];
-
-  //페이지 개수 구하기.
-  for (let i = 0; i < dataArr.length; i += 5) {
-    // 빈 배열에 특정 길이만큼 분리된 배열 추가
-    pageArr.push(dataArr.slice(i, i + 5));
-  }
-  console.log(pageArr.length);
-
-  // 있는 게시글 만큼 페이지 숫자 append
-  for (let i = 2; i <= pageArr.length; i++) {
-    if (pageArr.length <= 1) {
-      console.log("data 5개 이하 1페이지만 존재");
-    } else {
-      let pageNumHtml = `
-      <span id="page${i}">${i}</span>
-    `;
-      $(".pages").append(pageNumHtml);
-    }
-  }
-
-  let totalPageNumArr = [];
-  for (let i = 1; i <= pageArr.length; i++) {
-    totalPageNumArr.push(i);
-  }
-  // console.log(totalPageNumArr); // [1, 2, 3, 4]
-
-  for (let page_num of totalPageNumArr) {
-    if (page_num === 1) {
-      viewArr.push(pageArr[0]);
-      viewFunc();
-
-    }
-    $(`#page${page_num}`).click((e) => {
-      let slicePageNum = Number(e.target.id.slice(-1)); // "1"
-      viewArr = [];
-      $("#listCard").empty();
-      // console.log(page);
-
-      if (slicePageNum === page_num) {
-        viewArr.push(pageArr[slicePageNum - 1]);
-        viewFunc();
-      } else {
-        console.log("mm");
-      }
-      console.log(viewArr);
-    });
-  }
-
+//페이지 개수 구하기.
+for (let i = 0; i < dataArr.length; i += 5) {
+  // 빈 배열에 특정 길이만큼 분리된 배열 추가
+  pageArr.push(dataArr.slice(i, i + 5));
 }
-page();
+console.log(pageArr.length);
+
+// 있는 게시글 만큼 페이지 숫자 append
+for (let i = 2; i <= pageArr.length; i++) {
+  if (pageArr.length <= 1) {
+    console.log("data 5개 이하 1페이지만 존재");
+  } else {
+    let pageNumHtml = `
+    <span id="page${i}">${i}</span>
+  `;
+    $(".pages").append(pageNumHtml);
+  }
+}
+
+let totalPageNumArr = [];
+for (let i = 1; i <= pageArr.length; i++) {
+  totalPageNumArr.push(i);
+}
+// console.log(totalPageNumArr); // [1, 2, 3, 4]
+
+for (let page_num of totalPageNumArr) {
+  if (page_num === 1) {
+    viewArr.push(pageArr[0]);
+    viewFunc();
+
+  }
+  $(`#page${page_num}`).click((e) => {
+    let slicePageNum = Number(e.target.id.slice(-1)); // "1"
+    viewArr = [];
+    $("#listCard").empty();
+    // console.log(page);
+
+    if (slicePageNum === page_num) {
+      viewArr.push(pageArr[slicePageNum - 1]);
+      console.log(viewArr)
+      viewFunc();
+    } else {
+      console.log("mm");
+    }
+    console.log(viewArr);
+  });
+}
+
+
 function viewFunc() {
   viewArr.forEach((eachDoc) => {
     // console.log(dataArr.length);
@@ -158,36 +155,27 @@ function viewFunc() {
 
       $("#listCard").append(append_html);
 
-    }
-  });
-}
-
-
-//조회수 기능
-viewArr.forEach((eachDoc) => {
-  for (let i = 0; i < eachDoc.length; i++) {
-    let num = eachDoc[i].num;
-    let howMany = eachDoc[i].howMany;
-    let ID = eachDoc[i].ID;
-    $("#listCard").click(async function (e) {
-      e.preventDefault();
-      let clickNum = e.target.previousElementSibling.innerText;
-      if (clickNum === num) {
-        console.log('번호')
-        // //조회수 데이터 수정하기
-        let newHowMany = howMany + 1;
-        console.log('새로운 howMany =>', newHowMany)
-        async function howManyFun(){
+      //조회수 기능
+      $("#listCard").click(async function (e) {
+        e.preventDefault();
+        let clickNum = e.target.previousElementSibling.innerText;
+        if (clickNum === num) {
+          console.log('번호')
+          // //조회수 데이터 수정하기
+          let newHowMany = howMany + 1;
+          console.log('새로운 howMany =>', newHowMany)
           let b = doc(db, "board", ID);
           await updateDoc(b, { howMany: newHowMany });
           // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요
+          // //클릭한 게시물 보여주도록
+          window.location.href = `board_view.html?ID=" +${num}`;
         }
-        // //클릭한 게시물 보여주도록
-        window.location.href = `board_view.html?ID=" +${num}`;
-      }
-    })
-  }
-});
+      })
+    }
+  });
+
+}
+
 
 //forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 
@@ -284,11 +272,9 @@ function searchFun (){
           // //조회수 데이터 수정하기
           let newHowMany = howMany + 1;
           console.log('새로운 howMany =>', newHowMany)
-          async function howManyFun(){
-            let b = doc(db, "board", ID);
-            await updateDoc(b, { howMany: newHowMany });
-            // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요
-          }
+          let b = doc(db, "board", ID);
+          await updateDoc(b, { howMany: newHowMany });
+          // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요
           // //클릭한 게시물 보여주도록
           window.location.href = `board_view.html?ID=" +${num}`;
         }
