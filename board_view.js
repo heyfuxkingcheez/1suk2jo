@@ -73,9 +73,10 @@ docsd.forEach((eachdoc) => {
   // 댓글 삭제
   $("#commentField").click(async function (e) {
     e.preventDefault();
-    let clickCoNum = e.target.nextElementSibling.innerText;;
-    console.log('clickCoNum => ', clickCoNum)
-    console.log('commentNum =>', commentNum)
+    let clickCoNum = e.target.nextElementSibling.innerText;
+
+    // console.log('clickCoNum => ', clickCoNum)
+    // console.log('commentNum =>', commentNum)
     if (clickCoNum === commentNum) {
       await deleteDoc(doc(db, 'comments', which));
       window.location.reload();
@@ -179,20 +180,24 @@ $("#commentBtn").click(async function (e) {
     date: new Date().getTime(), // 현재 시간 밀리세컨드
     when: when,
     num: query, // num id값
-    commentNum: commentID()
+    commentNum: commentID(),
+    commentPw: $("#pwd1").val()
 
   };
-
+// 댓글 폼 규칙
   if (data.commentName.length <= 0 || data.commentText.length <= 0) {
     return alert('내용을 입력해주세요.');
-  } else {
+  }else if ($('#pwd1').val().length <= 0 || $('#pwd2').val().length <= 0) {
+    return alert('비밀번호를 입력해주세요.')
+  }else if ($('#pwd1').val() != $('#pwd2').val()) {
+    return alert('비밀번호를 일치하도록 입력해주세요.')
+  }else {
     await addDoc(collection(db, "comments"), data);
     console.log(data)
     window.location.reload()
   }
 })
-
-
+  
 // 댓글 비밀번호 일치 확인     
 $(function () {
   $('#pwd1').keyup(function () {
@@ -200,7 +205,6 @@ $(function () {
   });
 
   $('#pwd2').keyup(function () {
-
     if ($('#pwd1').val() != $('#pwd2').val()) {
       $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
       $('#chkNotice').attr('color', '#f82a2aa3');
@@ -208,7 +212,6 @@ $(function () {
       $('#chkNotice').html('비밀번호 일치함<br><br>');
       $('#chkNotice').attr('color', '#199894b3');
     }
-
   });
 });
 
