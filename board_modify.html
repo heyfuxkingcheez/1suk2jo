@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Board_modify</title>
+    <title>Board write</title>
     <!-- 공통 css -->
     <link rel="stylesheet" href="./styles/style.css" />
     <!-- board css -->
@@ -38,25 +38,55 @@
         </ul>
       </nav>
     </div>
-
     <!-- 정기욱 -->
-    <div class="boardModify">
-      <h1>글 수정</h1>
-      <p>글 수정하는 페이지 입니다.</p>
 
-      <form id="modifyFrm" action="./board_view.html">
-        <div>제목: <input type="text" name="subject" /></div>
-        <div>작성자: <input type="text" name="writer" /></div>
-        <div>내용: <textarea name="content"></textarea></div>
+    <div class="container">
+      <div class="boardWrite">
+        <h1>Board_modify</h1>
+        <p>글 수정 페이지 입니다.</p>
+      </div>
 
-        <a href="./board_view.html">
-          <input type="submit" value="수정완료" />
-        </a>
-
+      <form id="writeFrm">
+        <div class="inputContainer">
+          <div class="inputValue">
+            <div class="title">
+              <!-- <label for="write_title">제목</label> -->
+              <input
+                class="input"
+                id="writeTitle"
+                type="text"
+                name="subject"
+                placeholder="제목을 적어주세요"
+              />
+            </div>
+            <div class = 'name'>
+              <input 
+              id = 'writeName'  
+              class="input" 
+              type="text" 
+              name="writer" 
+              placeholder="닉네임을 적어주세요">
+            </div>
+            <!-- <label for="write_text" >내용</label> -->
+            <div class="text">
+              <textarea
+                id="writeText"
+                name="content"
+                class="writeTextArea"
+                placeholder="내용!! 하고싶은 말을 적어주세요"
+              ></textarea>
+            </div>
+          </div>
+          <input 
+            class="input" 
+            type="submit" 
+            value="저장하기" 
+            id="submit" />
+          <div class="blank"></div>
+        </div>
       </form>
-      <a href="./board_list.html">뒤로가기</a>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src=".board_modify.js"></script>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module" src="board_modify.js"></script>
   </body>
 </html>
