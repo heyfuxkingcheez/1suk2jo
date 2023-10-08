@@ -29,47 +29,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const d = await query(board, orderBy("when", "desc"));
-const docRef = doc(db, "cities", "SF");
-const docSnap = await getDoc(docRef);
-
-if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
-} else {
-  // docSnap.data() will be undefined in this case
-  console.log("No such document!");
-}
-
-let dataArr = [];
-
-gDocs.forEach((ds) => {
-  dataArr.push(ds.data());
-});
-
-console.log(dataArr);
-
 let which;
-
-let index = 0;
-
+let docs;
 $("#writeFrm").submit(async function (e) {
   e.preventDefault();
-  index = index + 1;
+
 
   if (document.getElementById("writeTitle").value == "") {
-    e.preventDefault();
     alert("제목을 입력하세요");
     return false;
   }
 
   if (document.getElementById("writeName").value == "") {
-    e.preventDefault();
     alert("닉네임을 입력하세요");
     return false;
   }
 
   if (document.getElementById("writeText").value == "") {
-    e.preventDefault();
     alert("내용을 입력하세요");
     return false;
   }
@@ -101,27 +77,30 @@ $("#writeFrm").submit(async function (e) {
   // };
 
   // console.log(writeTitle, writeName, writeText);
+  const boardData = await query(board);
+  const boardDataGet = await getDocs(d);
+  bocs[-1]
 
-  let docs = {
+  docs = {
     writeTitle: writeTitle,
     writeText: writeText,
     writeName: writeName,
     when: when,
-    num: index,
+    num: 1,
     howMany: 0,
     nowDate: time,
   };
-
-  const num = docs.num.toString();
-  console.log(num + "!!!");
-  console.log(docs);
-  console.log(docs.howMany);
-
+  // const num = docs.num.toString();
+  console.log(docs)
   let add = addDoc(collection(db, "board"), docs);
   //데이터 저장하고 해당 아이디값 출력해 봤어요
   await add.then((ID) => console.log(ID.id));
   alert("저장 완료!");
   // const num = docs.num
-  window.location.href = `board_view.html?ID=" +${num}`;
+
+
+  window.location.href = `board_view.html?ID=" +${docs.num}`;
   // window.location.href = 'board_view.html?ID =${newID()}';
+
 });
+

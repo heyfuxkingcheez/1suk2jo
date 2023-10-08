@@ -39,53 +39,35 @@ let lastVisibleDoc = null; //이전 페이지의 마지막 문서
 const d = await query(board, orderBy("when", "desc"));
 
 const dArr = [];
-// const d = query(
-//   collection(db, "board"),
-//   orderBy("nowDate"),
-//   startAfter(1696614628387),
-//   limit(5)
-// );
-
 const docs = await getDocs(d);
 console.log(docs);
-// docs.forEach((ds) => {
-//   dArr.push(ds.data());
-// });
-// console.log("디알알", dArr);
+
+let bigDocs = [];
+let a = 1;
+docs.forEach((data)=>{
+  let dat =  {
+    ...data.data(),
+    index : a
+  } 
+  bigDocs.push(dat)
+  a++
+})
+
+console.log(bigDocs)
 
 // 페이징
-
 let viewArr = [];
 // 전체 data 배열
 let dataArr = [];
 //id값 같이 넣기
-docs.forEach((ds) => {
-  dataArr.push([ds.data(), ds.id]);
+bigDocs.forEach((ds) => {
+  dataArr.push(ds);
 });
+console.log(dataArr)
 
-
-//forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
-docs.forEach((eachDoc) => {
-  //데이터의 문서id 값 출력해 봤어요
-  // console.log(eachDoc.id);
-  listNum--;
-  let row = eachDoc.data();
-  let writeTitle = row["writeTitle"];
-  let writeName = row["writeName"];
-  let when = row["when"];
-  let num = row["num"].toString();
-  var howMany = row["howMany"];
-  let id = eachDoc.id;
-
-  // 제목 너무 길면 줄이고 말줄임(...) 처리,
-  // css로 하니 다 깨져서 css는 삭제했슴당
-  let limitLength = 20;
-  if (writeTitle.length > limitLength) {
-    writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
-  }  
-  console.log(dataArr);
-})
 let pageArr = [];
+
+//페이지 개수 구하기.
 for (let i = 0; i < dataArr.length; i += 5) {
   // 빈 배열에 특정 길이만큼 분리된 배열 추가
   pageArr.push(dataArr.slice(i, i + 5));
@@ -132,21 +114,41 @@ for (let page_num of totalPageNumArr) {
   });
 }
 
+//forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
+bigDocs.forEach((eachDoc) => {
+  console.log(eachDoc)
+
+  let writeTitle = eachDoc["writeTitle"];
+  let writeName =  eachDoc["writeName"];
+  let when =  eachDoc["when"];
+  let num =  eachDoc["num"].toString();
+  var howMany =  eachDoc["howMany"];
+  let listNum = eachDoc.index;
+
+  // 제목 너무 길면 줄이고 말줄임(...) 처리, css로 하니 다 깨져서 css는 삭제했슴당
+  let limitLength = 20;
+  if (writeTitle.length > limitLength) {
+    writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
+  }  
+  console.log(dataArr);
+})
+
+
 function viewFunc() {
   viewArr.forEach((eachDoc) => {
     // console.log(dataArr.length);
     for (let i = 0; i < eachDoc.length; i++) {
       console.log(eachDoc[i]);
-      let writeTitle = eachDoc[i][0].writeTitle;
-      let writeName = eachDoc[i][0].writeName;
-      let when = eachDoc[i][0].when;
-      let num = eachDoc[i][0].num;
-      // console.log();
+      let writeTitle = eachDoc[i].writeTitle;
+      let writeName = eachDoc[i].writeName;
+      let when = eachDoc[i].when;
+      let num = eachDoc[i].num;
       console.log(num);
       let howMany = eachDoc[i].howMany;
-      // let id = eachDoc[i][1];
-      // console.log(id)
+      let index = eachDoc[i].index;
+      console.log(index)
       // console.log(writeTitle, writeName, when, num, howMany, id);
+
       // 제목 너무 길면 줄이고 말줄임(...) 처리,
       // css로 하니 다 깨져서 css는 삭제했슴당
       let limitLength = 35;
@@ -156,7 +158,7 @@ function viewFunc() {
       }
       let append_html = `
         <tr>
-        <td class="listNum">${listNum}</td>
+        <td class="listNum">${index}</td>
         <td style = 'display : none'>${num}</td>
         <td class="listTitle">
         ${writeTitle}
@@ -168,32 +170,8 @@ function viewFunc() {
 
       $("#listCard").append(append_html);
 
-      $("#listCard").click(async function (e) {
-        e.preventDefault();
-        let clickNum = parseInt(e.target.previousElementSibling.innerText);
-        console.log(typeof clickNum)
-        if (clickNum === num) {
-          //조회수 데이터 수정하기
-          let newHowMany = howMany + 1;
-          // console.log(newHowMany );
-          let b = doc(db, "board", id);
-          await updateDoc(b, { howMany: newHowMany });
-          // console.log(row['howMany']);
-          // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
-          //클릭한 게시물 보여주도록
-      
-          window.location.href = `board_view.html?ID=" +${num}`;
-        } else if (clickNum !== num) {
-          // alert('존재하지 않는 게시글을 눌렀습니다.');
-        }
-      });
+    
     }
-
-    // console.log(writeTitle, writeName);
-    // console.log(typeof writeTitle, typeof writeName);
-
-    // let row = eachDocObj.data();
-    // console.log(row);
   });
 }
 
@@ -203,6 +181,26 @@ var listNum = countAll.data().count + 1;
 
 //forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 
+//조회수 기능
+$("#listCard").click(async function (e) {
+  e.preventDefault();
+  let clickNum = parseInt(e.target.previousElementSibling.innerText);
+  console.log(typeof clickNum)
+  if (clickNum === num) {
+    //조회수 데이터 수정하기
+    let newHowMany = howMany + 1;
+    // console.log(newHowMany );
+    let b = doc(db, "board", id);
+    await updateDoc(b, { howMany: newHowMany });
+    // console.log(row['howMany']);
+    // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요.
+    //클릭한 게시물 보여주도록
+
+    window.location.href = `board_view.html?ID=" +${num}`;
+  } else if (clickNum !== num) {
+    // alert('존재하지 않는 게시글을 눌렀습니다.');
+  }
+});
 
 
 // pagination
