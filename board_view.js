@@ -143,7 +143,6 @@ docs.forEach((eachDoc) => {
 // 댓글 기능 추가
 $("#commentBtn").click(async function (e) {
   e.preventDefault();
-
   let query = window.location.search.substr(11);
 
   let now = new Date();
@@ -162,7 +161,8 @@ $("#commentBtn").click(async function (e) {
     commentText: $("#commentText").val(), // 댓글 내용 input value
     date: new Date().getTime(), // 현재 시간 밀리세컨드
     when: when,
-    num: query // num id값
+    num: query, // num id값
+    
   };
 
   if (data.commentName.length <= 0 || data.commentText.length <= 0) {
@@ -173,4 +173,23 @@ $("#commentBtn").click(async function (e) {
     window.location.reload()
   }
 })
+
+// 댓글 비밀번호 일치 확인     
+$(function() {
+  $('#pwd1').keyup(function(){
+    $('#chkNotice').html('');
+  });
+
+  $('#pwd2').keyup(function(){
+
+    if($('#pwd1').val() != $('#pwd2').val()){
+      $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
+      $('#chkNotice').attr('color', '#f82a2aa3');
+    } else{
+      $('#chkNotice').html('비밀번호 일치함<br><br>');
+      $('#chkNotice').attr('color', '#199894b3');
+    }
+
+});
+});          
 

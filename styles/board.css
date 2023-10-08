@@ -77,10 +77,6 @@ table td {
   padding: 20px 20px;
 }
 
-td {
-  /* height: 70px; */
-}
-
 .listNum,
 .listViews {
   width: 10%;
@@ -244,9 +240,9 @@ span.active {
   box-sizing: border-box;
 }
 
-
-#input #commentName {
-  width: 15%;
+#commentName, #pwd1, #pwd2 {
+  width: 17%;
+  display: flex;
 }
 
 #commentBtn {
@@ -276,11 +272,26 @@ span.active {
   text-indent: 5px;
 }
 
+.commentTop {
+  display: flex;
+}
+
+#pwd1, #pwd2 {
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#chkNotice {
+  padding-top: 15px;
+}
+
 .textdiv {
   display: flex;
   height: 50px;
   margin-top: 5px;
   position: relative;
+  margin-bottom: 20px;
 }
 
 #input {
