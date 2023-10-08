@@ -45,9 +45,10 @@ docsd.forEach((eachdoc) => {
   let date = row["date"];
   let num = row["num"];
   let when = row["when"];
+  let commentNum = row["commentNum"];
   let id = eachdoc.id;
   let which;
-  
+
 
   if (num === que) {
     which = id;
@@ -55,6 +56,7 @@ docsd.forEach((eachdoc) => {
     <div id="result" class="resultMsg">
       <span id="resultName">${commentName}</span>
       <span id="resultContent">${commentText}</span>
+      <span style="display : none">${commentNum}</span>
       <div class="resultBottom">
       <div id="resultTime">${when}</div>
       <div>
@@ -69,11 +71,11 @@ docsd.forEach((eachdoc) => {
   // 댓글 삭제
   $("#commentDelete").click(async function (e) {
     e.preventDefault();
-    console.log(id);
-    if (id === which) {
-      await deleteDoc(doc(db, 'comments', which));
-      window.location.reload();
-    }
+    console.log();
+    // if (id === which) {
+    //   await deleteDoc(doc(db, 'comments', which));
+    //   window.location.reload();
+    // }
   })
 })
 
@@ -114,7 +116,7 @@ docs.forEach((eachDoc) => {
 
   }
   //데이터 수정
-  $('#modify').click(function(e){
+  $('#modify').click(function (e) {
     e.preventDefault();
     window.location.href = `board_modify.html?ID=" +${que}`;
   })
@@ -144,6 +146,9 @@ docs.forEach((eachDoc) => {
 $("#commentBtn").click(async function (e) {
   e.preventDefault();
   let query = window.location.search.substr(11);
+  var commentID = function () {
+    return Math.random().toString(24).substr(2, 10);
+  };
 
   let now = new Date();
   let year = now.getFullYear();
@@ -162,7 +167,8 @@ $("#commentBtn").click(async function (e) {
     date: new Date().getTime(), // 현재 시간 밀리세컨드
     when: when,
     num: query, // num id값
-    
+    commentNum: commentID()
+
   };
 
   if (data.commentName.length <= 0 || data.commentText.length <= 0) {
@@ -174,22 +180,23 @@ $("#commentBtn").click(async function (e) {
   }
 })
 
+
 // 댓글 비밀번호 일치 확인     
-$(function() {
-  $('#pwd1').keyup(function(){
+$(function () {
+  $('#pwd1').keyup(function () {
     $('#chkNotice').html('');
   });
 
-  $('#pwd2').keyup(function(){
+  $('#pwd2').keyup(function () {
 
-    if($('#pwd1').val() != $('#pwd2').val()){
+    if ($('#pwd1').val() != $('#pwd2').val()) {
       $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
       $('#chkNotice').attr('color', '#f82a2aa3');
-    } else{
+    } else {
       $('#chkNotice').html('비밀번호 일치함<br><br>');
       $('#chkNotice').attr('color', '#199894b3');
     }
 
+  });
 });
-});          
 
