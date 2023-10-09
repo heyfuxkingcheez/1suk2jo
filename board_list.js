@@ -173,11 +173,11 @@ function viewFunc() {
       let dateDifference = newDate - arr[i];
       console.log(dateDifference)
       
-        if (dateDifference  <= 18000000) {
-          $('#new').css('display', 'block');
-        } else {
-          $('#new').css('display', 'none');
-        }
+        // if (dateDifference  <= 18000000) {
+        //   $('#new').css('display', 'block');
+        // } else {
+        //   $('#new').css('display', 'none');
+        // }
     }
   });
 }
@@ -233,8 +233,8 @@ function searchFun() {
     console.log(sameLength);
     console.log("입력값 없음");
     $("tr").hide();
+    $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
   }
-  $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
   $(".pages").empty();
   let pageNumHtml = `
       <span id="page1">1</span>
