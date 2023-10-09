@@ -1,44 +1,18 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
   collection,
-  addDoc,
-  getCountFromServer,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import {
+  getDocs,
   orderBy,
   query,
   doc,
-  setDoc,
-  startAt,
-  endAt,
-  startAfter,
-  deleteDoc,
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:acc8b044fd5f40be1c289c",
-};
+import { db } from "./firebase.js";
 
-// Firebase 인스턴스 초기화
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 const board = collection(db, "board");
-let lastVisibleDoc = null; //이전 페이지의 마지막 문서
 
 const d = await query(board, orderBy("when", "desc"));
 
-const dArr = [];
-1;
 const docs = await getDocs(d);
 // console.log(docs);
 
@@ -80,17 +54,17 @@ function pageFun() {
     pageArr.push(dataArr.slice(i, i + 5));
   }
   console.log("pageArr =>", pageArr);
-  $(".toglePage").empty();
+  $(".pages").empty();
   // 있는 게시글 만큼 페이지 숫자 append
+
+  let pageNumHtml = `<span  class="active" id="page1">1</span>`;
+  $(".pages").append(pageNumHtml);
+
   for (let i = 2; i <= pageArr.length; i++) {
-    // if (pageArr.length < 0) {
-    //   console.log("data 5개 이하 1페이지만 존재");
-    // } else {
     let pageNumHtml = `
-      <span class = 'toglePage' id="page${i}">${i}</span>
+    <span id="page${i}">${i}</span>
     `;
     $(".pages").append(pageNumHtml);
-    // }
   }
 
   //
@@ -98,7 +72,7 @@ function pageFun() {
   for (let i = 1; i <= pageArr.length; i++) {
     totalPageNumArr.push(i);
   }
-  // console.log(totalPageNumArr); // [1, 2, 3, 4]
+  console.log("totalPageNumArr =>", totalPageNumArr); // [1, 2, 3, 4]
 
   for (let page_num of totalPageNumArr) {
     //첫번쨰 페이지 에는 그에 해당하는 데이터 보여줘.
@@ -194,34 +168,18 @@ $(".paging").click(async function (e) {
   $(e.target).addClass("active");
 });
 
-//검색
-// $(document).ready(function () {
-//   $("#searchBtn").click(function (e) {
-//     let k = $(searchInput).val(); //searchInput 값 지정
-//     // console.log(k)
-//     $("tr").hide(); // tr 요소를 숨김
-//     let temp = $("tr:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
-//     if (temp.length == 0) {
-//       $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td></tr>`); // 결과가 없을때
-//     } else {
-//       $(temp).show(); // 결과가 있을때 지정된 temp를 보여줌
-//     }
-//   });
-
-// });
-
 //검색 기능
 $("#searchBtn").on("click", function (e) {
   // e.preventDefault();
   searchFun();
 });
 
-// $("#searchInput").on('keyup',function (e){
-//   e.preventDefault();
-//   if(e.keyCode === 13 || e.which ===13){
-//     searchFun();
-//   }
-// });
+$("#searchInput").on("keyup", function (e) {
+  e.preventDefault();
+  if (e.keyCode === 13 || e.which === 13) {
+    searchFun();
+  }
+});
 
 function searchFun() {
   let search = $("#searchInput").val();
@@ -246,54 +204,6 @@ function searchFun() {
     });
     console.log(dataArr);
     pageFun();
-    //페이지 번호, 목록 비워주고, 표 분류 보여주기
-    // $(".pages").empty();
-    // $("tr").show();
-    // $("#listCard").html('');
-
-    // //게시글 번호 + 데이터 붙여넣기
-    // let sameLength = same.length;
-    // same.forEach((ed)=>{
-    //   let num = ed.num;
-    //   let howMany = ed.howMany;
-    //   let ID = ed.ID;
-    //   $("#listCard").append(`
-    //     <tr>
-    //       <td class="listNum">${sameLength}</td>
-    //       <td style = 'display : none'>${num}</td>
-    //       <td class="listTitle">${ed.writeTitle}</td>
-    //       <td class="listAutor">${ed.writeName}</td>
-    //       <td class="listDate">${ed.when}</td>
-    //       <td class="listViews">${ed.howMany}</td>
-    //     </tr>
-    //   `)
-    //   sameLength--;
-
-    //   // console.log('num=>',num)
-    //   // console.log('howMany=>',howMany)
-    //   // console.log('ID=>',ID)
-
-    //   //조회수 기능 + 클릭하면 이동하는 기능
-    //   $("#listCard").click(async function (e) {
-    //     console.log(e.target.previousElementSibling)
-    //     let clickNum = e.target.previousElementSibling.innerText;
-    //     if (clickNum === num) {
-    //       console.log('num=>',num)
-    //       console.log('clickNum=>',clickNum)
-
-    //       console.log('번호')
-    //       // //조회수 데이터 수정하기
-    //       let newHowMany = howMany + 1;
-    //       console.log('새로운 howMany =>', newHowMany)
-    //       let b = doc(db, "board", ID);
-    //       await updateDoc(b, { howMany: newHowMany });
-    //       // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요
-    //       // //클릭한 게시물 보여주도록
-    //       window.location.href = `board_view.html?ID=" +${num}`;
-    //     }
-    //   })
-
-    // })
   } else {
     console.log(sameLength);
     console.log("입력값 없음");
@@ -301,37 +211,8 @@ function searchFun() {
     $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
     $(".pages").empty();
     let pageNumHtml = `
-      <span class="active" id="page1">1</span>
+      <span id="page1">1</span>
     `;
     $(".pages").append(pageNumHtml);
   }
-
-  /////페이지./////////////////
-  // 페이지 개수 구하기
-  // pageArr = [];
-  // for (let i = 0; i < sameLength; i += 5) {
-  //   console.log(i)
-  //   // 빈 배열에 특정 길이만큼 분리된 배열 추가
-  //   let sameSlice = same.slice(i, i + 5)
-  //   console.log(sameSlice);
-  //   pageArr.push(sameSlice);
-  // }
-  // console.log(pageArr);
-  // console.log(same)
-
-  // // 있는 게시글 만큼 페이지 숫자 append
-  // for (let i =1; i < pageArr.length+1; i++) {
-  //   if (pageArr.length <= 1) {
-  //       console.log('페이지 1개')
-  //       let pageNumHtml = `
-  //         <span id="page1">1</span>
-  //       `;
-  //       $(".pages").append(pageNumHtml);
-  //   } else {
-  //     let pageNumHtml = `
-  //       <span id="page${i}">${i}</span>
-  //     `;
-  //       $(".pages").append(pageNumHtml);
-  //   }
-  // }
 }
