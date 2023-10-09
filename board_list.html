@@ -18,36 +18,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
-    <!-- 기욱 -->
-    <div id="navWrap">
-      <nav class="navbar">
-        <!-- navlogo -->
-        <div class="navLogo">
-          <div>
-            <a href="#" onclick="location.href='main.html'"
-              ><span class="bugerIcon">🍔</span> 먹 고 하 조</a
-            >
-          </div>
-        </div>
-        <!-- navMenu -->
-        <ul class="navMenu">
-          <li>
-            <a href="#" onclick="location.href='main.html'">Main</a>
-          </li>
-          <li>
-            <a href="#" onclick="location.href='member.html'">Members</a>
-          </li>
-          <li>
-            <a href="#" onclick="location.href='board_list.html'">Board</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <div id="header"></div>
 
     <div class="boardTitle">
       <h1>Board</h1>
@@ -76,9 +50,6 @@
                 <td class="listTitle">
                   <a href="board_view.html" id="tdTitle">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Consectetur maiores dolore at velit labore nemo facilis cumque,
-                    recusandae voluptates soluta, provident est vel aperiam illum!
-                    Eum alias possimus officiis maxime?
                   </a>
                 </td>
                 <td class="listAutor">최수영</td>
@@ -94,11 +65,6 @@
       </div>
 
       <div class="paging">
-        <!-- <i
-          id="pagePrev"
-          class="fa-solid fa-arrow-left fa-beat-fade"
-          style="color: #333"
-        ></i> -->
         <div class="pages">
           <span id="page1" class="active">1</span>
           <!-- 
@@ -107,17 +73,11 @@
           <span id="page4">4</span>
           <span id="page5">5</span> -->
         </div>
-        <!-- <i
-          id="pageNext"
-          class="fa-solid fa-arrow-right fa-beat-fade"
-          style="color: #333"
-        ></i> -->
       </div>
     </section>
 
-    <section class="pagination">
-      <!-- 페이지 번호를 동적으로 추가 -->
-    </section>
-    <script type="module" src="./board_list.js"></script>
+    <div id="footer"></div>
+    <script src="./js/index.js"></script>
+    <script type="module" src="./js/board_list.js"></script>
   </body>
 </html>
