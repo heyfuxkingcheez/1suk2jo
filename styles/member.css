@@ -7,6 +7,7 @@
 
 .memberBox {
   display: none;
+  
 }
 
 .memProfile {
@@ -17,6 +18,7 @@
   align-items: center;
   width: 60%;
   height: 200px;
+  
 }
 
 /* 요소별 margin-right 추가 */

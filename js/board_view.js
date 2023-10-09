@@ -211,13 +211,13 @@ $("#commentBtn").click(async function (e) {
 //   $("#chkNoticeCo").html("");
 // });
 
-$("#pwd1").keyup(function () {
+$("#pwd1").on("input", function () {
   if ($("#pwd1").val() !== $("#pwd2").val()) {
     $("#chkNoticeCo")
       .css("display", "block")
       .css("color", "red")
     $("#chkNoticeCo").html("비밀번호 일치하지 않음<br><br>");
-  } else if ($("#pwd1").val() === $("#pwd2").val()) {
+  } else if ($("#pwd1").val() == $("#pwd2").val()) {
     $("#chkNoticeCo")
       .css("display", "block")
       .css("color", "blue")
@@ -226,8 +226,8 @@ $("#pwd1").keyup(function () {
 });
 
 // 첫번재 비번 입력 값이 없을 때, 비번 알림창 안보이게
-$("#pwd2").keyup(function () {
-  if ($("#pwd1").val() === "") {
+$("#pwd2").on("input", function () {
+  if ($("#pwd1").val() == "") {
     $("#chkNoticeCo").css("diplay", "none")
   }
   else if ($("#pwd1").val() !== $("#pwd2").val()) {
