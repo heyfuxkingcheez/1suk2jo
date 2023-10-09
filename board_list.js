@@ -21,12 +21,13 @@ import {
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:acc8b044fd5f40be1c289c"
+  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
+  authDomain: "sparta-e533a.firebaseapp.com",
+  projectId: "sparta-e533a",
+  storageBucket: "sparta-e533a.appspot.com",
+  messagingSenderId: "176323692514",
+  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
+  measurementId: "G-H5C27X8E9M"
 };
 
 // Firebase 인스턴스 초기화
@@ -37,19 +38,19 @@ let lastVisibleDoc = null; //이전 페이지의 마지막 문서
 
 const d = await query(board, orderBy("when", "desc"));
 
-const dArr = [];1
+const dArr = []; 1
 const docs = await getDocs(d);
 // console.log(docs);
 
 // 글 번호
 let bigDocs = [];
 let a = docs.size;
-docs.forEach((data)=>{
-  let dat =  {
+docs.forEach((data) => {
+  let dat = {
     ...data.data(),
-    index : a,
-    ID : data.id
-  } 
+    index: a,
+    ID: data.id
+  }
   bigDocs.push(dat)
   a--
 })
@@ -70,7 +71,7 @@ console.log(dataArr)
 let pageArr = [];
 console.log(pageArr)
 
-function pageFun(){
+function pageFun() {
   viewArr = [];
   pageArr = [];
   //페이지 개수 구하기.
@@ -81,15 +82,15 @@ function pageFun(){
   console.log('pageArr =>', pageArr);
   $(".toglePage").empty();
   // 있는 게시글 만큼 페이지 숫자 append
-  for (let i = 2; i <= pageArr.length; i++) { 
-    
+  for (let i = 2; i <= pageArr.length; i++) {
+
     // if (pageArr.length < 0) {
     //   console.log("data 5개 이하 1페이지만 존재");
     // } else {
-      let pageNumHtml = `
+    let pageNumHtml = `
       <span class = 'toglePage' id="page${i}">${i}</span>
     `;
-      $(".pages").append(pageNumHtml);
+    $(".pages").append(pageNumHtml);
     // }
   }
 
@@ -129,8 +130,12 @@ function pageFun(){
 pageFun()
 function viewFunc() {
   // console.log(eachDoc)
-  viewArr.forEach((eachDoc) => {
-    
+
+  // 새 글 new 표시
+  let arr = [];
+  
+    viewArr.forEach((eachDoc) => {
+
     // console.log(dataArr.length);
     for (let i = 0; i < eachDoc.length; i++) {
       // console.log(eachDoc[i]);
@@ -143,9 +148,13 @@ function viewFunc() {
       let index = eachDoc[i].index;
       // console.log(index)
       let ID = eachDoc[i].ID;
+      let date = eachDoc[i].nowDate;
       // console.log(ID)
       // console.log(writeTitle, writeName, when, num, howMany, id);
-
+      console.log(date)
+      arr.push(date);
+      console.log(arr)
+      
       // 제목 너무 길면 줄이고 말줄임(...) 처리,
       // css로 하니 다 깨져서 css는 삭제했슴당
       let limitLength = 35;
@@ -158,6 +167,7 @@ function viewFunc() {
         <td style = 'display : none'>${num}</td>
         <td class="listTitle">
         ${writeTitle}
+        <span id="new" style = 'display : none'>🆕</span>
         </td>
         <td class="listAutor">${writeName}</td>
         <td class="listDate">${when}</td>
@@ -165,6 +175,7 @@ function viewFunc() {
         </tr>`;
 
       $("#listCard").append(append_html);
+
 
       //조회수 기능
       $("#listCard").click(async function (e) {
@@ -182,9 +193,19 @@ function viewFunc() {
           window.location.href = `board_view.html?ID=" +${num}`;
         }
       })
+      
+    }
+    // 새 글 new 표시
+    let newDate =  new Date().getTime()
+    console.log(newDate)
+
+    for (let i = 0; i < arr.length; i++) {
+      console.log(newDate - `${arr[i]}`)
+      if (newDate - `${arr[i]}` < 1800000) {
+        $('#new').css('display', 'block');
+      }
     }
   });
-
 }
 
 
@@ -214,7 +235,7 @@ $(".paging").click(async function (e) {
 // });
 
 //검색 기능
-$("#searchBtn").on('click', function (e){
+$("#searchBtn").on('click', function (e) {
   // e.preventDefault();
   searchFun();
 });
@@ -226,26 +247,26 @@ $("#searchBtn").on('click', function (e){
 //   }
 // });
 
-function searchFun (){
+function searchFun() {
   let search = $("#searchInput").val();
   //입력값과 동일한 데이터만 가져오기
-  let same = bigDocs.filter(function(data){
-    return data.writeTitle.includes(search) || 
-            data.writeName.includes(search)
+  let same = bigDocs.filter(function (data) {
+    return data.writeTitle.includes(search) ||
+      data.writeName.includes(search)
   })
-  
+
   //게시글 번호 + 데이터 붙여넣기
   let sameLength = same.length;
 
-  if(sameLength>0){
+  if (sameLength > 0) {
     //처음에 썻던 페이지 네이션 활용
     $("#listCard").empty();
     dataArr = [];
     viewArr = [];
     pageArr = [];
     // let totalPageNumArr = [];
-    console.log('same =>',same)
-    same.forEach((data)=>{
+    console.log('same =>', same)
+    same.forEach((data) => {
       dataArr.push(data)
     })
     console.log(dataArr)
@@ -254,7 +275,7 @@ function searchFun (){
     // $(".pages").empty();
     // $("tr").show();
     // $("#listCard").html('');
-  
+
     // //게시글 번호 + 데이터 붙여넣기
     // let sameLength = same.length;
     // same.forEach((ed)=>{
@@ -299,7 +320,7 @@ function searchFun (){
 
     // })
   }
-  else{
+  else {
     console.log(sameLength)
     console.log('입력값 없음');
     $("tr").hide()
@@ -311,35 +332,35 @@ function searchFun (){
     $(".pages").append(pageNumHtml);
   }
 
-    
 
-    /////페이지./////////////////
-    // 페이지 개수 구하기
-    // pageArr = [];
-    // for (let i = 0; i < sameLength; i += 5) {
-    //   console.log(i)
-    //   // 빈 배열에 특정 길이만큼 분리된 배열 추가
-    //   let sameSlice = same.slice(i, i + 5)
-    //   console.log(sameSlice);
-    //   pageArr.push(sameSlice);
-    // }
-    // console.log(pageArr); 
-    // console.log(same)
-  
-    // // 있는 게시글 만큼 페이지 숫자 append
-    // for (let i =1; i < pageArr.length+1; i++) {
-    //   if (pageArr.length <= 1) {
-    //       console.log('페이지 1개')
-    //       let pageNumHtml = `
-    //         <span id="page1">1</span>
-    //       `;
-    //       $(".pages").append(pageNumHtml);
-    //   } else {
-    //     let pageNumHtml = `
-    //       <span id="page${i}">${i}</span>
-    //     `;
-    //       $(".pages").append(pageNumHtml);
-    //   }
-    // }
+
+  /////페이지./////////////////
+  // 페이지 개수 구하기
+  // pageArr = [];
+  // for (let i = 0; i < sameLength; i += 5) {
+  //   console.log(i)
+  //   // 빈 배열에 특정 길이만큼 분리된 배열 추가
+  //   let sameSlice = same.slice(i, i + 5)
+  //   console.log(sameSlice);
+  //   pageArr.push(sameSlice);
+  // }
+  // console.log(pageArr); 
+  // console.log(same)
+
+  // // 있는 게시글 만큼 페이지 숫자 append
+  // for (let i =1; i < pageArr.length+1; i++) {
+  //   if (pageArr.length <= 1) {
+  //       console.log('페이지 1개')
+  //       let pageNumHtml = `
+  //         <span id="page1">1</span>
+  //       `;
+  //       $(".pages").append(pageNumHtml);
+  //   } else {
+  //     let pageNumHtml = `
+  //       <span id="page${i}">${i}</span>
+  //     `;
+  //       $(".pages").append(pageNumHtml);
+  //   }
+  // }
 
 };

@@ -17,12 +17,13 @@ import {
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:acc8b044fd5f40be1c289c"
+  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
+  authDomain: "sparta-e533a.firebaseapp.com",
+  projectId: "sparta-e533a",
+  storageBucket: "sparta-e533a.appspot.com",
+  messagingSenderId: "176323692514",
+  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
+  measurementId: "G-H5C27X8E9M"
 };
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
@@ -41,7 +42,7 @@ docsd.forEach((eachdoc) => {
   let row = eachdoc.data();
   let commentName = row["commentName"];
   let commentText = row["commentText"];
-  let date = row["date"];
+  let coDate = row["date"];
   let num = row["num"];
   let when = row["when"];
   let commentNum = row["commentNum"];
@@ -54,7 +55,9 @@ docsd.forEach((eachdoc) => {
     which = id;
     let append_comment = `
     <div id="result" class="resultMsg">
-      <span id="resultName">${commentName}</span>
+      <span id="resultName">${commentName}
+      <span id="new" style = 'display : none'>🆕</span>
+      </span>
       <span id="resultContent">${commentText}</span>
       
       <div class="resultBottom">
@@ -86,10 +89,8 @@ docsd.forEach((eachdoc) => {
     } else {
       return false;
     }
-
   })
 })
-
 
 // 게시글 DB불러오기
 docs.forEach((eachDoc) => {
