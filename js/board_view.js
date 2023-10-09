@@ -69,10 +69,11 @@ docsd.forEach((eachdoc) => {
     } else {
       return false;
     }
-
-  })
+  });
 });
 
+//해당 게시글의 비밀번호 가져오기 위한 변수 선언;
+let dataPW;
 
 // 게시글 DB불러오기
 docs.forEach((eachDoc) => {
@@ -83,6 +84,7 @@ docs.forEach((eachDoc) => {
   let writeText = row["writeText"];
   let num = row["num"];
   let id = eachDoc.id;
+  let commentPWF = row["commentPWF"];
   let which;
   // console.log(writeTitle, writeText, writeName, when)
   // console.log(row);
@@ -107,13 +109,10 @@ docs.forEach((eachDoc) => {
       </div>
     `;
     $("#viewFrm").append(append_html);
+    dataPW = commentPWF;
   }
-  //데이터 수정
-  $("#modify").click(function (e) {
-    e.preventDefault();
-    window.location.href = `board_modify.html?ID=" +${que}`;
-  });
-  // console.log(which);
+  console.log("commentPw=>", commentPWF);
+  console.log("dataPW =>", dataPW);
 
   //게시글 삭제
   $("#deleteContent").click(async function (e) {
@@ -122,8 +121,13 @@ docs.forEach((eachDoc) => {
     console.log(which);
     if (id === which) {
       if (confirm("정말 삭제 하시겠습니까?")) {
-        await deleteDoc(doc(db, "board", which));
-        window.location.href = "./board_list.html";
+        const pw = prompt("비밀번호를 입력해 주세요");
+        if (pw === commentPWF) {
+          await deleteDoc(doc(db, "board", which));
+          window.location.href = "./board_list.html";
+        } else {
+          alert("비밀번호가 올바르지 않습니다");
+        }
       } else {
         return false;
       }
@@ -132,6 +136,31 @@ docs.forEach((eachDoc) => {
     // const desertRef = doc(db, [컬렉션명], [도큐멘트명], [하위컬렉션명], [삭제할 도큐멘트명]);
     // await deleteDoc(desertRef);
   });
+});
+
+//데이터 수정
+$("#modify").click(function (e) {
+  e.preventDefault();
+  const pw = prompt("비밀번호를 입력해 주세요");
+  if (pw === null) {
+    console.log("pw=>", pw);
+    return false;
+  } else if (pw !== null || pw !== "") {
+    console.log(1);
+    console.log("pw=>", pw);
+    console.log("commentPWF=>", dataPW);
+    if (pw === dataPW) {
+      console.log("pw같니");
+      alert("작성자 맞으시군요!");
+      window.location.href = `board_modify.html?ID=" +${que}`;
+    } else {
+      console.log("pw달라");
+      alert("비밀번호가 올바르지 않습니다");
+      return false;
+    }
+    return false;
+  }
+  // return false;
 });
 
 // 댓글 기능 추가
@@ -145,7 +174,7 @@ $("#commentBtn").click(async function (e) {
   let now = new Date();
   let year = now.getFullYear();
   let month = now.getMonth() + 1;
-  let date = now.getDate();
+  let date = String(now.getDate()).padStart(2, "0");
   let hours = String(now.getHours()).padStart(2, "0");
   let minutes = String(now.getMinutes()).padStart(2, "0");
   let second = String(now.getSeconds()).padStart(2, "0");

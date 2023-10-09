@@ -12,7 +12,6 @@ import { db } from "./firebase.js";
 const board = collection(db, "board");
 const d = await query(board, orderBy("nowDate", "desc"));
 const docs = await getDocs(d);
-// console.log(docs);
 
 // 글 번호
 let bigDocs = [];
@@ -102,7 +101,7 @@ pageFun();
 function viewFunc() {
   // console.log(eachDoc)
 
-  // 새 글 new 표시
+  // 새 글 new 표시  빈 배열 생성
   let arr = [];
 
   viewArr.forEach((eachDoc) => {
@@ -121,7 +120,8 @@ function viewFunc() {
       let date = eachDoc[i].nowDate;
       // console.log(ID)
       // console.log(writeTitle, writeName, when, num, howMany, id);
-      console.log(date);
+
+      // 배열에 date값 추가
       arr.push(date);
       console.log(arr);
 
@@ -137,7 +137,7 @@ function viewFunc() {
         <td style = 'display : none'>${num}</td>
         <td class="listTitle">
         ${writeTitle}
-        <span id="new" style = 'display : none'>🆕</span>
+        <span id="new">🆕</span>
         </td>
         <td class="listAutor">${writeName}</td>
         <td class="listDate">${when}</td>
@@ -164,19 +164,22 @@ function viewFunc() {
       });
     }
     // 새 글 new 표시
-    let newDate = new Date().getTime();
+    let newDate = new Date().getTime(); 
+    //  현재 시각 불러오기
     console.log(newDate);
-
+    // 현재시각 - 각 게시물이 쓰여진 시각
     for (let i = 0; i < arr.length; i++) {
-      console.log(newDate - `${arr[i]}`);
-      if (newDate - `${arr[i]}` < 1800000) {
-        $("#new").css("display", "block");
-      }
+      let dateDifference = newDate - arr[i];
+      console.log(dateDifference)
+      
+        // if (dateDifference  <= 18000000) {
+        //   $('#new').css('display', 'block');
+        // } else {
+        //   $('#new').css('display', 'none');
+        // }
     }
   });
 }
-
-//forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 
 // pagination
 // 누르는 페이지 마다 class=active; 추가, 색상 변경
@@ -186,7 +189,6 @@ $(".paging").click(async function (e) {
 });
 
 //검색 기능
-
 $("#searchBtn").on("click", function (e) {
   // e.preventDefault();
   searchFun();
@@ -216,7 +218,6 @@ function searchFun() {
     viewArr = [];
     pageArr = [];
     // let totalPageNumArr = [];
-
     console.log("same =>", same);
     same.forEach((data) => {
       dataArr.push(data);
@@ -227,8 +228,8 @@ function searchFun() {
     console.log(sameLength);
     console.log("입력값 없음");
     $("tr").hide();
+    $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
   }
-  $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
   $(".pages").empty();
   let pageNumHtml = `
       <span id="page1">1</span>
