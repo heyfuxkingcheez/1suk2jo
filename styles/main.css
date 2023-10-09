@@ -5,14 +5,88 @@
 @import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
 
+a {
+  color: black;
+}
+a:hover {
+  color: black;
+}
+.infoTeamWrap {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.infoTeamBox {
+  display: flex;
+  /* background-color: #fff; */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+.helloBox {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-weight: 700;
+  width: 80%;
+  font-size: 40px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-left: 150px;
+}
+
+.introContent {
+  font-size: 30px;
+}
+
+.gatherImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 95px;
+  padding: 0;
+  box-shadow: 5px 5px 10px;
+}
+
+.gatherImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 95px;
+}
 
 /* 영우님 */
 .infoTeam {
-  width: 50vw;
-  height: 400px;
-  border: 2px solid chocolate;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  font-size: 20px;
+  /* border: 2px solid chocolate; */
   border-radius: 130px;
-  margin: 200px auto 0px auto;
+  margin-bottom: 150px;
+}
+
+.content {
+  padding: 30px;
+}
+
+.intro {
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.teamAndDonaBox {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .aTeamGoal {
@@ -31,44 +105,15 @@
   text-align: center;
 }
 
-.donation {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#arrow {
-  margin-top: 5%;
-  margin: 0px auto 20px auto;
-  position: relative;
-  top: 15px;
-  width: 15px;
-  height: 15px;
-  border-top: 3px solid black;
-  border-left: 3px solid black;
-  transform: rotate(45deg);
-}
-
-#payText {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  left: 20px;
-  bottom: 10px;
-}
-
-.payImg {
-  margin: 20px auto 20px auto;
-
-}
-
 /* 본문 타이틀 폰트 */
 .infoTitle {
   font-size: 30px;
   text-align: center;
   font-family: "Gamja Flower", cursive;
   padding: 30px;
+}
+
+.leftDiv {
+  display: flex;
+  flex-direction: row;
 }
