@@ -96,16 +96,16 @@ docs.forEach((eachDoc) => {
     which = id;
     const append_html = `
       <div id="subject">
-        <span>제목 : ${writeTitle}</span>
+        <span><span class = "bold">제 목 : </span>${writeTitle}</span>
       </div>
       <div id="wirter">
-        <span>작성자 : ${writeName}</span>  
+        <span><span class = "bold">작성자 : </span>${writeName}</span>  
       </div>
       <div id="date">
-        <span>작성일 : ${when}</span>  
+        <span><span class = "bold">작성일 : </span>${when}</span>  
       </div>
       <div id="content">
-        <span>내용 : ${writeText}</span>  
+        <pre>${writeText}</pre>  
       </div>
     `;
     $("#viewFrm").append(append_html);
@@ -213,14 +213,10 @@ $("#commentBtn").click(async function (e) {
 
 $("#pwd1").on("input", function () {
   if ($("#pwd1").val() !== $("#pwd2").val()) {
-    $("#chkNoticeCo")
-      .css("display", "block")
-      .css("color", "red")
+    $("#chkNoticeCo").css("display", "block").css("color", "red");
     $("#chkNoticeCo").html("비밀번호 일치하지 않음<br><br>");
   } else if ($("#pwd1").val() == $("#pwd2").val()) {
-    $("#chkNoticeCo")
-      .css("display", "block")
-      .css("color", "blue")
+    $("#chkNoticeCo").css("display", "block").css("color", "blue");
     $("#chkNoticeCo").html("비밀번호 일치함<br><br>");
   }
 });
@@ -228,18 +224,12 @@ $("#pwd1").on("input", function () {
 // 첫번재 비번 입력 값이 없을 때, 비번 알림창 안보이게
 $("#pwd2").on("input", function () {
   if ($("#pwd1").val() == "") {
-    $("#chkNoticeCo").css("diplay", "none")
-  }
-  else if ($("#pwd1").val() !== $("#pwd2").val()) {
-    $("#chkNoticeCo")
-      .css("display", "block")
-      .css("color", "red")
+    $("#chkNoticeCo").css("diplay", "none");
+  } else if ($("#pwd1").val() !== $("#pwd2").val()) {
+    $("#chkNoticeCo").css("display", "block").css("color", "red");
     $("#chkNoticeCo").html("비밀번호 일치하지 않음<br><br>");
   } else if ($("#pwd1").val() === $("#pwd2").val()) {
-    $("#chkNoticeCo")
-      .css("display", "block")
-      .css("color", "blue")
+    $("#chkNoticeCo").css("display", "block").css("color", "blue");
     $("#chkNoticeCo").html("비밀번호 일치함<br><br>");
   }
 });
-
