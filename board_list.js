@@ -66,60 +66,71 @@ bigDocs.forEach((ds) => {
 });
 console.log(dataArr)
 
-//페이지 숫자 담아서 붙여줄 배열
+//각페이지 당 보여줄 데이터 묶음들
 let pageArr = [];
+console.log(pageArr)
 
-//페이지 개수 구하기.
-for (let i = 0; i < dataArr.length; i += 5) {
-  // 빈 배열에 특정 길이만큼 분리된 배열 추가
-  pageArr.push(dataArr.slice(i, i + 5));
-}
-console.log(pageArr.length);
-
-// 있는 게시글 만큼 페이지 숫자 append
-for (let i = 2; i <= pageArr.length; i++) {
-  if (pageArr.length <= 1) {
-    console.log("data 5개 이하 1페이지만 존재");
-  } else {
-    let pageNumHtml = `
-    <span id="page${i}">${i}</span>
-  `;
-    $(".pages").append(pageNumHtml);
+function pageFun(){
+  viewArr = [];
+  pageArr = [];
+  //페이지 개수 구하기.
+  for (let i = 0; i < dataArr.length; i += 5) {
+    // 빈 배열에 특정 길이만큼 분리된 배열 추가
+    pageArr.push(dataArr.slice(i, i + 5));
   }
-}
-
-let totalPageNumArr = [];
-for (let i = 1; i <= pageArr.length; i++) {
-  totalPageNumArr.push(i);
-}
-// console.log(totalPageNumArr); // [1, 2, 3, 4]
-
-for (let page_num of totalPageNumArr) {
-  if (page_num === 1) {
-    viewArr.push(pageArr[0]);
-    viewFunc();
-
+  console.log('pageArr =>', pageArr);
+  $(".toglePage").empty();
+  // 있는 게시글 만큼 페이지 숫자 append
+  for (let i = 2; i <= pageArr.length; i++) { 
+    
+    // if (pageArr.length < 0) {
+    //   console.log("data 5개 이하 1페이지만 존재");
+    // } else {
+      let pageNumHtml = `
+      <span class = 'toglePage' id="page${i}">${i}</span>
+    `;
+      $(".pages").append(pageNumHtml);
+    // }
   }
-  $(`#page${page_num}`).click((e) => {
-    let slicePageNum = Number(e.target.id.slice(-1)); // "1"
-    viewArr = [];
-    $("#listCard").empty();
-    // console.log(page);
 
-    if (slicePageNum === page_num) {
-      viewArr.push(pageArr[slicePageNum - 1]);
-      console.log(viewArr)
+  //
+  let totalPageNumArr = [];
+  for (let i = 1; i <= pageArr.length; i++) {
+    totalPageNumArr.push(i);
+  }
+  // console.log(totalPageNumArr); // [1, 2, 3, 4]
+
+  for (let page_num of totalPageNumArr) {
+    //첫번쨰 페이지 에는 그에 해당하는 데이터 보여줘.
+    if (page_num === 1) {
+      viewArr.push(pageArr[0]);
       viewFunc();
-    } else {
-      console.log("mm");
+      console.log('viewArr=> ', viewArr);
     }
-    console.log(viewArr);
-  });
+
+    //페이지 번호 클릭하면 각각의 것 보여줘.
+    $(`#page${page_num}`).click((e) => {
+      let slicePageNum = Number(e.target.id.slice(-1)); // "1"
+      viewArr = [];
+      $("#listCard").empty();
+      // console.log(page);
+
+      if (slicePageNum === page_num) {
+        viewArr.push(pageArr[slicePageNum - 1]);
+        console.log('viewArr=> ', viewArr)
+        viewFunc();
+      } else {
+        console.log("mm");
+      }
+      console.log('viewArr=> ', viewArr)
+    });
+  }
 }
-
-
+pageFun()
 function viewFunc() {
+  // console.log(eachDoc)
   viewArr.forEach((eachDoc) => {
+    
     // console.log(dataArr.length);
     for (let i = 0; i < eachDoc.length; i++) {
       // console.log(eachDoc[i]);
@@ -204,16 +215,16 @@ $(".paging").click(async function (e) {
 
 //검색 기능
 $("#searchBtn").on('click', function (e){
-  e.preventDefault();
+  // e.preventDefault();
   searchFun();
 });
 
-$("#searchInput").on('keyup',function (e){
-  e.preventDefault();
-  if(e.keyCode == 13 || e.which ==13){
-    searchFun();
-  }
-});
+// $("#searchInput").on('keyup',function (e){
+//   e.preventDefault();
+//   if(e.keyCode === 13 || e.which ===13){
+//     searchFun();
+//   }
+// });
 
 function searchFun (){
   let search = $("#searchInput").val();
@@ -227,60 +238,66 @@ function searchFun (){
   let sameLength = same.length;
 
   if(sameLength>0){
+    //처음에 썻던 페이지 네이션 활용
+    $("#listCard").empty();
+    dataArr = [];
+    viewArr = [];
+    pageArr = [];
+    // let totalPageNumArr = [];
+    console.log('same =>',same)
+    same.forEach((data)=>{
+      dataArr.push(data)
+    })
+    console.log(dataArr)
+    pageFun()
     //페이지 번호, 목록 비워주고, 표 분류 보여주기
-    $(".pages").empty();
-    $("tr").show();
-    $("#listCard").html('');
+    // $(".pages").empty();
+    // $("tr").show();
+    // $("#listCard").html('');
   
-    //입력값과 동일한 데이터만 가져오기
-    let same = bigDocs.filter(function(data){
-      return data.writeTitle.includes(search) || 
-              data.writeName.includes(search)
-    })
-    
-    //게시글 번호 + 데이터 붙여넣기
-    let sameLength = same.length;
-    same.forEach((ed)=>{
-      let num = ed.num;
-      let howMany = ed.howMany;
-      let ID = ed.ID;
-      $("#listCard").append(`
-        <tr>
-          <td class="listNum">${sameLength}</td>
-          <td style = 'display : none'>${num}</td>
-          <td class="listTitle">${ed.writeTitle}</td>
-          <td class="listAutor">${ed.writeName}</td>
-          <td class="listDate">${ed.when}</td>
-          <td class="listViews">${ed.howMany}</td>
-        </tr> 
-      `)
-      sameLength--;
+    // //게시글 번호 + 데이터 붙여넣기
+    // let sameLength = same.length;
+    // same.forEach((ed)=>{
+    //   let num = ed.num;
+    //   let howMany = ed.howMany;
+    //   let ID = ed.ID;
+    //   $("#listCard").append(`
+    //     <tr>
+    //       <td class="listNum">${sameLength}</td>
+    //       <td style = 'display : none'>${num}</td>
+    //       <td class="listTitle">${ed.writeTitle}</td>
+    //       <td class="listAutor">${ed.writeName}</td>
+    //       <td class="listDate">${ed.when}</td>
+    //       <td class="listViews">${ed.howMany}</td>
+    //     </tr> 
+    //   `)
+    //   sameLength--;
 
-      // console.log('num=>',num)
-      // console.log('howMany=>',howMany)
-      // console.log('ID=>',ID)
+    //   // console.log('num=>',num)
+    //   // console.log('howMany=>',howMany)
+    //   // console.log('ID=>',ID)
 
-      //조회수 기능 + 클릭하면 이동하는 기능
-      $("#listCard").click(async function (e) {
-        console.log(e.target.previousElementSibling)
-        let clickNum = e.target.previousElementSibling.innerText;
-        if (clickNum === num) {
-          console.log('num=>',num)
-          console.log('clickNum=>',clickNum)
+    //   //조회수 기능 + 클릭하면 이동하는 기능
+    //   $("#listCard").click(async function (e) {
+    //     console.log(e.target.previousElementSibling)
+    //     let clickNum = e.target.previousElementSibling.innerText;
+    //     if (clickNum === num) {
+    //       console.log('num=>',num)
+    //       console.log('clickNum=>',clickNum)
 
-          console.log('번호')
-          // //조회수 데이터 수정하기
-          let newHowMany = howMany + 1;
-          console.log('새로운 howMany =>', newHowMany)
-          let b = doc(db, "board", ID);
-          await updateDoc(b, { howMany: newHowMany });
-          // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요
-          // //클릭한 게시물 보여주도록
-          window.location.href = `board_view.html?ID=" +${num}`;
-        }
-      })
+    //       console.log('번호')
+    //       // //조회수 데이터 수정하기
+    //       let newHowMany = howMany + 1;
+    //       console.log('새로운 howMany =>', newHowMany)
+    //       let b = doc(db, "board", ID);
+    //       await updateDoc(b, { howMany: newHowMany });
+    //       // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요
+    //       // //클릭한 게시물 보여주도록
+    //       window.location.href = `board_view.html?ID=" +${num}`;
+    //     }
+    //   })
 
-    })
+    // })
   }
   else{
     console.log(sameLength)
@@ -293,10 +310,11 @@ function searchFun (){
     `;
     $(".pages").append(pageNumHtml);
   }
-  //입력값이 있으면 
+
+    
 
     /////페이지./////////////////
-    //페이지 개수 구하기
+    // 페이지 개수 구하기
     // pageArr = [];
     // for (let i = 0; i < sameLength; i += 5) {
     //   console.log(i)
@@ -309,7 +327,7 @@ function searchFun (){
     // console.log(same)
   
     // // 있는 게시글 만큼 페이지 숫자 append
-    // for (let i =0; i < pageArr.length+1; i++) {
+    // for (let i =1; i < pageArr.length+1; i++) {
     //   if (pageArr.length <= 1) {
     //       console.log('페이지 1개')
     //       let pageNumHtml = `
