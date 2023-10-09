@@ -101,7 +101,7 @@ pageFun();
 function viewFunc() {
   // console.log(eachDoc)
 
-  // 새 글 new 표시
+  // 새 글 new 표시  빈 배열 생성
   let arr = [];
 
   viewArr.forEach((eachDoc) => {
@@ -120,7 +120,8 @@ function viewFunc() {
       let date = eachDoc[i].nowDate;
       // console.log(ID)
       // console.log(writeTitle, writeName, when, num, howMany, id);
-      console.log(date);
+
+      // 배열에 date값 추가
       arr.push(date);
       console.log(arr);
 
@@ -136,7 +137,7 @@ function viewFunc() {
         <td style = 'display : none'>${num}</td>
         <td class="listTitle">
         ${writeTitle}
-        <span id="new" style = 'display : none'>🆕</span>
+        <span id="new">🆕</span>
         </td>
         <td class="listAutor">${writeName}</td>
         <td class="listDate">${when}</td>
@@ -163,14 +164,19 @@ function viewFunc() {
       });
     }
     // 새 글 new 표시
-    let newDate = new Date().getTime();
+    let newDate = new Date().getTime(); 
+    //  현재 시각 불러오기
     console.log(newDate);
-
+    // 현재시각 - 각 게시물이 쓰여진 시각
     for (let i = 0; i < arr.length; i++) {
-      console.log(newDate - `${arr[i]}`);
-      if (newDate - `${arr[i]}` < 1800000) {
-        $("#new").css("display", "block");
-      }
+      let dateDifference = newDate - arr[i];
+      console.log(dateDifference)
+      
+        // if (dateDifference  <= 18000000) {
+        //   $('#new').css('display', 'block');
+        // } else {
+        //   $('#new').css('display', 'none');
+        // }
     }
   });
 }
@@ -222,8 +228,8 @@ function searchFun() {
     console.log(sameLength);
     console.log("입력값 없음");
     $("tr").hide();
+    $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
   }
-  $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
   $(".pages").empty();
   let pageNumHtml = `
       <span id="page1">1</span>
