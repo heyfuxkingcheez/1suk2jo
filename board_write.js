@@ -1,39 +1,12 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
   collection,
   addDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import {
-  doc,
-  setDoc,
-  deleteDoc,
-  query,
-  getDoc,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
-  authDomain: "sparta-e533a.firebaseapp.com",
-  projectId: "sparta-e533a",
-  storageBucket: "sparta-e533a.appspot.com",
-  messagingSenderId: "176323692514",
-  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
-  measurementId: "G-H5C27X8E9M"
-};
+import { db } from "./firebase.js";
 
-// Firebase 인스턴스 초기화
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-let which;
-let docs;
 $("#writeFrm").submit(async function (e) {
   e.preventDefault();
-
 
   if (document.getElementById("writeTitle").value == "") {
     alert("제목을 입력하세요");
@@ -78,7 +51,7 @@ $("#writeFrm").submit(async function (e) {
   // const boardData = await query(board);
   // const boardDataGet = await getDocs(d);
   // bocs[-1]
-
+  let docs;
   docs = {
     writeTitle: writeTitle,
     writeText: writeText,
@@ -89,16 +62,13 @@ $("#writeFrm").submit(async function (e) {
     nowDate: time,
   };
   // const num = docs.num.toString();
-  console.log(docs)
+  console.log(docs);
   let add = addDoc(collection(db, "board"), docs);
   //데이터 저장하고 해당 아이디값 출력해 봤어요
   await add.then((ID) => console.log(ID.id));
   alert("저장 완료!");
   // const num = docs.num
 
-
   window.location.href = `board_view.html?ID=" +${docs.num}`;
   // window.location.href = 'board_view.html?ID =${newID()}';
-
 });
-
