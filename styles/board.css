@@ -225,8 +225,8 @@ div.pages {
   padding-right: 10px;
 }
 
-div.paging>i,
-div.paging>div.pages>span {
+div.paging > i,
+div.paging > div.pages > span {
   margin: 0 3px;
   cursor: pointer;
 }
@@ -236,11 +236,13 @@ span.active {
   font-weight: bold;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-#commentName, #pwd1, #pwd2 {
+#commentName,
+#pwd1,
+#pwd2 {
   width: 17%;
   display: flex;
 }
@@ -276,7 +278,8 @@ span.active {
   display: flex;
 }
 
-#pwd1, #pwd2 {
+#pwd1,
+#pwd2 {
   margin-right: 15px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -301,24 +304,33 @@ span.active {
 
 #commentField {
   position: relative;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid ;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+#chkNotice {
+  width: 50%;
+  height: 60px;
+  border-radius: 30px;
+  margin: 20px auto 0px auto;
+  border: 1px solid white;
+  display: none;
 }
 
 .resultMsg {
   position: relative;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid ;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
 }
 
 .resultBottom {

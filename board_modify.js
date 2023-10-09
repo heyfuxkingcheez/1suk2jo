@@ -1,32 +1,11 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
   collection,
-  addDoc,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import {
+  getDocs,
   doc,
   updateDoc,
-  deleteField,
-  orderBy,
-  query,
-  deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:acc8b044fd5f40be1c289c"
-};
-// Firebase 인스턴스 초기화
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { db } from "./firebase.js";
 
 //데이터 가져와주기
 let docs = await getDocs(collection(db, "board"));
@@ -46,12 +25,12 @@ docs.forEach((eachDoc) => {
   let ID = eachDoc.id;
   let which;
   // console.log(writeTitle, writeText, writeName, when)
-  console.log('row=> ',row);
-  console.log('num =>',num);
-  console.log('que =>',que);
+  console.log("row=> ", row);
+  console.log("num =>", num);
+  console.log("que =>", que);
   if (num === que) {
-    console.log('같아');
-    $('.inputContainer').empty();
+    console.log("같아");
+    $(".inputContainer").empty();
     const append_html = `
       <div class="inputValue">
         <div class="title">
@@ -89,33 +68,27 @@ docs.forEach((eachDoc) => {
         value="저장하기" 
         id="submit" />
       <div class="blank"></div>`;
-    $('.inputContainer').append(append_html);
+    $(".inputContainer").append(append_html);
 
     //저장하기 버튼 누르면 데이터 베이스에 있는 내용 수정하기.
-    $('#writeFrm').submit(async function(e){
+    $("#writeFrm").submit(async function (e) {
       e.preventDefault();
 
       let writeTitle = $("#writeTitle").val();
       let writeText = $("#writeText").val();
       let writeName = $("#writeName").val();
-      // docs = {
-      //   writeTitle: writeTitle,
-      //   writeText: writeText,
-      //   writeName: writeName,
-      // }
-      let data = doc(db, "board", ID);
-      await updateDoc(data, { 
+      let dataDocs = {
         writeTitle: writeTitle,
         writeText: writeText,
         writeName: writeName,
-      });
+      };
+
+      let data = doc(db, "board", ID);
+      await updateDoc(data, dataDocs);
       console.log(data);
-      alert('수정')
+      alert("수정 완료");
 
       window.location.href = `board_view.html?ID=" +${que}`;
-
-    })
+    });
   }
-
 });
-

@@ -1,37 +1,19 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
   collection,
   addDoc,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import {
+  getDocs,
   doc,
-  updateDoc,
-  deleteField,
   orderBy,
   query,
   deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:acc8b044fd5f40be1c289c"
-};
-// Firebase 인스턴스 초기화
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { db } from "./firebase.js";
 
 //데이터 보여주기
 let docs = await getDocs(collection(db, "board"));
 // let comment = await getDocs(collection(db, "comments"));
-const comments = collection(db, 'comments');
+const comments = collection(db, "comments");
 const d = await query(comments, orderBy("date", "asc"));
 const docsd = await getDocs(d);
 let que = window.location.search.substr(11);
@@ -48,7 +30,6 @@ docsd.forEach((eachdoc) => {
   let commentPw = row["commentPw"];
   let id = eachdoc.id;
   let which;
-
 
   if (num === que) {
     which = id;
@@ -69,28 +50,26 @@ docsd.forEach((eachdoc) => {
     $("#result").append(append_comment);
   }
   // 댓글 삭제
-  $('#commentField').click(async function (e) {
+  $("#commentField").click(async function (e) {
     e.preventDefault();
     let clickCoNum = e.target.nextElementSibling.innerText;
-    // 
-    console.log('clickCoNum => ', clickCoNum)
-    console.log('commentNum =>', commentNum)
+    //
+    console.log("clickCoNum => ", clickCoNum);
+    console.log("commentNum =>", commentNum);
     if (clickCoNum === commentNum) {
       const pw = prompt("삭제 비밀번호를 입력해주세요.");
       if (pw === commentPw) {
-        await deleteDoc(doc(db, 'comments', which));
+        await deleteDoc(doc(db, "comments", which));
         window.location.reload();
       } else {
-        alert("비밀번호가 올바르지 않습니다..")
+        alert("비밀번호가 올바르지 않습니다..");
       }
     } else {
       return false;
     }
-
-  })
-})
-
-
+  });
+});
+let dataPW;
 // 게시글 DB불러오기
 docs.forEach((eachDoc) => {
   let row = eachDoc.data();
@@ -100,11 +79,12 @@ docs.forEach((eachDoc) => {
   let writeText = row["writeText"];
   let num = row["num"];
   let id = eachDoc.id;
+  let commentPWF = row["commentPWF"];
   let which;
   // console.log(writeTitle, writeText, writeName, when)
   // console.log(row);
-  console.log('num =>', num);
-  console.log('que =>', que)
+  console.log("num =>", num);
+  console.log("que =>", que);
   if (num === que) {
     console.log("같으");
     console.log(row);
@@ -124,15 +104,10 @@ docs.forEach((eachDoc) => {
       </div>
     `;
     $("#viewFrm").append(append_html);
-
+    dataPW = commentPWF;
   }
-  //데이터 수정
-  $('#modify').click(function (e) {
-    e.preventDefault();
-    window.location.href = `board_modify.html?ID=" +${que}`;
-  })
-  // console.log(which);
-
+  console.log("commentPw=>", commentPWF);
+  console.log("dataPW =>", dataPW);
   //게시글 삭제
   $("#deleteContent").click(async function (e) {
     e.preventDefault();
@@ -140,8 +115,13 @@ docs.forEach((eachDoc) => {
     console.log(which);
     if (id === which) {
       if (confirm("정말 삭제 하시겠습니까?")) {
-        await deleteDoc(doc(db, 'board', which));
-        window.location.href = './board_list.html';
+        const pw = prompt("비밀번호를 입력해 주세요");
+        if (pw === commentPWF) {
+          await deleteDoc(doc(db, "board", which));
+          window.location.href = "./board_list.html";
+        } else {
+          alert("비밀번호가 올바르지 않습니다");
+        }
       } else {
         return false;
       }
@@ -152,6 +132,30 @@ docs.forEach((eachDoc) => {
   });
 });
 
+//데이터 수정
+$("#modify").click(function (e) {
+  e.preventDefault();
+  const pw = prompt("비밀번호를 입력해 주세요");
+  if (pw === null) {
+    console.log("pw=>", pw);
+    return false;
+  } else if (pw !== null || pw !== "") {
+    console.log(1);
+    console.log("pw=>", pw);
+    console.log("commentPWF=>", dataPW);
+    if (pw === dataPW) {
+      console.log("pw같니");
+      alert("작성자 맞으시군요!");
+      window.location.href = `board_modify.html?ID=" +${que}`;
+    } else {
+      console.log("pw달라");
+      alert("비밀번호가 올바르지 않습니다");
+      return false;
+    }
+    return false;
+  }
+  // return false;
+});
 
 // 댓글 기능 추가
 $("#commentBtn").click(async function (e) {
@@ -164,13 +168,13 @@ $("#commentBtn").click(async function (e) {
   let now = new Date();
   let year = now.getFullYear();
   let month = now.getMonth() + 1;
-  let date = now.getDate();
+  let date = String(now.getDate()).padStart(2, "0");
   let hours = String(now.getHours()).padStart(2, "0");
   let minutes = String(now.getMinutes()).padStart(2, "0");
   let second = String(now.getSeconds()).padStart(2, "0");
 
   let when = `${year}.${month}.${date} ${hours}:${minutes}:${second}`;
-  console.log(when)
+  console.log(when);
 
   const data = {
     commentName: $("#commentName").val(), // 댓글 닉네임 input value
@@ -179,37 +183,35 @@ $("#commentBtn").click(async function (e) {
     when: when,
     num: query, // num id값
     commentNum: commentID(),
-    commentPw: $("#pwd1").val()
-
+    commentPw: $("#pwd1").val(),
   };
   // 댓글 폼 규칙
   if (data.commentName.length <= 0 || data.commentText.length <= 0) {
-    return alert('내용을 입력해주세요.');
-  } else if ($('#pwd1').val().length <= 0 || $('#pwd2').val().length <= 0) {
-    return alert('비밀번호를 입력해주세요.')
-  } else if ($('#pwd1').val() != $('#pwd2').val()) {
-    return alert('비밀번호를 일치하도록 입력해주세요.')
+    return alert("내용을 입력해주세요.");
+  } else if ($("#pwd1").val().length <= 0 || $("#pwd2").val().length <= 0) {
+    return alert("비밀번호를 입력해주세요.");
+  } else if ($("#pwd1").val() != $("#pwd2").val()) {
+    return alert("비밀번호를 일치하도록 입력해주세요.");
   } else {
     await addDoc(collection(db, "comments"), data);
-    console.log(data)
-    window.location.reload()
+    console.log(data);
+    window.location.reload();
   }
-})
+});
 
-// 댓글 비밀번호 일치 확인     
+// 댓글 비밀번호 일치 확인
 $(function () {
-  $('#pwd1').keyup(function () {
-    $('#chkNotice').html('');
+  $("#pwd1").keyup(function () {
+    $("#chkNotice").html("");
   });
 
-  $('#pwd2').keyup(function () {
-    if ($('#pwd1').val() != $('#pwd2').val()) {
-      $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
-      $('#chkNotice').attr('color', '#f82a2aa3');
+  $("#pwd2").keyup(function () {
+    if ($("#pwd1").val() != $("#pwd2").val()) {
+      $("#chkNotice").html("비밀번호 일치하지 않음<br><br>");
+      $("#chkNotice").attr("color", "#f82a2aa3");
     } else {
-      $('#chkNotice').html('비밀번호 일치함<br><br>');
-      $('#chkNotice').attr('color', '#199894b3');
+      $("#chkNotice").html("비밀번호 일치함<br><br>");
+      $("#chkNotice").attr("color", "#199894b3");
     }
   });
 });
-
