@@ -301,7 +301,7 @@ function searchFun() {
     $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
     $(".pages").empty();
     let pageNumHtml = `
-      <span id="page1">1</span>
+      <span class="active" id="page1">1</span>
     `;
     $(".pages").append(pageNumHtml);
   }
