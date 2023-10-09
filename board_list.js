@@ -27,7 +27,6 @@ docs.forEach((data) => {
   a--;
 });
 
-
 // console.log(bigDocs)
 
 // 페이징
@@ -64,7 +63,6 @@ function pageFun() {
     <span id="page${i}">${i}</span>
     `;
     $(".pages").append(pageNumHtml);
-
   }
 
   //
@@ -106,8 +104,8 @@ function viewFunc() {
 
   // 새 글 new 표시
   let arr = [];
-  
-    viewArr.forEach((eachDoc) => {
+
+  viewArr.forEach((eachDoc) => {
     // console.log(dataArr.length);
     for (let i = 0; i < eachDoc.length; i++) {
       // console.log(eachDoc[i]);
@@ -123,10 +121,10 @@ function viewFunc() {
       let date = eachDoc[i].nowDate;
       // console.log(ID)
       // console.log(writeTitle, writeName, when, num, howMany, id);
-      console.log(date)
+      console.log(date);
       arr.push(date);
-      console.log(arr)
-      
+      console.log(arr);
+
       // 제목 너무 길면 줄이고 말줄임(...) 처리,
       // css로 하니 다 깨져서 css는 삭제했슴당
       let limitLength = 35;
@@ -148,7 +146,6 @@ function viewFunc() {
 
       $("#listCard").append(append_html);
 
-
       //조회수 기능
       $("#listCard").click(async function (e) {
         e.preventDefault();
@@ -164,18 +161,16 @@ function viewFunc() {
           // //클릭한 게시물 보여주도록
           window.location.href = `board_view.html?ID=" +${num}`;
         }
-
-      })
-      
+      });
     }
     // 새 글 new 표시
-    let newDate =  new Date().getTime()
-    console.log(newDate)
+    let newDate = new Date().getTime();
+    console.log(newDate);
 
     for (let i = 0; i < arr.length; i++) {
-      console.log(newDate - `${arr[i]}`)
+      console.log(newDate - `${arr[i]}`);
       if (newDate - `${arr[i]}` < 1800000) {
-        $('#new').css('display', 'block');
+        $("#new").css("display", "block");
       }
     }
   });
@@ -192,8 +187,7 @@ $(".paging").click(async function (e) {
 
 //검색 기능
 
-$("#searchBtn").on('click', function (e) {
-
+$("#searchBtn").on("click", function (e) {
   // e.preventDefault();
   searchFun();
 });
@@ -209,10 +203,8 @@ function searchFun() {
   let search = $("#searchInput").val();
   //입력값과 동일한 데이터만 가져오기
   let same = bigDocs.filter(function (data) {
-
-    return data.writeTitle.includes(search) ||
-      data.writeName.includes(search)
-  })
+    return data.writeTitle.includes(search) || data.writeName.includes(search);
+  });
 
   //게시글 번호 + 데이터 붙여넣기
   let sameLength = same.length;
@@ -236,12 +228,10 @@ function searchFun() {
     console.log("입력값 없음");
     $("tr").hide();
   }
-    $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
-    $(".pages").empty();
-    let pageNumHtml = `
+  $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
+  $(".pages").empty();
+  let pageNumHtml = `
       <span id="page1">1</span>
     `;
-    $(".pages").append(pageNumHtml);
-  }
+  $(".pages").append(pageNumHtml);
 }
-
