@@ -1,109 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- css 파일 분리 했습니다. - 수영 -->
-
+    <!-- jQuery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
 
-  <!-- 공통 css -->
-  <link rel="stylesheet" href="./styles/style.css" />
-  <!-- main 페이지 관련 css -->
-  <link rel="stylesheet" href="./styles/main.css" />
+    <!-- fontawesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <title>먹고하조</title>
-</head>
+    <!-- css 파일 분리 했습니다. - 수영 -->
+    <!-- 공통 css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- main 페이지 관련 css -->
+    <link rel="stylesheet" href="./styles/main.css" />
 
-<script>
-  function donation() {
-    alert('카카오뱅크 3333-05-9350021 예금주 김영우')
-  }
+    <title>먹고하조</title>
+  </head>
 
-  function openDiv() {
+  <body>
+    <!-- navbar header.html 파일로 분리 -->
+    <div id="header"></div>
 
-    if (document.getElementById('leftInner2').style.display === 'none') {
-      document.getElementById('leftInner2').style.display = 'block'
-      document.getElementById('arrow').style.transform = 'rotate(-135deg)'
-    } else {
-      document.getElementById('leftInner2').style.display = 'none'
-      document.getElementById('arrow').style.transform = 'rotate(45deg)'
-    }
-  }
-</script>
-
-<body>
-  <!-- 정기욱 -->
-  <div id="navWrap">
-    <nav class="navbar">
-      <!-- navlogo -->
-      <div class="navLogo">
-        <div>
-          <a href="./main.html" >
-            <span>🍔</span>
-            먹 고 하 조</a>
-        </div>
-      </div>
-      <!-- navMenu -->
-      <ul class="navMenu">
-        <li>
-          <a href="./main.html">Main</a>
-        </li>
-        <li>
-          <a href="./member.html" >Members</a>
-        </li>
-        <li>
-          <a href="./board_list.html" >Board</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <!-- 정기욱 -->
-
-  <!--김영우-->
-  <div class="infoTeam">
-    <div class="aTeamGoal">
-      <div class="infoTitle">
-        하나를 배우면 둘을 알아가는 스펀지와 같은 팀 입니다.
-      </div>
+    <div class="helloBox">
+      <p>안녕하세요 '먹고하조'입니다!!</p>
     </div>
 
-    <div class="aTeamGoal">
-      <div class="infoTitle">
-        의사소통 능력과 직무능력을 갖춰 내배캠 완주 후 3개월 이내 취업을
-        목표로 합니다.
+    <!--김영우-->
+    <!-- <div class="infoTeam"> -->
+    <div class="infoTeamBox">
+      <div class="gatherImg">
+        <img src="./images/gatherImg.png" alt="게더타운 캡쳐" />
       </div>
-    </div>
-
-    <div class="donation">
-      <button type="button" onclick="donation()" class="btn btn-success">
-        <h2>계좌번호</h2>
-      </button>
-
-      <div class="leftDiv">
-        <div class="leftInner">
-          <div id="arrow"></div>
-          <div id="payText" onclick="openDiv()">
-            <h3>카카오 QR링크 아래</h3>
-          </div>
+      <!-- <div class="aTeamGoal"> -->
+      <div class="infoTeam">
+        <!-- <div class="infoTitle"> -->
+        <div class="content">
+          하나를 배우면 둘을 알아가는 스펀지와 같은 팀 입니다.
         </div>
-        <div id=leftInner2 style="display:none">
-          <div>
-            <img class="payImg" src="/images/pay.png">
+      </div>
+
+      <div class="infoTeam">
+        <div class="content goal">
+          의사소통 능력과 직무능력을 갖춰 내배캠 완주 후 3개월 이내 취업을
+          목표로 합니다.
+        </div>
+      </div>
+
+      <div class="donation">
+        <i class="fa-solid fa-won-sign" onclick="donation()"></i>
+        <i class="fa-solid fa-qrcode" onclick="openDiv()"></i>
+
+        <div class="leftDiv">
+          <!-- <div class="leftInner">
+            <div id="arrow"></div>
+            <div id="payText"></div>
+          </div> -->
+          <div id="leftInner2" style="display: none">
+            <div>
+              <img class="payImg" src="/images/pay.png" />
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- <div class="findBtn"> -->
-      <!-- <button type="button" onclick="location.href='/donation'">
-          후원하기 -->
-      <!-- </button>
-      </div> -->
     </div>
-</body>
-
+    <div id="footer"></div>
+    <script src="./js/index.js"></script>
+    <script src="./js/donation.js"></script>
+  </body>
 </html>
