@@ -1,3 +1,7 @@
+a {
+  color: black;
+}
+
 /* 기욱 게시판 css */
 /* LIST */
 .boardTitle {
@@ -43,23 +47,6 @@
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 1rem;
-}
-
-.writeButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 50px;
-  font-size: 20px;
-  text-align: center;
-  margin-top: 30px;
-  margin-right: 2px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 table {
@@ -112,9 +99,41 @@ table td {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 15.7%;
-  padding-top: 150px;
+  /* padding: 200px 0px 100px 15%; */
+  text-align: center;
+  padding: 200px 0px 100px 0%;
+
   font-size: 25px;
+}
+
+#subject,
+#wirter,
+#date,
+#content {
+  background-color: #fff;
+  border-radius: 10px;
+  height: fit-content;
+  width: 90%;
+  max-width: 1100px;
+  border: 1px solid rgb(128, 128, 128);
+  margin: 10px auto 10px auto;
+  padding: 1% 1% 1% 5%;
+  font-size: 20px;
+  text-align: left;
+}
+
+#content {
+  padding: 5%;
+}
+
+#content pre {
+  white-space: pre-line;
+  word-break: break-all;
+}
+
+.bold {
+  font-weight: bolder;
+  font-size: 22px;
 }
 
 /* WRITE */
@@ -131,17 +150,29 @@ table td {
 
   font-size: 25px;
 }
-
-.inputContainer {
+.commentContainer {
   border: 10px dashed rgb(116, 75, 47);
   border-radius: 20px;
-  /* background-color: rgb(221, 239, 221); */
   background-color: #b2937f;
   height: 80%;
   width: 70%;
   max-width: 1200px;
+  min-width: 800px;
+  margin: 0px auto 100px auto;
+  padding: 30px;
 
-  margin: 0px auto 300px auto;
+  outline: none;
+}
+
+.inputContainer {
+  border: 10px dashed rgb(116, 75, 47);
+  border-radius: 20px;
+  background-color: #b2937f;
+  height: 80%;
+  width: 70%;
+  max-width: 1200px;
+  min-width: 800px;
+  margin: 0px auto 100px auto;
   padding: 30px;
 
   outline: none;
@@ -186,14 +217,37 @@ table td {
 } */
 
 #submit,
-#return {
+#return,
+.writeButton {
   height: 50px;
   width: 20%;
   float: right;
   margin: 20px 0px 0px 10px;
   background-color: rgb(40, 85, 51);
   color: white;
+  cursor: pointer;
   /* background-color: rgb(222, 241, 227); */
+}
+
+.writeButton {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  min-width: 100px;
+}
+.writeButton:last-child {
+  margin-right: 5%;
+}
+.writeButton:hover {
+  border: 1px groove rgb(0, 30, 13);
+  font-size: 25px;
+  /* color: rgb(52, 187, 10); */
 }
 
 #submit {
