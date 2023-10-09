@@ -21,106 +21,57 @@
     />
     <!-- favicon -->
     <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
-    <!-- 공통 css -->
-    <link rel="stylesheet" href="./styles/style.css" />
+
     <!-- main 페이지 관련 css -->
     <link rel="stylesheet" href="./styles/main.css" />
+    <!-- 공통 css -->
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>먹고하조</title>
   </head>
 
   <body style="background-color: #fff6cf">
-    <!-- 정기욱 -->
-    <div id="navWrap">
-      <nav class="navbar">
-        <!-- navlogo -->
-        <div class="navLogo">
-          <div>
-            <a href="./main.html">
-              <span class="bugerIcon">🍔</span>
-              먹 고 하 조</a
-            >
-          </div>
-        </div>
-        <!-- navMenu -->
-        <ul class="navMenu">
-          <li>
-            <a href="./main.html">Main</a>
-          </li>
-          <li>
-            <a href="./member.html">Members</a>
-          </li>
-          <li>
-            <a href="./board_list.html">Board</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <!-- 정기욱 -->
+    <div id="header"></div>
 
     <!--김영우-->
-    <!-- <div class="infoTeam"> -->
-    <div class="infoTeamBox">
-      <div class="gatherImg">
-        <img src="./images/gatherImg.png" alt="게더타운 캡쳐" />
-      </div>
-      <!-- <div class="aTeamGoal"> -->
-      <div class="infoTeam">
-        <!-- <div class="infoTitle"> -->
-        <div class="content">
-          하나를 배우면 둘을 알아가는 스펀지와 같은 팀 입니다.
+    <div class="infoTeamWrap">
+      <div class="infoTeamBox">
+        <div class="gatherImg">
+          <img src="./images/gatherImg.png" alt="게더타운 캡쳐" />
         </div>
-      </div>
-
-      <div class="infoTeam">
-        <div class="content goal">
-          의사소통 능력과 직무능력을 갖춰 내배캠 완주 후 3개월 이내 취업을
-          목표로 합니다.
-        </div>
-      </div>
-
-      <div class="donation">
-        <i class="fa-solid fa-won-sign" onclick="donation()"></i>
-        <i class="fa-solid fa-qrcode" onclick="openDiv()"></i>
-
-        <div class="leftDiv">
-          <!-- <div class="leftInner">
-            <div id="arrow"></div>
-            <div id="payText"></div>
-          </div> -->
-          <div id="leftInner2" style="display: none">
-            <div>
-              <img class="payImg" src="/images/pay.png" />
+        <div class="teamAndDonaBox">
+          <div class="infoTeam">
+            <!-- <div class="infoTitle"> -->
+            <div class="content">
+              <p class="intro">안녕하세요</p>
+              <p class="introContent">🍔먹고하조🍔 입니다!!</p>
+            </div>
+            <div class="content">
+              <p class="intro">저희는</p>
+              <div class="introContent">
+                하나를 배우면 둘을 알아가는 스펀지와 같은 팀 입니다.
+              </div>
+            </div>
+            <div class="content goal">
+              <p class="intro">목표는</p>
+              <p class="introContent">
+                의사소통 능력과 직무능력을 갖춰 내배캠 완주 후 3개월 이내 취업을
+                목표로 합니다.
+              </p>
             </div>
           </div>
         </div>
+
+        <!-- <div class="findBtn"> -->
+        <!-- <button type="button" onclick="location.href='/donation'">
+            후원하기 -->
+        <!-- </button>
+        </div> -->
       </div>
-
-      <!-- <div class="findBtn"> -->
-      <!-- <button type="button" onclick="location.href='/donation'">
-          후원하기 -->
-      <!-- </button>
-      </div> -->
     </div>
-    <footer></footer>
+
+    <div id="footer"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-      function donation() {
-        alert("카카오뱅크 3333-05-9350021 예금주 김영우");
-      }
-
-      function openDiv() {
-        if (document.getElementById("leftInner2").style.display === "none") {
-          document.getElementById("leftInner2").style.display = "block";
-          document.getElementById("arrow").style.transform = "rotate(-135deg)";
-        } else {
-          document.getElementById("leftInner2").style.display = "none";
-          document.getElementById("arrow").style.transform = "rotate(45deg)";
-        }
-      }
-
-      $(document).ready(function () {
-        $("footer").load("/footer.html");
-      });
-    </script>
+    <script src="./js/index.js"></script>
+    <script src="./js/donation.js"></script>
   </body>
 </html>
