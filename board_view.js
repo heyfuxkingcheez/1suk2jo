@@ -17,13 +17,12 @@ import {
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBHruLjIXeoszzqiT2HSWT6nsIyKOEbeRU",
-  authDomain: "sparta-e533a.firebaseapp.com",
-  projectId: "sparta-e533a",
-  storageBucket: "sparta-e533a.appspot.com",
-  messagingSenderId: "176323692514",
-  appId: "1:176323692514:web:bf9dc31cafca3ffbb29bbb",
-  measurementId: "G-H5C27X8E9M"
+  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
+  authDomain: "ejoo-a1fd7.firebaseapp.com",
+  projectId: "ejoo-a1fd7",
+  storageBucket: "ejoo-a1fd7.appspot.com",
+  messagingSenderId: "982632789909",
+  appId: "1:982632789909:web:acc8b044fd5f40be1c289c"
 };
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
@@ -46,6 +45,7 @@ docsd.forEach((eachdoc) => {
   let num = row["num"];
   let when = row["when"];
   let commentNum = row["commentNum"];
+  let commentPw = row["commentPw"];
   let id = eachdoc.id;
   let which;
 
@@ -60,8 +60,6 @@ docsd.forEach((eachdoc) => {
       <div class="resultBottom">
       <div id="resultTime">${when}</div>
       <div id="DeleteBtn">
-      <button class="" id="commentUpdate">수정
-      <button style="display : none">${commentNum}</button>
       <button class="" id="commentDelete">삭제
       <button style="display : none">${commentNum}</button>
       </div>
@@ -71,23 +69,24 @@ docsd.forEach((eachdoc) => {
     $("#result").append(append_comment);
   }
   // 댓글 삭제
-  $("#commentField").click(async function (e) {
+  $('#commentField').click(async function (e) {
     e.preventDefault();
-    let clickCoNum = e.target.nextElementSibling.innerText;;
+    let clickCoNum = e.target.nextElementSibling.innerText;
+    // 
     console.log('clickCoNum => ', clickCoNum)
     console.log('commentNum =>', commentNum)
     if (clickCoNum === commentNum) {
-      await deleteDoc(doc(db, 'comments', which));
-      window.location.reload();
+      const pw = prompt("삭제 비밀번호를 입력해주세요.");
+      if (pw === commentPw) {
+        await deleteDoc(doc(db, 'comments', which));
+        window.location.reload();
+      } else {
+        alert("비밀번호가 올바르지 않습니다..")
+      }
     } else {
       return false;
     }
 
-
-    // if (id === which) {
-    //   await deleteDoc(doc(db, 'comments', which));
-    //   window.location.reload();
-    // }
   })
 })
 
@@ -179,19 +178,23 @@ $("#commentBtn").click(async function (e) {
     date: new Date().getTime(), // 현재 시간 밀리세컨드
     when: when,
     num: query, // num id값
-    commentNum: commentID()
+    commentNum: commentID(),
+    commentPw: $("#pwd1").val()
 
   };
-
+  // 댓글 폼 규칙
   if (data.commentName.length <= 0 || data.commentText.length <= 0) {
     return alert('내용을 입력해주세요.');
+  } else if ($('#pwd1').val().length <= 0 || $('#pwd2').val().length <= 0) {
+    return alert('비밀번호를 입력해주세요.')
+  } else if ($('#pwd1').val() != $('#pwd2').val()) {
+    return alert('비밀번호를 일치하도록 입력해주세요.')
   } else {
     await addDoc(collection(db, "comments"), data);
     console.log(data)
     window.location.reload()
   }
 })
-
 
 // 댓글 비밀번호 일치 확인     
 $(function () {
@@ -200,7 +203,6 @@ $(function () {
   });
 
   $('#pwd2').keyup(function () {
-
     if ($('#pwd1').val() != $('#pwd2').val()) {
       $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
       $('#chkNotice').attr('color', '#f82a2aa3');
@@ -208,7 +210,6 @@ $(function () {
       $('#chkNotice').html('비밀번호 일치함<br><br>');
       $('#chkNotice').attr('color', '#199894b3');
     }
-
   });
 });
 
