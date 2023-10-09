@@ -10,7 +10,7 @@ import {
 import { db } from "./firebase.js";
 
 const board = collection(db, "board");
-const d = await query(board, orderBy("when", "desc"));
+const d = await query(board, orderBy("nowDate", "desc"));
 const docs = await getDocs(d);
 // console.log(docs);
 
@@ -27,7 +27,7 @@ docs.forEach((data) => {
   a--;
 });
 
-// console.log(bigDocs)
+console.log("bigDocs", bigDocs);
 
 // 페이징
 let viewArr = [];
