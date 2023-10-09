@@ -2,7 +2,6 @@ import {
   collection,
   addDoc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
 import { db } from "./firebase.js";
 
 let docs;
@@ -61,7 +60,6 @@ $("#writeFrm").submit(async function (e) {
     num: newID(),
     howMany: 0,
     nowDate: time,
-    // commentNum: commentID(),
     commentPWF: commentPWF,
     commentPWS: commentPWS,
   };
@@ -74,13 +72,12 @@ $("#writeFrm").submit(async function (e) {
     //데이터 저장하고 해당 아이디값 출력해 봤어요
     await add.then((ID) => console.log(ID.id));
     alert("저장 완료!");
-    // const num = docs.num
 
     window.location.href = `board_view.html?ID=" +${docs.num}`;
   }
 });
 
-// 댓글 비밀번호 일치 확인
+//비밀번호 일치 확인
 $("#pwF").on("input", function () {
   console.log("keyup");
   $("#chkNotice").html("");

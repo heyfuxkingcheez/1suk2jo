@@ -11,8 +11,6 @@ import { db } from "./firebase.js";
 
 const board = collection(db, "board");
 const d = await query(board, orderBy("when", "desc"));
-
-const dArr = [];
 const docs = await getDocs(d);
 
 // 글 번호
@@ -102,6 +100,10 @@ function pageFun() {
 pageFun();
 function viewFunc() {
   // console.log(eachDoc)
+
+  // 새 글 new 표시
+  let arr = [];
+
   viewArr.forEach((eachDoc) => {
     // console.log(dataArr.length);
     for (let i = 0; i < eachDoc.length; i++) {
@@ -115,8 +117,12 @@ function viewFunc() {
       let index = eachDoc[i].index;
       // console.log(index)
       let ID = eachDoc[i].ID;
+      let date = eachDoc[i].nowDate;
       // console.log(ID)
       // console.log(writeTitle, writeName, when, num, howMany, id);
+      console.log(date);
+      arr.push(date);
+      console.log(arr);
 
       // 제목 너무 길면 줄이고 말줄임(...) 처리,
       // css로 하니 다 깨져서 css는 삭제했슴당
@@ -130,6 +136,7 @@ function viewFunc() {
         <td style = 'display : none'>${num}</td>
         <td class="listTitle">
         ${writeTitle}
+        <span id="new" style = 'display : none'>🆕</span>
         </td>
         <td class="listAutor">${writeName}</td>
         <td class="listDate">${when}</td>
@@ -155,10 +162,18 @@ function viewFunc() {
         }
       });
     }
+    // 새 글 new 표시
+    let newDate = new Date().getTime();
+    console.log(newDate);
+
+    for (let i = 0; i < arr.length; i++) {
+      console.log(newDate - `${arr[i]}`);
+      if (newDate - `${arr[i]}` < 1800000) {
+        $("#new").css("display", "block");
+      }
+    }
   });
 }
-
-//forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
 
 // pagination
 // 누르는 페이지 마다 class=active; 추가, 색상 변경
@@ -166,22 +181,6 @@ $(".paging").click(async function (e) {
   $(".active").removeClass("active");
   $(e.target).addClass("active");
 });
-
-//검색
-// $(document).ready(function () {
-//   $("#searchBtn").click(function (e) {
-//     let k = $(searchInput).val(); //searchInput 값 지정
-//     // console.log(k)
-//     $("tr").hide(); // tr 요소를 숨김
-//     let temp = $("tr:contains('" + k + "')"); // tr요소 중 contains()의 값과 비교해서 지정
-//     if (temp.length == 0) {
-//       $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td></tr>`); // 결과가 없을때
-//     } else {
-//       $(temp).show(); // 결과가 있을때 지정된 temp를 보여줌
-//     }
-//   });
-
-// });
 
 //검색 기능
 $("#searchBtn").on("click", function (e) {
@@ -223,11 +222,11 @@ function searchFun() {
     console.log(sameLength);
     console.log("입력값 없음");
     $("tr").hide();
-    $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
-    $(".pages").empty();
-    let pageNumHtml = `
+  }
+  $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
+  $(".pages").empty();
+  let pageNumHtml = `
       <span id="page1">1</span>
     `;
-    $(".pages").append(pageNumHtml);
-  }
+  $(".pages").append(pageNumHtml);
 }
