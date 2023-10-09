@@ -10,9 +10,7 @@ import {
 import { db } from "./firebase.js";
 
 const board = collection(db, "board");
-
 const d = await query(board, orderBy("when", "desc"));
-
 const docs = await getDocs(d);
 // console.log(docs);
 
@@ -28,6 +26,7 @@ docs.forEach((data) => {
   bigDocs.push(dat);
   a--;
 });
+
 
 // console.log(bigDocs)
 
@@ -65,6 +64,7 @@ function pageFun() {
     <span id="page${i}">${i}</span>
     `;
     $(".pages").append(pageNumHtml);
+
   }
 
   //
@@ -103,7 +103,11 @@ function pageFun() {
 pageFun();
 function viewFunc() {
   // console.log(eachDoc)
-  viewArr.forEach((eachDoc) => {
+
+  // 새 글 new 표시
+  let arr = [];
+  
+    viewArr.forEach((eachDoc) => {
     // console.log(dataArr.length);
     for (let i = 0; i < eachDoc.length; i++) {
       // console.log(eachDoc[i]);
@@ -116,9 +120,13 @@ function viewFunc() {
       let index = eachDoc[i].index;
       // console.log(index)
       let ID = eachDoc[i].ID;
+      let date = eachDoc[i].nowDate;
       // console.log(ID)
       // console.log(writeTitle, writeName, when, num, howMany, id);
-
+      console.log(date)
+      arr.push(date);
+      console.log(arr)
+      
       // 제목 너무 길면 줄이고 말줄임(...) 처리,
       // css로 하니 다 깨져서 css는 삭제했슴당
       let limitLength = 35;
@@ -131,6 +139,7 @@ function viewFunc() {
         <td style = 'display : none'>${num}</td>
         <td class="listTitle">
         ${writeTitle}
+        <span id="new" style = 'display : none'>🆕</span>
         </td>
         <td class="listAutor">${writeName}</td>
         <td class="listDate">${when}</td>
@@ -138,6 +147,7 @@ function viewFunc() {
         </tr>`;
 
       $("#listCard").append(append_html);
+
 
       //조회수 기능
       $("#listCard").click(async function (e) {
@@ -154,7 +164,19 @@ function viewFunc() {
           // //클릭한 게시물 보여주도록
           window.location.href = `board_view.html?ID=" +${num}`;
         }
-      });
+
+      })
+      
+    }
+    // 새 글 new 표시
+    let newDate =  new Date().getTime()
+    console.log(newDate)
+
+    for (let i = 0; i < arr.length; i++) {
+      console.log(newDate - `${arr[i]}`)
+      if (newDate - `${arr[i]}` < 1800000) {
+        $('#new').css('display', 'block');
+      }
     }
   });
 }
@@ -169,7 +191,9 @@ $(".paging").click(async function (e) {
 });
 
 //검색 기능
-$("#searchBtn").on("click", function (e) {
+
+$("#searchBtn").on('click', function (e) {
+
   // e.preventDefault();
   searchFun();
 });
@@ -185,8 +209,10 @@ function searchFun() {
   let search = $("#searchInput").val();
   //입력값과 동일한 데이터만 가져오기
   let same = bigDocs.filter(function (data) {
-    return data.writeTitle.includes(search) || data.writeName.includes(search);
-  });
+
+    return data.writeTitle.includes(search) ||
+      data.writeName.includes(search)
+  })
 
   //게시글 번호 + 데이터 붙여넣기
   let sameLength = same.length;
@@ -198,6 +224,7 @@ function searchFun() {
     viewArr = [];
     pageArr = [];
     // let totalPageNumArr = [];
+
     console.log("same =>", same);
     same.forEach((data) => {
       dataArr.push(data);
@@ -208,6 +235,7 @@ function searchFun() {
     console.log(sameLength);
     console.log("입력값 없음");
     $("tr").hide();
+  }
     $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
     $(".pages").empty();
     let pageNumHtml = `
@@ -216,3 +244,4 @@ function searchFun() {
     $(".pages").append(pageNumHtml);
   }
 }
+

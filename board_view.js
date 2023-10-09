@@ -23,7 +23,7 @@ docsd.forEach((eachdoc) => {
   let row = eachdoc.data();
   let commentName = row["commentName"];
   let commentText = row["commentText"];
-  let date = row["date"];
+  let coDate = row["date"];
   let num = row["num"];
   let when = row["when"];
   let commentNum = row["commentNum"];
@@ -35,7 +35,9 @@ docsd.forEach((eachdoc) => {
     which = id;
     let append_comment = `
     <div id="result" class="resultMsg">
-      <span id="resultName">${commentName}</span>
+      <span id="resultName">${commentName}
+      <span id="new" style = 'display : none'>🆕</span>
+      </span>
       <span id="resultContent">${commentText}</span>
       
       <div class="resultBottom">
@@ -67,8 +69,10 @@ docsd.forEach((eachdoc) => {
     } else {
       return false;
     }
-  });
+
+  })
 });
+
 
 // 게시글 DB불러오기
 docs.forEach((eachDoc) => {
