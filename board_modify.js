@@ -77,19 +77,16 @@ docs.forEach((eachDoc) => {
       let writeTitle = $("#writeTitle").val();
       let writeText = $("#writeText").val();
       let writeName = $("#writeName").val();
-      // docs = {
-      //   writeTitle: writeTitle,
-      //   writeText: writeText,
-      //   writeName: writeName,
-      // }
-      let data = doc(db, "board", ID);
-      await updateDoc(data, {
+      let dataDocs = {
         writeTitle: writeTitle,
         writeText: writeText,
         writeName: writeName,
-      });
+      };
+
+      let data = doc(db, "board", ID);
+      await updateDoc(data, dataDocs);
       console.log(data);
-      alert("수정");
+      alert("수정 완료");
 
       window.location.href = `board_view.html?ID=" +${que}`;
     });

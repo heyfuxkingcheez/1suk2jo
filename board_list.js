@@ -12,7 +12,6 @@ import { db } from "./firebase.js";
 const board = collection(db, "board");
 const d = await query(board, orderBy("when", "desc"));
 const docs = await getDocs(d);
-// console.log(docs);
 
 // 글 번호
 let bigDocs = [];
@@ -176,8 +175,6 @@ function viewFunc() {
   });
 }
 
-//forEach 문에 파라미터 eachDoc 으로 바꿨어요 __ 바꾸니까 데이터 수정기능 동작하더라구요
-
 // pagination
 // 누르는 페이지 마다 class=active; 추가, 색상 변경
 $(".paging").click(async function (e) {
@@ -186,7 +183,6 @@ $(".paging").click(async function (e) {
 });
 
 //검색 기능
-
 $("#searchBtn").on("click", function (e) {
   // e.preventDefault();
   searchFun();
@@ -216,7 +212,6 @@ function searchFun() {
     viewArr = [];
     pageArr = [];
     // let totalPageNumArr = [];
-
     console.log("same =>", same);
     same.forEach((data) => {
       dataArr.push(data);
