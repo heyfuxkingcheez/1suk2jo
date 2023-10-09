@@ -13,32 +13,7 @@
   </head>
 
   <body>
-    <!-- 정기욱 -->
-    <div id="navWrap">
-      <nav class="navbar">
-        <!-- navlogo -->
-        <div class="navLogo">
-          <div>
-            <a href="#" onclick="location.href='main.html'"
-              ><span class="bugerIcon">🍔</span> 먹 고 하 조</a
-            >
-          </div>
-        </div>
-        <!-- navMenu -->
-        <ul class="navMenu">
-          <li>
-            <a href="#" onclick="location.href='main.html'">Main</a>
-          </li>
-          <li>
-            <a href="#" onclick="location.href='member.html'">Members</a>
-          </li>
-          <li>
-            <a href="#" onclick="location.href='board_list.html'">Board</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <!-- 정기욱 -->
+    <div id="header"></div>
 
     <div class="container">
       <div class="boardWrite">
@@ -67,7 +42,6 @@
                 name="writer"
                 placeholder="10글자 이내로 닉네임 적어주세요"
                 maxlength="10"
-                placeholder="닉네임을 적어주세요"
               />
             </div>
             <!-- <label for="write_text" >내용</label> -->
@@ -107,7 +81,9 @@
         </div>
       </form>
     </div>
+    <div id="footer"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="module" src="board_write.js"></script>
+    <script src="./js/index.js"></script>
+    <script type="module" src="./js/board_write.js"></script>
   </body>
 </html>

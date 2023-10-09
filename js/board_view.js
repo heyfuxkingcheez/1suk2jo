@@ -206,40 +206,40 @@ $("#commentBtn").click(async function (e) {
 });
 
 // 댓글 비밀번호 일치 확인
-$(function () {
-  // $("#pwd1").keyup(function () {
-  //   $("#chkNoticeCo").html("");
-  // });
 
-  $("#pwd1").keyup(function () {
-    if ($("#pwd2").length <= 0) {
-      $("#chkNoticeCo").css("diplay", "none")
-    }
+// $("#pwd1").keyup(function () {
+//   $("#chkNoticeCo").html("");
+// });
 
-    else if ($("#pwd1").val() == $("#pwd2").val()) {
-      $("#chkNoticeCo").html("비밀번호 일치함<br><br>");
-      $("#chkNoticeCo")
-      .css("display", "block")
-      .css("color", "blue")
-    } 
-  });
-
-// 첫번재 비번 입력 값이 없을 때, 비번 알림창 안보이게
-  $("#pwd2").keyup(function () {
-    if ($("#pwd1").length <= 0) {
-      $("#chkNoticeCo").css("diplay", "none")
-    }
-
-    else if ($("#pwd1").val() != $("#pwd2").val()) {
-      $("#chkNoticeCo").html("비밀번호 일치하지 않음<br><br>");
-      $("#chkNoticeCo")
+$("#pwd1").keyup(function () {
+  if ($("#pwd1").val() !== $("#pwd2").val()) {
+    $("#chkNoticeCo")
       .css("display", "block")
       .css("color", "red")
-    } else {
-      $("#chkNoticeCo").html("비밀번호 일치함<br><br>");
-      $("#chkNoticeCo")
+    $("#chkNoticeCo").html("비밀번호 일치하지 않음<br><br>");
+  } else if ($("#pwd1").val() === $("#pwd2").val()) {
+    $("#chkNoticeCo")
       .css("display", "block")
       .css("color", "blue")
-    }
-  });
+    $("#chkNoticeCo").html("비밀번호 일치함<br><br>");
+  }
 });
+
+// 첫번재 비번 입력 값이 없을 때, 비번 알림창 안보이게
+$("#pwd2").keyup(function () {
+  if ($("#pwd1").val() === "") {
+    $("#chkNoticeCo").css("diplay", "none")
+  }
+  else if ($("#pwd1").val() !== $("#pwd2").val()) {
+    $("#chkNoticeCo")
+      .css("display", "block")
+      .css("color", "red")
+    $("#chkNoticeCo").html("비밀번호 일치하지 않음<br><br>");
+  } else if ($("#pwd1").val() === $("#pwd2").val()) {
+    $("#chkNoticeCo")
+      .css("display", "block")
+      .css("color", "blue")
+    $("#chkNoticeCo").html("비밀번호 일치함<br><br>");
+  }
+});
+
