@@ -9,11 +9,10 @@ a {
 }
 
 .container .detail {
-  width: 70%;
-  height: auto;
+  width: 100%;
   /* background-color: rgb(212, 129, 21); */
   margin: 150px auto 400px auto;
-
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: 300px;
