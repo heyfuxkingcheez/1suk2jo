@@ -7,7 +7,6 @@
 
 .memberBox {
   display: none;
-
 }
 
 .memProfile {
@@ -18,7 +17,6 @@
   align-items: center;
   width: 60%;
   height: 200px;
-  
 }
 
 
@@ -38,7 +36,7 @@
   margin-right: 0;
 }
 
-img {
+.memProfImg img {
   display: block;
   object-fit: cover;
   border-radius: 50%;
@@ -111,3 +109,12 @@ img:hover {
   box-shadow: 10px 10px;
 }
 
+.modal-body{
+  font-size: 17px;
+  
+}
+
+.nameTag, .coopTag, .mbtiTag {
+  font-weight: bold;
+  font-size: 23px;
+}
