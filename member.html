@@ -2,222 +2,201 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- fontawesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- 공통 css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- memeber 관련 Css -->
+    <link rel="stylesheet" href="./styles/member.css" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Member's profiles</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <!-- fontawesome cdn -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- 공통 css -->
-  <link rel="stylesheet" href="./styles/style.css" />
-  <!-- memeber 관련 Css -->
-  <link rel="stylesheet" href="./styles/member.css" />
-  <!-- favicon -->
-  <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <title>Member's profiles</title>
-</head>
-
-<body>
-  <div id="header"></div>
-  <!-- Member's profile -->
-  <div class="container">
-    <div class="memProfile">
-      <!-- 
+  <body>
+    <div id="header"></div>
+    <!-- Member's profile -->
+    <div class="container">
+      <div class="memProfile">
+        <!-- 
               사진순서
               1. 팀장
               2. 팀원 이름 가나다순
           -->
-      <div id="memEj" class="memProfImg">
-        <img id="memBtn" data-bs-toggle="modal" data-bs-target="#ej" src="./images/profiles/eunji.jpg" alt="유은지님" />
+        <div id="memEj" class="memProfImg">
+          <img id="memBtn" data-bs-toggle="modal" data-bs-target="#ej" src="./images/profiles/eunji.jpg" alt="유은지님" />
+        </div>
+        <div id="memYw" class="memProfImg">
+          <img id="memBtn" data-bs-toggle="modal" data-bs-target="#yw" src="./images/profiles/youngwoo.jpg" alt="김영우님" />
+        </div>
+        <div id="memGw" class="memProfImg">
+          <img id="memBtn" data-bs-toggle="modal" data-bs-target="#gw" src="./images/profiles/giwook.jpg" alt="정기욱님" />
+        </div>
+        <div id="memSy" class="memProfImg">
+          <img id="memBtn" data-bs-toggle="modal" data-bs-target="#sy" src="./images/profiles/sooyoung.JPG" alt="최수영님" />
+        </div>
       </div>
-      <div id="memYw" class="memProfImg">
-        <img id="memBtn" data-bs-toggle="modal" data-bs-target="#yw" src="./images/profiles/youngwoo.jpg" alt="김영우님" />
-      </div>
-      <div id="memGw" class="memProfImg">
-        <img id="memBtn" data-bs-toggle="modal" data-bs-target="#gw" src="./images/profiles/giwook.jpg" alt="정기욱님" />
-      </div>
-      <div id="memSy" class="memProfImg">
-        <img id="memBtn" data-bs-toggle="modal" data-bs-target="#sy" src="./images/profiles/sooyoung.JPG" alt="최수영님" />
-      </div>
-    </div>
 
-    <!-- 유은지 -->
-    <div class="modal fade" id="ej" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              유은지님 정보
-            </h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <!-- 유은지 -->
+      <div class="modal fade" id="ej" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">유은지님 정보</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="memheader">
+                <p class="nameTag">이름</p>
+                <p>김영우</p>
+              </div>
+              <div class="membody">
+                <p class="mbtiTag">MBTI</p>
+                <p>ENFP</p>
+              </div>
+              <div class="memfooter">
+                <p class="coopTag">협업스타일</p>
+                <p>
+                  4년 반 직장 생활을 했지만 개인의 업무에 집중하는 업무를 위주로 했습니다. 그러나 상사들과의 의사소통에 많은 시간을 보냈습니다. 그렇기 때문에 항상 파워게임(?)에서 지는 경험과 배려하며
+                  의시소통하는 방식에 고민을 했기에 서로 배려하면서 의사소통하며 협업하는 것을 추구합니다~!
+                </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+              <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memEj'">더 보기</button>
+            </div>
           </div>
-          <div class="modal-body">
-            <div class="memheader">
-              <p class="nameTag">이름</p>
-              <p>김영우</p>
+        </div>
+      </div>
+
+      <!-- 김영우 -->
+      <div class="modal fade" id="yw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">김영우님 정보</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="membody">
-              <p class="mbtiTag">MBTI</p>
-              <p>ENFP</p>
+            <div class="modal-body">
+              <div class="memheader">
+                <p class="nameTag">이름</p>
+                <p>김영우</p>
+              </div>
+              <div class="membody">
+                <p class="mbtiTag">MBTI</p>
+                <p>ENFP</p>
+              </div>
+              <div class="memfooter">
+                <p class="coopTag">협업스타일</p>
+                <p>
+                  4년 반 직장 생활을 했지만 제작을 주 업무로 했습니다.
+                  주로 나이 있으신 알바분들과 상사분들과의 의사소통에 많은 시간을 보냈습니다.
+                  그렇기 때문에 항상 파워게임(?)에서 지는 경험과 배려하며
+                  자연스레 의사소통하는 방식에 고민을 하게되었던 것 같습니다. 
+                  서로 배려하는 의사소통 방식으로 협업하는 것을 추구합니다~!
+                </p>
+              </div>
             </div>
-            <div class="memfooter">
-              <p class="coopTag">협업스타일</p>
-              <p>
-                4년 반 직장 생활을 했지만 개인의 업무에 집중하는 업무를 위주로
-                했습니다. 그러나 상사들과의 의사소통에 많은 시간을 보냈습니다.
-                그렇기 때문에 항상 파워게임(?)에서 지는 경험과 배려하며
-                의시소통하는 방식에 고민을 했기에 서로 배려하면서 의사소통하며
-                협업하는 것을 추구합니다~!
-              </p>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+              <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memYw'">더 보기</button>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              닫기
-            </button>
-            <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memEj'">
-              더 보기
-            </button>
+        </div>
+      </div>
+
+      <!-- 정기욱 -->
+      <!-- onclick="location.href = 'member_detail.html#memEj'" -->
+      <div class="modal fade" id="gw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">정기욱님 정보</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="memheader">
+                <p class="nameTag">이름</p>
+                <p>정기욱</p>
+              </div>
+              <div class="membody">
+                <p class="mbtiTag">MBTI</p>
+                <p>ENTP</p>
+              </div>
+              <div class="memfooter">
+                <p class="coopTag">협업스타일</p>
+                <p>
+                  나서는 사람이 없다면 리더형으로 이끌 수 있으며, 반대로 적극적인 리더가 팀 내에 있다면 열심히 따라갈 수 있습니다. 의견을 가감 없이 서로 나누는 것 덕분에 어느 한쪽이라도 불만이 생기지
+                  않도록 원할 하게 협업 하는 것을 좋아합니다.
+                </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+              <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memGw'">더 보기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 최수영 -->
+      <div class="modal fade" id="sy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">최수영님 정보</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="memheader">
+                <p class="nameTag">이름</p>
+                <p>최수영</p>
+              </div>
+              <div class="membody">
+                <p class="mbtiTag">MBTI</p>
+                <p>ISTJ</p>
+              </div>
+              <div class="memfooter">
+                <p class="coopTag">협업스타일</p>
+
+                <p>적극적으로 소통</p>
+                <p>다같이 협력</p>
+                <p>계획적</p>
+                <p>지식 공유</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+              <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memSy'">더 보기</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 김영우 -->
-    <div class="modal fade" id="yw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              김영우님 정보
-            </h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="memheader">
-              <p class="nameTag">이름</p>
-              <p>김영우</p>
-            </div>
-            <div class="membody">
-              <p class="mbtiTag">MBTI</p>
-              <p>ENFP</p>
-            </div>
-            <div class="memfooter">
-              <p class="coopTag">협업스타일</p>
-              <p>
-                4년 반 직장 생활을 했지만 제작을 주 업무로 했습니다.
-                주로 나이 있으신 알바분들과 상사분들과의 의사소통에 많은 시간을 보냈습니다.
-                그렇기 때문에 항상 파워게임(?)에서 지는 경험과 배려하며
-                자연스레 의사소통하는 방식에 고민을 하게되었던 것 같습니다. 
-                서로 배려하는 의사소통 방식으로 협업하는 것을 추구합니다~!
-              </p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              닫기
-            </button>
-            <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memYw'">
-              더 보기
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 정기욱 -->
-    <!-- onclick="location.href = 'member_detail.html#memEj'" -->
-    <div class="modal fade" id="gw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              정기욱님 정보
-            </h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="memheader">
-              <p class="nameTag">이름</p>
-              <p>정기욱</p>
-            </div>
-            <div class="membody">
-              <p class="mbtiTag">MBTI</p>
-              <p>ENTP</p>
-            </div>
-            <div class="memfooter">
-              <p class="coopTag">협업스타일</p>
-              <p>
-                나서는 사람이 없다면 리더형으로 이끌 수 있으며, 반대로 적극적인 리더가 팀 내에 있다면 열심히 따라갈 수 있습니다. 의견을 가감 없이 서로 나누는 것 덕분에 어느 한쪽이라도 불만이
-                생기지 않도록 원할 하게 협업 하는 것을 좋아합니다.
-              </p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              닫기
-            </button>
-            <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memGw'">
-              더 보기
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 최수영 -->
-    <div class="modal fade" id="sy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              최수영님 정보
-            </h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="memheader">
-              <p class="nameTag">이름</p>
-              <p>김영우</p>
-            </div>
-            <div class="membody">
-              <p class="mbtiTag">MBTI</p>
-              <p>ENFP</p>
-            </div>
-            <div class="memfooter">
-              <p class="coopTag">협업스타일</p>
-              <p>
-                4년 반 직장 생활을 했지만 개인의 업무에 집중하는 업무를 위주로
-                했습니다. 그러나 상사들과의 의사소통에 많은 시간을 보냈습니다.
-                그렇기 때문에 항상 파워게임(?)에서 지는 경험과 배려하며
-                의시소통하는 방식에 고민을 했기에 서로 배려하면서 의사소통하며
-                협업하는 것을 추구합니다~!
-              </p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              닫기
-            </button>
-            <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memSy'">
-              더 보기
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="footer"></div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <script src="./js/index.js"></script>
-</body>
-
+    <div id="footer"></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/index.js"></script>
+  </body>
 </html>
