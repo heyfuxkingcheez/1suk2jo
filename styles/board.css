@@ -219,10 +219,10 @@ table td {
 #submit,
 #return,
 .writeButton {
-  height: 50px;
+  height: 60px;
   width: 20%;
   float: right;
-  margin: 20px 0px 0px 10px;
+  margin: 20px 10px 0px 0px;
   background-color: rgb(40, 85, 51);
   color: white;
   cursor: pointer;
@@ -241,9 +241,7 @@ table td {
   cursor: pointer;
   min-width: 100px;
 }
-.writeButton:last-child {
-  margin-right: 5%;
-}
+
 .writeButton:hover {
   border: 1px groove rgb(0, 30, 13);
   font-size: 25px;
