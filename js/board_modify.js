@@ -75,9 +75,9 @@ docs.forEach((eachDoc) => {
     $("#writeFrm").submit(async function (e) {
       e.preventDefault();
 
-      let writeTitle = $("#writeTitle").val();
-      let writeText = $("#writeText").val();
-      let writeName = $("#writeName").val();
+      let writeTitle = $("#writeTitle").val().trim();
+      let writeText = $("#writeText").val().trim();
+      let writeName = $("#writeName").val().trim();
       let dataDocs = {
         writeTitle: writeTitle,
         writeText: writeText,
