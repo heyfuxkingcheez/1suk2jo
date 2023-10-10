@@ -11,20 +11,13 @@ a {
 a:hover {
   color: black;
 }
-
-.blank {
-  /* height: 100px; */
-}
 .infoTeamWrap {
-  margin: 250px auto 20% auto;
-  width: 90%;
-  height: 400px;
-  /* margin-top: 50px; */
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 }
 
 .infoTeamBox {
@@ -33,12 +26,6 @@ a:hover {
   justify-content: center;
   align-items: center;
   margin-bottom: 120px;
-  margin-left: 3%;
-}
-
-.infoTeam {
-  margin: 5% 1% 5% 10%;
-  padding: 5% 0% 0% 5%;
 }
 
 .helloBox {
@@ -54,26 +41,22 @@ a:hover {
 }
 
 .introContent {
-  font-size: 27px;
-  margin-bottom: 20px;
+  font-size: 30px;
 }
 
 .gatherImg {
-  width: 90%;
-  height: 90%;
-  min-width: 600px;
-  max-width: 700px;
-  /* margin-left: 2%; */
+  width: 100%;
+  height: 100%;
   border-radius: 95px;
   padding: 0;
+  box-shadow: 5px 5px 10px;
 }
 
 .gatherImg img {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 95px;
-  box-shadow: 5px 5px 10px;
 }
 
 /* 영우님 */
@@ -89,17 +72,13 @@ a:hover {
 }
 
 .content {
-  padding: 12px 30px 12px 30px;
-}
-
-.content p {
-  margin-bottom: 10px;
+  padding: 30px;
 }
 
 .intro {
   font-weight: 700;
-  font-size: 37px;
-  margin-bottom: 20px;
+  font-size: 40px;
+  margin-bottom: 30px;
 }
 
 .teamAndDonaBox {
