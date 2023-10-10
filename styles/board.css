@@ -229,6 +229,8 @@ table td {
   margin: 20px 10px 0px 0px;
   background-color: rgb(40, 85, 51);
   color: white;
+  /* background-color: white;
+  color: black; */
   cursor: pointer;
   /* background-color: rgb(222, 241, 227); */
 }
@@ -244,6 +246,10 @@ table td {
   border-radius: 10px;
   cursor: pointer;
   min-width: 100px;
+}
+
+.writeButton:last-child {
+  margin-right: 5%;
 }
 
 .writeButton:hover {
@@ -299,26 +305,46 @@ span.active {
 #commentName,
 #pwd1,
 #pwd2 {
-  width: 17%;
+  width: 23%;
   display: flex;
+  align-items: right;
+  justify-content: right;
+
+  padding: 3px 3px 3px 10px;
+  font-size: 15px;
+  /* width: 40%; */
+  border-radius: 7px;
+  border: 1px solid;
+  outline: none;
+
+  margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 #commentBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 50px;
-  font-size: 20px;
+  /* width: 120px; */
+  /* height: 50px;   */
+  width: 11%;
+  height: 60px;
+  padding: 1%;
+  font-size: 17px;
   text-align: center;
-  margin-right: 2px;
-  background-color: #333;
+  margin-right: 2.75%;
+  margin-left: 1%;
+  /* background-color: #333; */
+  background-color: rgb(40, 85, 51);
   color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
 }
-
+#commentBtn:hover {
+  font-size: 20px;
+  height: 80px;
+}
 #input #commentText {
   flex-grow: 1;
   resize: none;
@@ -334,19 +360,13 @@ span.active {
   display: flex;
 }
 
-#pwd1,
-#pwd2 {
-  margin-right: 15px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 #chkNotice {
   padding-top: 15px;
 }
 
 .textdiv {
   display: flex;
+  align-items: center;
   height: 50px;
   margin-top: 5px;
   position: relative;
@@ -357,16 +377,88 @@ span.active {
   display: flex;
   flex-direction: column;
 }
+.lineTwo {
+  border: 3px dotted white;
+  height: 1px;
+  width: 90%;
+  position: relative;
+  left: 5%;
+}
+section {
+  width: 90%;
+  margin-left: 5%;
+}
 
+.msg h3 {
+  padding: 20px;
+  font-weight: bolder;
+  color: white;
+}
 #commentField {
+  background-color: whitesmoke;
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 1px solid;
-  width: 100%;
+  /* border: 1px solid; */
+  border: 3px dashed rgb(116, 75, 47);
   margin-bottom: 10px;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 10px;
+  margin-top: 2%;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+#resultName,
+#resultTime,
+#resultContent {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  font-size: 15px;
+  text-align: left;
+}
+#resultTime {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+#resultName {
+  font-weight: bolder;
+}
+
+#commentDelete {
+  border-radius: 10px;
+  padding: 1%;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  position: absolute;
+  left: 88%;
+  bottom: 55%;
+  /* float: right; */
+  /* background-color: #333; */
+  background-color: rgb(40, 85, 51);
+  color: white;
+}
+
+#commentForm {
+  /* background-color: rgb(240, 239, 239); */
+  background-color: rgb(254, 254, 252);
+  /* background-color: rgb(241, 246, 243); */
+  border: 3px solid white;
+  border-radius: 10px;
+  padding: 5%;
+  margin-bottom: 20px;
+}
+#commentName {
+  padding: 3px 3px 3px 10px;
+  font-size: 15px;
+  /* width: 62.5%; */
+  width: 23%;
+  border-radius: 7px;
+  border: 1px solid;
+  outline: none;
 }
 
 #chkNotice {
@@ -379,35 +471,40 @@ span.active {
 }
 
 #chkNoticeCo {
-  width: 15%;
+  width: 23%;
   height: 14px;
   padding-top: 6px;
   border-radius: 5px;
   display: none;
   font-size: 15px;
 }
+#result {
+  margin-bottom: 3%;
+}
 
+#result:last-child {
+  margin-bottom: 0%;
+}
+.resultWrp {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 3%;
+}
 .resultMsg {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid;
+  /* border: 1px solid transparent; */
   width: 100%;
-  margin-bottom: 10px;
-  padding: 10px 15px;
-  border-radius: 5px;
+  /* padding: 10px 15px; */
+  border-radius: 10px;
+  padding: 3%;
+  border: 1px solid black;
+  font-size: 15px;
 }
 
-.resultBottom {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-.resultBottom div {
-  margin-right: 0;
-  display: flex;
-}
+/* .resultBottom {
+  padding: 3%;
+  border: 1px solid black;
+  border-radius: 10px; 
+  font-size: 15px; 
+  position: relative; 
+} */
