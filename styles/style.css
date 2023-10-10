@@ -1,11 +1,11 @@
 /* google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
 
 * {
   color: black;
-  font-family: "Poor Story", cursive;
+  font-family: 'Poor Story', cursive;
   letter-spacing: 3px;
   margin: 0px;
   padding: 0;
@@ -14,6 +14,7 @@
 /* * {} 여기에 뒀더니 우선순위가 높아 다른 배경 색이 적용되지 않아 따로 뺴놨습니다. */
 body {
   background-color: #fff6cf;
+  width: 100vw;
 }
 
 li {
@@ -24,6 +25,10 @@ li {
 a {
   color: black;
   text-decoration: none;
+  color: black;
+}
+
+a:hover {
   color: black;
 }
 
@@ -42,7 +47,7 @@ a {
 
 /* 팀명 폰트 */
 .navLogo {
-  font-family: "Moirai One", cursive;
+  font-family: 'Moirai One', cursive;
   font-size: 50px;
   letter-spacing: 20px;
   margin-left: 15px;
@@ -146,6 +151,15 @@ a {
 
 .emoge {
   font-size: 28px;
+}
+
+.campLogo {
+  font-size: 25px;
+}
+
+.campLogo img {
+  display: inline-block;
+  object-fit: none;
 }
 
 /* 영우님 후원 파트 css */

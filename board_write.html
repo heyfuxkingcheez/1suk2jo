@@ -10,6 +10,13 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- 공통 css -->
     <link rel="stylesheet" href="./styles/style.css" />
     <!-- board css -->
@@ -36,57 +43,21 @@
           <div class="inputValue">
             <div class="title">
               <!-- <label for="write_title">제목</label> -->
-              <input
-                class="input"
-                id="writeTitle"
-                type="text"
-                name="subject"
-                placeholder="제목을 적어주세요"
-              />
+              <input class="input" id="writeTitle" type="text" name="subject" placeholder="제목을 적어주세요" />
             </div>
             <div class="name">
-              <input
-                id="writeName"
-                class="input"
-                type="text"
-                name="writer"
-                placeholder="10글자 이내로 닉네임 적어주세요"
-                maxlength="10"
-              />
+              <input id="writeName" class="input" type="text" name="writer" placeholder="10글자 이내로 닉네임 적어주세요" maxlength="10" />
             </div>
             <!-- <label for="write_text" >내용</label> -->
             <div class="text">
-              <textarea
-                id="writeText"
-                name="content"
-                class="writeTextArea input"
-                placeholder="내용!! 하고싶은 말을 적어주세요"
-              ></textarea>
+              <textarea id="writeText" name="content" class="writeTextArea input" placeholder="내용!! 하고싶은 말을 적어주세요"></textarea>
             </div>
-            <input
-              class="input"
-              style="width: 42%; margin-right: 2%"
-              type="password"
-              id="pwF"
-              placeholder="비번 입력 (한글 불가)"
-            />
-            <input
-              class="input"
-              style="width: 42%; margin-right: 2%"
-              type="password"
-              id="pwS"
-              placeholder="비번 확인(한글 불가)"
-            />
+            <input class="input" style="width: 42%; margin-right: 2%" type="password" id="pwF" placeholder="비번 입력 (한글 불가)" />
+            <input class="input" style="width: 42%; margin-right: 2%" type="password" id="pwS" placeholder="비번 확인(한글 불가)" />
             <div id="chkNotice" style="font-size: 30px"></div>
           </div>
           <input class="input" type="submit" value="저장하기" id="submit" />
-          <input
-            class="input"
-            type="button"
-            value="뒤로가기"
-            onclick="location.href = './board_list.html'"
-            id="return"
-          />
+          <input class="input" type="button" value="뒤로가기" onclick="location.href = './board_list.html'" id="return" />
           <div class="blank"></div>
         </div>
       </form>

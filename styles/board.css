@@ -219,12 +219,14 @@ table td {
 #submit,
 #return,
 .writeButton {
-  height: 50px;
+  height: 60px;
   width: 20%;
   float: right;
-  margin: 20px 0px 0px 10px;
+  margin: 20px 10px 0px 0px;
   background-color: rgb(40, 85, 51);
   color: white;
+  /* background-color: white;
+  color: black; */
   cursor: pointer;
   /* background-color: rgb(222, 241, 227); */
 }
@@ -241,9 +243,11 @@ table td {
   cursor: pointer;
   min-width: 100px;
 }
+
 .writeButton:last-child {
   margin-right: 5%;
 }
+
 .writeButton:hover {
   border: 1px groove rgb(0, 30, 13);
   font-size: 25px;
@@ -326,14 +330,15 @@ span.active {
   text-align: center;
   margin-right: 2.75%;
   margin-left: 1%;
-  background-color: #333;
+  /* background-color: #333; */
+  background-color: rgb(40, 85, 51);
   color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
 }
 #commentBtn:hover {
-  background-color: #b2937f;
+  font-size: 20px;
   height: 80px;
 }
 #input #commentText {
@@ -379,9 +384,6 @@ section {
   width: 90%;
   margin-left: 5%;
 }
-.msg {
-  /* background-color: antiquewhite; */
-}
 
 .msg h3 {
   padding: 20px;
@@ -393,7 +395,8 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 1px solid;
+  /* border: 1px solid; */
+  border: 3px dashed rgb(116, 75, 47);
   margin-bottom: 10px;
   padding: 10px 15px;
   border-radius: 10px;
@@ -430,7 +433,8 @@ section {
   left: 88%;
   bottom: 55%;
   /* float: right; */
-  background-color: #333;
+  /* background-color: #333; */
+  background-color: rgb(40, 85, 51);
   color: white;
 }
 
