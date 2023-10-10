@@ -17,8 +17,8 @@ console.log(que);
 // 게시글 DB불러와서 붙여주기
 docs.forEach((eachDoc) => {
   let row = eachDoc.data();
-  let writeTitle = row["writeTitle"];
-  let writeName = row["writeName"];
+  let writeTitle = decodeURIComponent(row["writeTitle"]);
+  let writeName = decodeURIComponent(row["writeName"]);
   let when = row["when"];
   let writeText = row["writeText"];
   let num = row["num"];
@@ -49,7 +49,8 @@ docs.forEach((eachDoc) => {
             class="input" 
             type="text" 
             name="writer" 
-            placeholder="닉네임을 적어주세요"
+            placeholder="10글자 이내로 닉네임 적어주세요" 
+            maxlength="10" 
             value = ${writeName}
           />
         </div>
