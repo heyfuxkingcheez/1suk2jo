@@ -23,6 +23,10 @@
     <link rel="stylesheet" href="./styles/board.css" />
     <!-- favicon -->
     <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/9019304a29.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -49,41 +53,69 @@
       <div class="writeBtnWrap">
         <button class="writeButton" id="modify">수정</button>
         <button class="writeButton" id="deleteContent">삭제</button>
-        <a class="writeButton" style="color: white" href="./board_list.html">게시판</a>
+        <a class="writeButton" style="color: white" href="./board_list.html"
+          >게시판</a
+        >
       </div>
+      <div class="blank"></div>
+      <div class="lineTwo"></div>
+
+      <section>
+        <div class="msg">
+          <h3>댓글</h3>
+          <div id="commentField">
+            <div id="commentForm">
+              <div id="input">
+                <input type="text" id="commentName" placeholder="닉네임" />
+                <div class="commentTop">
+                  <input
+                    type="password"
+                    name="userPwd"
+                    id="pwd1"
+                    class="formControl"
+                    placeholder="비번"
+                    required
+                  />
+                  <input
+                    type="password"
+                    name="reuserPwd"
+                    id="pwd2"
+                    class="formControl"
+                    placeholder="비번 확인"
+                    required
+                  />
+                  <div id="chkNoticeCo" size="2"></div>
+                </div>
+                <div></div>
+                <div class="textdiv">
+                  <textarea id="commentText" placeholder="댓글 내용"></textarea>
+                  <button id="commentBtn">등록</button>
+                </div>
+              </div>
+            </div>
+            <div id="result" class="resultWrp">
+              <!-- <div class="resultBottom">
+                <div id="resultName">${commentName} 
+                  <span id="new" style = 'display : none'>🆕</span>
+                </div>
+                <div id="resultTime">${when}</div>
+                <div id="resultContent">${commentText}</div>
+                <div id="DeleteBtn">
+                  <button class="" id="commentDelete">삭제
+                  <button style="display : none">${commentNum}</button>
+                </div>
+              </div> 
+                 -->
+              <div id="bottomBox">
+                <!-- <button class="" id="deleteComment">삭제 -->
+              </div>
+              <!-- </button> -->
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <section class="commentContainer">
-      <div class="msg">
-        <div>댓글</div>
-        <div id="commentField">
-          <div id="result" class="resultMsg">
-            <!-- <span id="resultName">작성자</span>
-          <span id="resultContent">내용</span>
-          <div id="resultTime">시간</div> -->
-            <div id="bottombox">
-              <!-- <button class="" id="deleteComment">삭제 -->
-            </div>
-            <!-- </button> -->
-          </div>
-        </div>
-        <div id="commentForm">
-          <div id="input">
-            <input type="text" id="commentName" placeholder="닉네임" />
-            <div class="commentTop">
-              <input type="password" name="userPwd" id="pwd1" class="formControl" placeholder="비밀번호" required />
-              <input type="password" name="reuserPwd" id="pwd2" class="formControl" placeholder="비밀번호 재확인" required />
-              <div id="chkNoticeCo" size="2"></div>
-            </div>
-            <div></div>
-            <div class="textdiv">
-              <textarea id="commentText" placeholder="댓글 내용"></textarea>
-              <button id="commentBtn">등록</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <div id="footer"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/index.js"></script>

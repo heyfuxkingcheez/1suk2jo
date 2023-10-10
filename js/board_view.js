@@ -30,24 +30,28 @@ docsd.forEach((eachdoc) => {
   let commentPw = row["commentPw"];
   let id = eachdoc.id;
   let which;
+  console.log("when=>", when);
+
+  when = when.substr(0, 10);
+  console.log("when=>", when);
 
   if (num === que) {
     which = id;
     let append_comment = `
     <div id="result" class="resultMsg">
-      <span id="resultName">${commentName}
-      <span id="new" style = 'display : none'>🆕</span>
-      </span>
-      <span id="resultContent">${commentText}</span>
-      
       <div class="resultBottom">
-      <div id="resultTime">${when}</div>
-      <div id="DeleteBtn">
-      <button class="" id="commentDelete">삭제
-      <button style="display : none">${commentNum}</button>
-      </div>
-      </div>
-      </div>
+        <div id="resultName">${commentName} 
+          <span id="new" style = 'display : none'>🆕</span>
+        </div>
+        <div id="resultTime">${when}</div>
+        <div id="resultContent">${commentText}</div>
+        <div id="DeleteBtn">
+          <button class="" id="commentDelete">삭제
+          <button style="display : none">${commentNum}</button>
+        </div>
+      </div> 
+        
+    </div>
     `;
     $("#result").append(append_comment);
   }
