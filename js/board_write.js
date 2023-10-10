@@ -64,9 +64,9 @@ $("#writeFrm").submit(async function (e) {
     commentPWS: commentPWS,
   };
   console.log("commentPw=>", commentPWF);
-  if (commentPWF === "" || commentPWS === "") {
+  if (commentPWF.trim() === "" || commentPWS.trim() === "") {
     alert("비밀번호를 입력해 주세요");
-  } else if (commentPWF != "" || commentPWS != "") {
+  } else if (commentPWF.trim() != "" || commentPWS.trim() != "") {
     console.log(docs);
     let add = addDoc(collection(db, "board"), docs);
     //데이터 저장하고 해당 아이디값 출력해 봤어요
