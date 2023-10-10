@@ -17,8 +17,8 @@ a {
 
 .search {
   text-align: left;
-  padding-left: 15.7%;
-  padding-top: 30px;
+  padding-left: 10.7%;
+  padding-top: 20px;
 }
 
 .search input {
@@ -51,9 +51,8 @@ a {
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 1rem;
-}
-
-table {
+  
+}table {
   font-size: 20px;
   width: 100%;
   text-align: center;
@@ -76,6 +75,10 @@ table td {
 /* 제목에 마우스 두면 마우스 클릭 커서로 변경 */
 .listTitle {
   cursor: pointer;
+}
+
+.listTitle:hover {
+  background-color: rgb(247, 247, 247);
 }
 
 .listAutor,
@@ -105,7 +108,7 @@ table td {
   justify-content: center;
   /* padding: 200px 0px 100px 15%; */
   text-align: center;
-  padding: 200px 0px 100px 0%;
+  padding: 150px 0px 50px 0%;
 
   font-size: 25px;
 }
@@ -248,13 +251,8 @@ table td {
   min-width: 100px;
 }
 
-.writeButton:last-child {
-  margin-right: 5%;
-}
-
-.writeButton:hover {
-  border: 1px groove rgb(0, 30, 13);
-  font-size: 25px;
+.writeButton:hover, #return:hover, #submit:hover {
+  background-color: rgb(27, 59, 35);
   /* color: rgb(52, 187, 10); */
 }
 
@@ -263,8 +261,7 @@ table td {
 }
 
 .input:hover {
-  border: 1px groove rgb(0, 30, 13);
-  font-size: 25px;
+  font-size: 20px;
   /* color: rgb(52, 187, 10); */
 }
 
@@ -342,8 +339,7 @@ span.active {
   cursor: pointer;
 }
 #commentBtn:hover {
-  font-size: 20px;
-  height: 80px;
+  background-color: rgb(27, 59, 35);
 }
 #input #commentText {
   flex-grow: 1;
@@ -440,6 +436,10 @@ section {
   /* background-color: #333; */
   background-color: rgb(40, 85, 51);
   color: white;
+}
+
+#commentDelete:hover {
+  background-color: rgb(27, 59, 35);
 }
 
 #commentForm {
