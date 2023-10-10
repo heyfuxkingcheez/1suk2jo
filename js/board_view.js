@@ -21,8 +21,8 @@ let que = window.location.search.substr(11);
 // 댓글 DB불러오기
 docsd.forEach((eachdoc) => {
   let row = eachdoc.data();
-  let commentName = row["commentName"];
-  let commentText = row["commentText"];
+  let commentName = encodeURIComponent(row["commentName"]);
+  let commentText = encodeURIComponent(row["commentText"]);
   let coDate = row["date"];
   let num = row["num"];
   let when = row["when"];
@@ -82,8 +82,8 @@ let dataPW;
 // 게시글 DB불러오기
 docs.forEach((eachDoc) => {
   let row = eachDoc.data();
-  let writeTitle = row["writeTitle"];
-  let writeName = row["writeName"];
+  let writeTitle = decodeURIComponent(row["writeTitle"]);
+  let writeName = decodeURIComponent(row["writeName"]);
   let when = row["when"];
   let writeText = row["writeText"];
   let num = row["num"];
