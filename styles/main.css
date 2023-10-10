@@ -57,6 +57,12 @@ a:hover {
   font-size: 27px;
   margin-bottom: 20px;
 }
+#nav1 {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
 
 .gatherImg {
   width: 90%;

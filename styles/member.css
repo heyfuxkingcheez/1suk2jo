@@ -132,3 +132,8 @@
 #footer {
   width: 100%;
 }
+
+#nav2 {
+  text-decoration: underline;
+  font-weight: bold;
+}

@@ -240,6 +240,7 @@ table td {
   /* background-color: white;
   color: black; */
   cursor: pointer;
+  padding: 0.5rem 1rem;
   /* background-color: rgb(222, 241, 227); */
 }
 
@@ -514,3 +515,8 @@ section {
   font-size: 15px; 
   position: relative; 
 } */
+
+#nav3 {
+  text-decoration: underline;
+  font-weight: bold;
+}
