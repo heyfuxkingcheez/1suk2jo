@@ -99,9 +99,27 @@
   box-shadow: 5px 5px 10px;
 }
 
-.modal-body {
+.modal-body, .modal-header, .modal-footer {
   font-size: 17px;
+  background-color: #b2937f;
+  border: 10px dashed rgb(116, 75, 47);
+}
 
+.btn-primary {
+  background-color: rgb(40, 85, 51);
+  border-color: rgb(40, 85, 51);
+}
+
+.btn-primary:hover {
+  background-color: rgb(27, 59, 35);
+  border-color: rgb(27, 59, 35);
+}
+
+.memheader, .membody, .memfooter  {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgb(128, 128, 128);
+  margin-top: 5px;
 }
 
 .nameTag,
