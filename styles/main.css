@@ -43,6 +43,12 @@ a:hover {
 .introContent {
   font-size: 30px;
 }
+#nav1 {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
 
 .gatherImg {
   width: 100%;
