@@ -1,16 +1,9 @@
-import {
-  collection,
-  getDocs,
-  orderBy,
-  query,
-  doc,
-  updateDoc,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { collection, getDocs, orderBy, query, doc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
 
-import { db } from "./firebase.js";
+import { db } from './firebase.js';
 
-const board = collection(db, "board");
-const d = await query(board, orderBy("nowDate", "desc"));
+const board = collection(db, 'board');
+const d = await query(board, orderBy('nowDate', 'desc'));
 const docs = await getDocs(d);
 
 // 글 번호
@@ -26,7 +19,7 @@ docs.forEach((data) => {
   a--;
 });
 
-console.log("bigDocs", bigDocs);
+console.log('bigDocs', bigDocs);
 
 // 페이징
 let viewArr = [];
@@ -36,7 +29,7 @@ let dataArr = [];
 bigDocs.forEach((ds) => {
   dataArr.push(ds);
 });
-console.log(dataArr);
+console.log('dataArr', dataArr);
 
 //각페이지 당 보여줄 데이터 묶음들
 let pageArr = [];
@@ -50,18 +43,18 @@ function pageFun() {
     // 빈 배열에 특정 길이만큼 분리된 배열 추가
     pageArr.push(dataArr.slice(i, i + 5));
   }
-  console.log("pageArr =>", pageArr);
-  $(".pages").empty();
+  console.log('pageArr =>', pageArr);
+  $('.pages').empty();
   // 있는 게시글 만큼 페이지 숫자 append
 
   let pageNumHtml = `<span  class="active" id="page1">1</span>`;
-  $(".pages").append(pageNumHtml);
+  $('.pages').append(pageNumHtml);
 
   for (let i = 2; i <= pageArr.length; i++) {
     let pageNumHtml = `
     <span id="page${i}">${i}</span>
     `;
-    $(".pages").append(pageNumHtml);
+    $('.pages').append(pageNumHtml);
   }
 
   //
@@ -69,40 +62,37 @@ function pageFun() {
   for (let i = 1; i <= pageArr.length; i++) {
     totalPageNumArr.push(i);
   }
-  console.log("totalPageNumArr =>", totalPageNumArr); // [1, 2, 3, 4]
+  console.log('totalPageNumArr =>', totalPageNumArr); // [1, 2, 3, 4]
 
   for (let page_num of totalPageNumArr) {
     //첫번쨰 페이지 에는 그에 해당하는 데이터 보여줘.
     if (page_num === 1) {
       viewArr.push(pageArr[0]);
       viewFunc();
-      console.log("viewArr=> ", viewArr);
+      console.log('viewArr=> ', viewArr);
     }
 
     //페이지 번호 클릭하면 각각의 것 보여줘.
     $(`#page${page_num}`).click((e) => {
       let slicePageNum = Number(e.target.id.slice(-1)); // "1"
       viewArr = [];
-      $("#listCard").empty();
+      $('#listCard').empty();
       // console.log(page);
 
       if (slicePageNum === page_num) {
         viewArr.push(pageArr[slicePageNum - 1]);
-        console.log("viewArr=> ", viewArr);
+        console.log('viewArr=> ', viewArr);
         viewFunc();
       } else {
-        console.log("mm");
+        console.log('mm');
       }
-      console.log("viewArr=> ", viewArr);
+      console.log('viewArr=> ', viewArr);
     });
   }
 }
 pageFun();
 function viewFunc() {
   // console.log(eachDoc)
-
-  // 새 글 new 표시  빈 배열 생성
-  let arr = [];
 
   viewArr.forEach((eachDoc) => {
     // console.log(dataArr.length);
@@ -121,15 +111,11 @@ function viewFunc() {
       // console.log(ID)
       // console.log(writeTitle, writeName, when, num, howMany, id);
 
-      // 배열에 date값 추가
-      arr.push(date);
-      console.log(arr);
-
       // 제목 너무 길면 줄이고 말줄임(...) 처리,
       // css로 하니 다 깨져서 css는 삭제했슴당
       let limitLength = 35;
       if (writeTitle.length > limitLength) {
-        writeTitle = writeTitle.substr(0, limitLength - 2) + "...";
+        writeTitle = writeTitle.substr(0, limitLength - 2) + '...';
       }
       let append_html = `
         <tr>
@@ -144,18 +130,18 @@ function viewFunc() {
         <td class="listViews">${howMany}</td>
         </tr>`;
 
-      $("#listCard").append(append_html);
+      $('#listCard').append(append_html);
 
       //조회수 기능
-      $("#listCard").click(async function (e) {
+      $('#listCard').click(async function (e) {
         e.preventDefault();
         let clickNum = e.target.previousElementSibling.innerText;
         if (clickNum === num) {
-          console.log("번호");
+          console.log('번호');
           // //조회수 데이터 수정하기
           let newHowMany = howMany + 1;
-          console.log("새로운 howMany =>", newHowMany);
-          let b = doc(db, "board", ID);
+          console.log('새로운 howMany =>', newHowMany);
+          let b = doc(db, 'board', ID);
           await updateDoc(b, { howMany: newHowMany });
           // alert('과연'); //페이지 넘어가기 전에 콘솔 확인하려고 만들었어요
           // //클릭한 게시물 보여주도록
@@ -163,38 +149,65 @@ function viewFunc() {
         }
       });
     }
-    // 새 글 new 표시
-    let newDate = new Date().getTime(); 
-    //  현재 시각 불러오기
-    console.log(newDate);
-    // 현재시각 - 각 게시물이 쓰여진 시각
-    for (let i = 0; i < arr.length; i++) {
-      let dateDifference = newDate - arr[i];
-      console.log(dateDifference)
-      
-        // if (dateDifference  <= 18000000) {
-        //   $('#new').css('display', 'block');
-        // } else {
-        //   $('#new').css('display', 'none');
-        // }
-    }
   });
 }
+// // 전체 글의 nowDate값 배열
+// let nDateArr = [];
+// for (let data of dataArr) {
+//   let setData = data.nowDate;
+//   nDateArr.push(setData);
+//   // console.log(typeof data.when);
+// }
+
+// console.log('nDateArr', nDateArr);
+
+// // 현재 시간 가져오기
+// let newDate = new Date().getTime();
+// console.log('newdate', newDate);
+
+// console.log(nDateArr);
+
+// let btArr = [];
+
+// nDateArr.forEach((nDate) => {
+//   console.log(nDate);
+//   console.log(newDate);
+//   // 30분 전
+//   let betweenTime = Math.floor((newDate - nDate) / 1000 / 60);
+//   console.log('betweenTime', betweenTime);
+//   if (betweenTime < 30) {
+//     btArr.push(nDate);
+//     console.log('new');
+//   } else {
+//     $('#new').css('display', 'none');
+//   }
+//   console.log('btArr', btArr);
+// });
+
+// let newDataArr = [];
+
+// dataArr.forEach((data) => {
+//   for (let i = 0; i < data.length + 1; i++) {
+
+//   }
+// });
+
+// console.log('newDataArr', newDataArr);
 
 // pagination
 // 누르는 페이지 마다 class=active; 추가, 색상 변경
-$(".paging").click(async function (e) {
-  $(".active").removeClass("active");
-  $(e.target).addClass("active");
+$('.paging').click(async function (e) {
+  $('.active').removeClass('active');
+  $(e.target).addClass('active');
 });
 
 //검색 기능
-$("#searchBtn").on("click", function (e) {
+$('#searchBtn').on('click', function (e) {
   // e.preventDefault();
   searchFun();
 });
 
-$("#searchInput").on("keyup", function (e) {
+$('#searchInput').on('keyup', function (e) {
   e.preventDefault();
   if (e.keyCode === 13 || e.which === 13) {
     searchFun();
@@ -202,7 +215,7 @@ $("#searchInput").on("keyup", function (e) {
 });
 
 function searchFun() {
-  let search = $("#searchInput").val();
+  let search = $('#searchInput').val();
   //입력값과 동일한 데이터만 가져오기
   let same = bigDocs.filter(function (data) {
     return data.writeTitle.includes(search) || data.writeName.includes(search);
@@ -213,12 +226,12 @@ function searchFun() {
 
   if (sameLength > 0) {
     //처음에 썻던 페이지 네이션 활용
-    $("#listCard").empty();
+    $('#listCard').empty();
     dataArr = [];
     viewArr = [];
     pageArr = [];
     // let totalPageNumArr = [];
-    console.log("same =>", same);
+    console.log('same =>', same);
     same.forEach((data) => {
       dataArr.push(data);
     });
@@ -226,13 +239,13 @@ function searchFun() {
     pageFun();
   } else {
     console.log(sameLength);
-    console.log("입력값 없음");
-    $("tr").hide();
-    $("#listCard").append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
+    console.log('입력값 없음');
+    $('tr').hide();
+    $('#listCard').append(`<tr><td>검색 결과가 없습니다.</td><tr>`);
   }
-  $(".pages").empty();
+  $('.pages').empty();
   let pageNumHtml = `
       <span id="page1">1</span>
     `;
-  $(".pages").append(pageNumHtml);
+  $('.pages').append(pageNumHtml);
 }
