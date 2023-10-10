@@ -2,104 +2,166 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <!-- 공통 css -->
-    <link rel="stylesheet" href="./styles/style.css" />
-    <!-- memeber 관련 Css -->
-    <link rel="stylesheet" href="./styles/member.css" />
-    <!-- favicon -->
-    <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Member's profiles</title>
-  </head>
-  <body>
-    <div id="header"></div>
 
-    <!-- Member's profile -->
-    <div class="container">
-      <div class="memProfile">
-        <!-- 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <!-- 공통 css -->
+  <link rel="stylesheet" href="./styles/style.css" />
+  <!-- memeber 관련 Css -->
+  <link rel="stylesheet" href="./styles/member.css" />
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./hamburger.png" type="image/x-icon" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Member's profiles</title>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <!-- Member's profile -->
+  <div class="container">
+    <div class="memProfile">
+      <!-- 
               사진순서
               1. 팀장
               2. 팀원 이름 가나다순
           -->
-        <div id="memEj" class="memProfImg">
-          <img src="./images/profiles/eunji.jpg" alt="유은지님" />
-        </div>
-        <div id="memYw" class="memProfImg">
-          <img src="./images/profiles/youngwoo.jpg" alt="김영우님" />
-        </div>
-        <div id="memGw" class="memProfImg">
-          <img src="./images/profiles/giwook.jpg" alt="정기욱님" />
-        </div>
-        <div id="memSy" class="memProfImg">
-          <img src="./images/profiles/sooyoung.JPG" alt="최수영님" />
-        </div>
+      <div id="memEj" class="memProfImg">
+        <img id="memBtn" data-bs-toggle="modal" data-bs-target="#ej" src="./images/profiles/eunji.jpg" alt="유은지님"/>
       </div>
-
-      <div class="memBoxWrap">
-        <div id="memEjDetail" class="memberBox">
-          <p>은지님</p>
-          <button
-            id="detailEj"
-            onclick="location.href = 'member_detail.html#memEj'"
-          >
-            더보기
-          </button>
-        </div>
-        <div id="memYwDetail" class="memberBox">
-          <p>영우님</p>
-          <button
-            id="detailYw"
-            onclick="location.href = 'member_detail.html#memYw'"
-          >
-            더보기
-          </button>
-        </div>
-        <div id="memGwDetail" class="memberBox">
-          <p>기욱님</p>
-          <button
-            id="detailGw"
-            onclick="location.href = 'member_detail.html#memGw'"
-          >
-            더보기
-          </button>
-        </div>
-        <div id="memSyDetail" class="memberBox">
-          <p>수영님</p>
-          <button
-            id="detailSy"
-            onclick="location.href = 'member_detail.html#memSy'"
-          >
-            더보기
-          </button>
-        </div>
+      <div id="memYw" class="memProfImg">
+        <img id="memBtn" data-bs-toggle="modal" data-bs-target="#yw" src="./images/profiles/youngwoo.jpg" alt="김영우님" />
+      </div>
+      <div id="memGw" class="memProfImg">
+        <img id="memBtn" data-bs-toggle="modal" data-bs-target="#gw" src="./images/profiles/giwook.jpg" alt="정기욱님" />
+      </div>
+      <div id="memSy" class="memProfImg">
+        <img id="memBtn" data-bs-toggle="modal" data-bs-target="#sy" src="./images/profiles/sooyoung.JPG" alt="최수영님" />
       </div>
     </div>
-    <div id="footer"></div>
-    <script src="./js/index.js"></script>
-    <script type="module">
-      //이미지 누르면 해당 div 보여주기 + 바탕 누르면 보여진 div 다시 숨겨주기.
-      //참고했어요 https://choonse.com/2022/02/02/789/
 
-      $(document).click(function (e) {
-        const member_list = ["memEj", "memYw", "memGw", "memSy"];
-        for (let member of member_list) {
-          if (member === e.target.parentElement.id) {
-            $(`#${member}Detail`).css("display", "block");
-          } else {
-            $(`#${member}Detail`).css("display", "none");
-          }
-        }
-      });
-    </script>
-  </body>
+    <!-- 유은지 -->
+<div class="modal fade" id="ej" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        유은지
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memEj'">더 보기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- 김영우 -->
+<div class="modal fade" id="yw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        김영우
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memYw'">더 보기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- 정기욱 -->
+      <!-- onclick="location.href = 'member_detail.html#memEj'" -->
+<div class="modal fade" id="gw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        정기욱
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memGw'">더 보기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- 최수영 -->
+<div class="modal fade" id="sy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        최수영
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" onclick="location.href = 'member_detail.html#memSy'">더 보기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+
+
+
+  <script src="./js/index.js"></script>
+  <script type="module">
+    //이미지 누르면 해당 div 보여주기 + 바탕 누르면 보여진 div 다시 숨겨주기.
+    //참고했어요 https://choonse.com/2022/02/02/789/
+
+    // $(document).click(function (e) {
+    //   const member_list = ["memEj", "memYw", "memGw", "memSy"];
+    //   for (let member of member_list) {
+    //     if (member === e.target.parentElement.id) {
+    //       $(`#${member}Detail`).css("display", "block");
+    //     } else {
+    //       $(`#${member}Detail`).css("display", "none");
+    //     }
+    //   }
+    // });
+
+    const btn = document.getElementById('popupBtn');
+    const modal = document.getElementById('modalWrap');
+    const closeBtn = document.getElementById('closeBtn');
+
+    btn.onclick = function () {
+      modal.style.display = 'block';
+    }
+    closeBtn.onclick = function () {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+
 </html>
