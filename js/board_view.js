@@ -21,8 +21,8 @@ let que = window.location.search.substr(11);
 // 댓글 DB불러오기
 docsd.forEach((eachdoc) => {
   let row = eachdoc.data();
-  let commentName = encodeURIComponent(row["commentName"]);
-  let commentText = encodeURIComponent(row["commentText"]);
+  let commentName = decodeURIComponent(row["commentName"]);
+  let commentText = decodeURIComponent(row["commentText"]);
   let coDate = row["date"];
   let num = row["num"];
   let when = row["when"];
