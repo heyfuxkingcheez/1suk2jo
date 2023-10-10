@@ -253,6 +253,7 @@ table td {
 
 .writeButton:hover, #return:hover, #submit:hover {
   background-color: rgb(27, 59, 35);
+  color: white;
   /* color: rgb(52, 187, 10); */
 }
 

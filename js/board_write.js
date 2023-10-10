@@ -8,17 +8,17 @@ let docs;
 $("#writeFrm").submit(async function (e) {
   e.preventDefault();
 
-  if (document.getElementById("writeTitle").value == "") {
+  if (document.getElementById("writeTitle").value.trim() == "") {
     alert("제목을 입력하세요");
     return false;
   }
 
-  if (document.getElementById("writeName").value == "") {
+  if (document.getElementById("writeName").value.trim() == "") {
     alert("닉네임을 입력하세요");
     return false;
   }
 
-  if (document.getElementById("writeText").value == "") {
+  if (document.getElementById("writeText").value.trim() == "") {
     alert("내용을 입력하세요");
     return false;
   }

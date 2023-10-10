@@ -196,9 +196,9 @@ $("#commentBtn").click(async function (e) {
     commentPw: $("#pwd1").val(),
   };
   // 댓글 폼 규칙
-  if (data.commentName.length <= 0 || data.commentText.length <= 0) {
+  if (data.commentName.trim() ==  "" || data.commentText.trim() ==  "") {
     return alert("내용을 입력해주세요.");
-  } else if ($("#pwd1").val().length <= 0 || $("#pwd2").val().length <= 0) {
+  } else if ($("#pwd1").val().length <= 0 || $("#pwd2").length <= 0) {
     return alert("비밀번호를 입력해주세요.");
   } else if ($("#pwd1").val() != $("#pwd2").val()) {
     return alert("비밀번호를 일치하도록 입력해주세요.");
