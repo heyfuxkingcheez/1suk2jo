@@ -1,11 +1,11 @@
 /* google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
 
 * {
   color: black;
-  font-family: 'Poor Story', cursive;
+  font-family: "Poor Story", cursive;
   letter-spacing: 3px;
   margin: 0px;
   padding: 0;
@@ -36,7 +36,8 @@ a:hover {
 /* Navbar는 저의 페이지 모든 곳에 들어있으니 공통 Css 파일에 넣어놨어요! */
 /* 기욱님 navbar css 수정했어요! - 수영 */
 #navWrap {
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +48,7 @@ a:hover {
 
 /* 팀명 폰트 */
 .navLogo {
-  font-family: 'Moirai One', cursive;
+  font-family: "Moirai One", cursive;
   font-size: 50px;
   letter-spacing: 20px;
   margin-left: 15px;
@@ -123,6 +124,11 @@ a:hover {
   transition: all 0.5s ease-in-out;
 }
 
+.footerWrap {
+  margin-top: 50px;
+  padding-bottom: 100px;
+}
+
 .endName {
   font-size: 15px;
   font-weight: bolder;
@@ -131,6 +137,7 @@ a:hover {
 .endName:first-child {
   margin-top: 30px;
 }
+
 .nbcamp {
   margin: 100px auto 80px auto;
   display: flex;
@@ -140,6 +147,7 @@ a:hover {
   text-align: center;
   font-size: 20px;
 }
+
 .line {
   background-color: black;
   height: 1px;
