@@ -1,6 +1,5 @@
 /* member.html */
 .container {
-  
   width: 100%;
   height: 600px;
 }
@@ -20,16 +19,12 @@
   margin-bottom: 200px;
 }
 
-
-
 /* 요소별 margin-right 추가 */
 .memProfImg {
-
   border-radius: 50%;
   margin-right: 150px;
   width: 203px;
   height: 203px;
-
 }
 
 /* 마지막 요소 Margin-right 필요 없으니 0 */
@@ -63,7 +58,7 @@
   margin: 5% 15% 20px 37%;
 }
 
-.memberBox>button {
+.memberBox > button {
   background-color: transparent;
   width: 20%;
   height: 15%;
@@ -72,7 +67,6 @@
   border-radius: 5px;
   margin: 25% 20% 10% 45%;
 }
-
 
 .memBoxWrap {
   flex-direction: row;
@@ -89,7 +83,6 @@
   margin: 100px auto;
 }
 
-
 #memBtn:hover {
   background-color: #fbc531;
   border-radius: 20px;
@@ -99,7 +92,9 @@
   box-shadow: 5px 5px 10px;
 }
 
-.modal-body, .modal-header, .modal-footer {
+.modal-body,
+.modal-header,
+.modal-footer {
   font-size: 17px;
   background-color: #b2937f;
   border: 10px dashed rgb(116, 75, 47);
@@ -115,11 +110,14 @@
   border-color: rgb(27, 59, 35);
 }
 
-.memheader, .membody, .memfooter  {
+.memheader,
+.membody,
+.memfooter {
   background-color: white;
   border-radius: 10px;
   border: 1px solid rgb(128, 128, 128);
   margin-top: 5px;
+  padding: 15px 15px 15px 15px;
 }
 
 .nameTag,
