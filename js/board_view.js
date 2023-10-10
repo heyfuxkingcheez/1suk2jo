@@ -196,7 +196,7 @@ $("#commentBtn").click(async function (e) {
     commentPw: $("#pwd1").val(),
   };
   // 댓글 폼 규칙
-  if (data.commentName.trim() ==  "" || data.commentText.trim() ==  "") {
+  if (data.commentName.trim() == "" || data.commentText.trim() == "") {
     return alert("내용을 입력해주세요.");
   } else if ($("#pwd1").val().trim() == "" || $("#pwd2").val().trim() == "") {
     return alert("비밀번호를 입력해주세요.");
