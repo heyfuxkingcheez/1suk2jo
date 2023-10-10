@@ -139,7 +139,7 @@ table td {
 }
 
 #content pre {
-  font-family: 'Poor Story', cursive;
+  font-family: "Poor Story", cursive;
   white-space: pre-line;
   word-break: break-all;
 }
@@ -238,8 +238,6 @@ table td {
   margin: 20px 10px 0px 0px;
   background-color: rgb(40, 85, 51);
   color: white;
-  /* background-color: white;
-  color: black; */
   cursor: pointer;
   padding: 0.5rem 1rem;
   /* background-color: rgb(222, 241, 227); */
@@ -258,6 +256,9 @@ table td {
   min-width: 100px;
 }
 
+.writeButton:last-child {
+  margin-right: 5%;
+}
 .writeButton:hover,
 #return:hover,
 #submit:hover {
@@ -350,6 +351,7 @@ span.active {
 }
 #commentBtn:hover {
   background-color: rgb(27, 59, 35);
+  height: 70px;
 }
 #input #commentText {
   flex-grow: 1;
