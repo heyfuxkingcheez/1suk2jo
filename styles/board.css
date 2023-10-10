@@ -525,3 +525,10 @@ section {
   text-decoration: underline;
   font-weight: bold;
 }
+
+#writeTitle {
+  height: 45px;
+  width: 90%;
+  border-radius: 10px;
+  outline: none;
+}
