@@ -51,8 +51,8 @@ a {
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 1rem;
-  
-}table {
+}
+table {
   font-size: 20px;
   width: 100%;
   text-align: center;
@@ -232,10 +232,7 @@ table td {
   margin: 20px 10px 0px 0px;
   background-color: rgb(40, 85, 51);
   color: white;
-  /* background-color: white;
-  color: black; */
   cursor: pointer;
-  /* background-color: rgb(222, 241, 227); */
 }
 
 .writeButton {
@@ -251,7 +248,12 @@ table td {
   min-width: 100px;
 }
 
-.writeButton:hover, #return:hover, #submit:hover {
+.writeButton:last-child {
+  margin-right: 5%;
+}
+.writeButton:hover,
+#return:hover,
+#submit:hover {
   background-color: rgb(27, 59, 35);
   /* color: rgb(52, 187, 10); */
 }
@@ -340,6 +342,7 @@ span.active {
 }
 #commentBtn:hover {
   background-color: rgb(27, 59, 35);
+  height: 70px;
 }
 #input #commentText {
   flex-grow: 1;
