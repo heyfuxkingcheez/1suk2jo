@@ -11,6 +11,14 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- fontawesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- 공통 css -->
     <link rel="stylesheet" href="./styles/style.css" />
     <!-- memeber 관련 Css -->
@@ -48,58 +56,38 @@
       <div class="memBoxWrap">
         <div id="memEjDetail" class="memberBox">
           <p>은지님</p>
-          <button
-            id="detailEj"
-            onclick="location.href = 'member_detail.html#memEj'"
-          >
-            더보기
-          </button>
+          <button id="detailEj" onclick="location.href = 'member_detail.html#memEj'">더보기</button>
         </div>
         <div id="memYwDetail" class="memberBox">
           <p>영우님</p>
-          <button
-            id="detailYw"
-            onclick="location.href = 'member_detail.html#memYw'"
-          >
-            더보기
-          </button>
+          <button id="detailYw" onclick="location.href = 'member_detail.html#memYw'">더보기</button>
         </div>
         <div id="memGwDetail" class="memberBox">
           <p>기욱님</p>
-          <button
-            id="detailGw"
-            onclick="location.href = 'member_detail.html#memGw'"
-          >
-            더보기
-          </button>
+          <button id="detailGw" onclick="location.href = 'member_detail.html#memGw'">더보기</button>
         </div>
         <div id="memSyDetail" class="memberBox">
           <p>수영님</p>
-          <button
-            id="detailSy"
-            onclick="location.href = 'member_detail.html#memSy'"
-          >
-            더보기
-          </button>
+          <button id="detailSy" onclick="location.href = 'member_detail.html#memSy'">더보기</button>
         </div>
       </div>
     </div>
     <div id="footer"></div>
-    <script src="./js/index.js"></script>
     <script type="module">
       //이미지 누르면 해당 div 보여주기 + 바탕 누르면 보여진 div 다시 숨겨주기.
       //참고했어요 https://choonse.com/2022/02/02/789/
 
       $(document).click(function (e) {
-        const member_list = ["memEj", "memYw", "memGw", "memSy"];
+        const member_list = ['memEj', 'memYw', 'memGw', 'memSy'];
         for (let member of member_list) {
           if (member === e.target.parentElement.id) {
-            $(`#${member}Detail`).css("display", "block");
+            $(`#${member}Detail`).css('display', 'block');
           } else {
-            $(`#${member}Detail`).css("display", "none");
+            $(`#${member}Detail`).css('display', 'none');
           }
         }
       });
     </script>
+    <script src="./js/index.js"></script>
   </body>
 </html>
