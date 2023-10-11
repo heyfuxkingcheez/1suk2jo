@@ -140,7 +140,7 @@ table td {
 }
 
 #content pre {
-  font-family: 'Poor Story', cursive;
+  font-family: "Poor Story", cursive;
   white-space: pre-line;
   word-break: break-all;
 }
@@ -519,6 +519,13 @@ section {
   font-size: 15px; 
   position: relative; 
 } */
+.new {
+  display: none;
+}
+
+.newHide {
+  display: block;
+}
 
 #nav3 {
   text-decoration: underline;
