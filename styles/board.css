@@ -52,11 +52,12 @@ a {
 }
 
 .writeBtnWrap {
+  text-align: end;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 1rem;
 }
+
 table {
   font-size: 20px;
   width: 100%;
@@ -139,7 +140,7 @@ table td {
 }
 
 #content pre {
-  font-family: "Poor Story", cursive;
+  font-family: 'Poor Story', cursive;
   white-space: pre-line;
   word-break: break-all;
 }
