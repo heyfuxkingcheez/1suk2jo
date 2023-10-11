@@ -97,18 +97,18 @@
 .modal-header,
 .modal-footer {
   font-size: 17px;
-  background-color: #b2937f;
-  border: 10px dashed rgb(116, 75, 47);
+  background-color: #b2937f !important;
+  border: 10px dashed rgb(116, 75, 47) !important;
 }
 
 .btn-primary {
-  background-color: rgb(40, 85, 51);
-  border-color: rgb(40, 85, 51);
+  background-color: rgb(40, 85, 51) !important;
+  border-color: rgb(40, 85, 51) !important;
 }
 
 .btn-primary:hover {
-  background-color: rgb(27, 59, 35);
-  border-color: rgb(27, 59, 35);
+  background-color: rgb(27, 59, 35) !important;
+  border-color: rgb(27, 59, 35) !important;
 }
 
 .memheader,
@@ -132,9 +132,7 @@
   width: 100%;
 }
 
-
 #nav2 {
   text-decoration: underline;
   font-weight: bold;
 }
-

@@ -69,11 +69,6 @@
             </p>
             <p>TMI 를 말해보자면,</p>
             <p>
-              👉 고양이 한마리 키우고 있는데 이름은 “빌리” 라고 해요!! 나이는
-              2살 넘었는데, 애기같아요 ㅋㅋ 부르면 오고, 간식 들고있으면
-              하이파이브도 하고, 돌기도 하는 똑똑한 아이에욤!!
-            </p>
-            <p>
               장점 👉 어떤걸 하든 열심히 하는 편이고, 좋아하는 걸 할때는
               미쳐여.. 시간가는줄 모르고 해요...
             </p>
@@ -166,19 +161,21 @@
           </div>
         </div>
         <div class="memDetail">
-          <span id="gw"><br>
-            <br></span>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+          <span id="gw"
+            ><br />
+            <br
+          /></span>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <span>
             <h2>
-              안녕하세요~ 저는 조금 늦게 졸업하고 개발자를 목표로 하고 있는
-              27살 정기욱 입니다.
+              안녕하세요~ 저는 조금 늦게 졸업하고 개발자를 목표로 하고 있는 27살
+              정기욱 입니다.
             </h2>
             <div>
               <h4>▶ 객관적으로 살펴본 자신의 장점</h4>
@@ -264,18 +261,42 @@
     <div id="footer"></div>
     <script>
       //멤버 상세설명 페이지 자동 스크롤 기능
+
       $(window).scroll(function () {
-        let y = window.scrollY;
-        console.log(y);
-        if (y === 250 || y === 420) {
-          window.scrollTo(0, 83);
-        } else if (y === 1581 || y === 1751) {
-          window.scrollTo(0, 1414);
-        } else if (y === 3032 || y === 3202) {
-          window.scrollTo(0, 2866);
-        } else if (y === 4413 || y === 4243) {
-          window.scrollTo(0, 4076);
-        } 
+        let scrollT = $(document).scrollTop();
+        let scrollTop = Math.floor(scrollT);
+        console.log("scrollTop =>", scrollTop);
+        let wdScrollTop = $(window).scrollTop();
+        let wdHeight = $(document).height(); //  문서 전체의 높이를 구하기 위해 씀.
+        let seeHeight = $(window).height(); // 현재 보여지는  화면의 높이를 구하려면 이렇게 써야함. 처음에 이걸로 잘못씀.
+        console.log(seeHeight);
+        let bar = (wdScrollTop / (wdHeight - seeHeight)) * 100;
+        console.log(bar);
+        if (scrollTop === 250 && seeHeight < 1170) {
+          //맥북 풀 화면
+          window.scrollTo(0, 0);
+        } else if (scrollTop === 250 && seeHeight > 1190) {
+          //은지님 모니터 풀 화면
+          window.scrollTo(0, 0);
+        } else if (scrollTop === 1816 && seeHeight < 1170) {
+          //영우님 맥북 풀 화면
+          window.scrollTo(0, 1568);
+        } else if (scrollTop === 1850 && seeHeight > 1190) {
+          //영우님 모니터 풀 화면
+          window.scrollTo(0, 1592);
+        } else if (scrollTop === 3503 && seeHeight < 1170) {
+          //기욱님 맥북 풀 화면
+          window.scrollTo(0, 3112);
+        } else if (scrollTop === 3570 && seeHeight > 1190) {
+          //기욱님 모니터 풀 화면
+          window.scrollTo(0, 3160);
+        } else if (scrollTop === 4950 && seeHeight < 1170) {
+          //수영님 맥북 풀 화면
+          window.scrollTo(0, 4655);
+        } else if (scrollTop === 5050 && seeHeight > 1190) {
+          //수영님 모니터 풀 화면
+          window.scrollTo(0, 4794);
+        }
       });
     </script>
     <script src="./js/index.js"></script>

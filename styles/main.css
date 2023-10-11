@@ -26,6 +26,8 @@ a:hover {
   justify-content: center;
   align-items: center;
   margin-bottom: 120px;
+  width: 80%;
+  padding-left: 5%;
 }
 
 .helloBox {
@@ -41,28 +43,30 @@ a:hover {
 }
 
 .introContent {
-  font-size: 30px;
+  font-size: 23px;
 }
+
 #nav1 {
   text-decoration: underline;
   font-weight: bold;
 }
 
-
-
 .gatherImg {
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  height: 85%;
   border-radius: 95px;
-  padding: 0;
-  box-shadow: 5px 5px 10px;
+  padding: 5% 0% 0% 0%;
 }
 
 .gatherImg img {
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  min-width: 600px;
+  max-width: 800px;
+  margin-right: 50px;
+  height: 85%;
   object-fit: cover;
   border-radius: 95px;
+  box-shadow: 5px 5px 10px;
 }
 
 /* 영우님 */
@@ -77,14 +81,20 @@ a:hover {
   margin-bottom: 150px;
 }
 
+.infoTeam p {
+  margin-bottom: 0px;
+}
+
 .content {
-  padding: 30px;
+  padding: 0px 6px 0px 11%;
 }
 
 .intro {
   font-weight: 700;
-  font-size: 40px;
-  margin-bottom: 30px;
+  font-size: 37px;
+  /* margin-bottom: 30px; */
+  padding-bottom: 14px;
+  margin-top: 80px;
 }
 
 .teamAndDonaBox {
