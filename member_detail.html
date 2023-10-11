@@ -269,7 +269,7 @@
         let wdScrollTop = $(window).scrollTop();
         let wdHeight = $(document).height(); //  문서 전체의 높이를 구하기 위해 씀.
         let seeHeight = $(window).height(); // 현재 보여지는  화면의 높이를 구하려면 이렇게 써야함. 처음에 이걸로 잘못씀.
-        console.log(seeHeight);
+        console.log("seeHeight=>", seeHeight);
         let bar = (wdScrollTop / (wdHeight - seeHeight)) * 100;
         console.log(bar);
         if (scrollTop === 250 && seeHeight < 1170) {
@@ -278,24 +278,24 @@
         } else if (scrollTop === 250 && seeHeight > 1190) {
           //은지님 모니터 풀 화면
           window.scrollTo(0, 0);
-        } else if (scrollTop === 1816 && seeHeight < 1170) {
+        } else if (scrollTop === 1581 && seeHeight < 1170) {
           //영우님 맥북 풀 화면
-          window.scrollTo(0, 1568);
-        } else if (scrollTop === 1850 && seeHeight > 1190) {
+          window.scrollTo(0, 1401);
+        } else if (scrollTop === 1751 && seeHeight > 1190) {
           //영우님 모니터 풀 화면
-          window.scrollTo(0, 1592);
-        } else if (scrollTop === 3503 && seeHeight < 1170) {
+          window.scrollTo(0, 1401);
+        } else if (scrollTop === 3032 && seeHeight < 1170) {
           //기욱님 맥북 풀 화면
-          window.scrollTo(0, 3112);
+          window.scrollTo(0, 2779);
         } else if (scrollTop === 3570 && seeHeight > 1190) {
           //기욱님 모니터 풀 화면
-          window.scrollTo(0, 3160);
-        } else if (scrollTop === 4950 && seeHeight < 1170) {
+          window.scrollTo(0, 2779);
+        } else if (scrollTop === 4413 && seeHeight < 1170) {
           //수영님 맥북 풀 화면
-          window.scrollTo(0, 4655);
-        } else if (scrollTop === 5050 && seeHeight > 1190) {
+          window.scrollTo(0, 4076);
+        } else if (scrollTop === 4243 && seeHeight > 1190) {
           //수영님 모니터 풀 화면
-          window.scrollTo(0, 4794);
+          window.scrollTo(0, 4076);
         }
       });
     </script>
