@@ -3,12 +3,13 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBv1pzj-eVAsCap6_XVd3WpTydkWuEsZOY",
-  authDomain: "ejoo-a1fd7.firebaseapp.com",
-  projectId: "ejoo-a1fd7",
-  storageBucket: "ejoo-a1fd7.appspot.com",
-  messagingSenderId: "982632789909",
-  appId: "1:982632789909:web:acc8b044fd5f40be1c289c",
+  apiKey: "AIzaSyAYSaHmi8i4rAmiGvzul3EbIKvN5U8w-dk",
+  authDomain: "muckgohajoo.firebaseapp.com",
+  projectId: "muckgohajoo",
+  storageBucket: "muckgohajoo.appspot.com",
+  messagingSenderId: "371059776509",
+  appId: "1:371059776509:web:8c70fb4cdde3e8657e9794",
+  measurementId: "G-Q4PWG9P9CD",
 };
 
 // Firebase 인스턴스 초기화
